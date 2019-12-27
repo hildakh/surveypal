@@ -3,9 +3,21 @@ Rails.application.routes.draw do
 
   namespace :api do # /api/data
 
-    get '/data', to: 'tests#index'
+    root to: 'app#show'
+
+    get '/login' => 'sessions#new'
+    post '/login' => 'sessions#create'
+    get '/logout' => 'sessions#destroy'
+
+    get '/surveys' => 'surveys#index'
     
-    resources :dogs
+    resources :surveys, only: [:index, :show, :edit, :update]
+    resources :teams, only: [:index, :show]
+  
+  namespace :admin do
+    root to: '/admin/dashboard#index'
+    resources :surveys
+    resources :teams
 
   end
 
