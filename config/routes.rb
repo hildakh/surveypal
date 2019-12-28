@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
     get '/surveys' => 'surveys#index'
     
-    resources :surveys, only: [:index, :show, :edit, :update]
+    resources :surveys, except: [:destroy]
     resources :teams, only: [:index, :show]
   
   namespace :admin do
