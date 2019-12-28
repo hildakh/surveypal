@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  end_date: 2019-12-27 23:19:10
+  created_by: 1
+  city_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  end_date: 2019-12-27 23:19:10
+  created_by: 1
+  city_id: 1
