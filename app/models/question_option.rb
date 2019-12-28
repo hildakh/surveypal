@@ -3,5 +3,5 @@ class QuestionOption < ApplicationRecord
   has_many :survey_question_answer
 
   validates :option_text , presence: true
-  validates :serialorder , presence: true
+  validates :serial_order , presence: true
 end
