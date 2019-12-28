@@ -3,7 +3,7 @@ class CreateQuestionOptions < ActiveRecord::Migration[5.2]
     create_table :question_options do |t|
       t.integer :question_id
       t.string :option_text
-      t.integer :serialorder
+      t.integer :serial_order
 
       t.timestamps
     end

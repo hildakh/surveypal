@@ -3,9 +3,9 @@
 one:
   question_id: 1
   option_text: MyString
-  serialorder: 1
+  serial_order: 1
 
 two:
   question_id: 1
   option_text: MyString
-  serialorder: 1
+  serial_order: 1
