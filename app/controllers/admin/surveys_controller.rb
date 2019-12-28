@@ -5,6 +5,12 @@ class Admin::SurveysController < ApplicationController
   def index
   end
 
+  def new
+  end
+
+  def create
+  end
+
   def show
   end
 
@@ -12,6 +18,9 @@ class Admin::SurveysController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
   end
 
 end
