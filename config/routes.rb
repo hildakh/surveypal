@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :api do # /api/data
 
     root to: 'app#show'
-
+    
+    get '/about' => 'about#show'
+    
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     get '/logout' => 'sessions#destroy'
