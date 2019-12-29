@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -30,4 +30,12 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.app-name {
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.login {
+  font-size: 30px;
 }
