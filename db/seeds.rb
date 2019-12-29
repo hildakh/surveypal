@@ -134,6 +134,7 @@ User.create!({
     
 ## TEAMS
 puts "Creating teams ..."
+
 Team.destroy_all
 
 Team.create!({
@@ -159,6 +160,7 @@ Team.create!({
 
 ## TEAM MEMBERS
 puts "Creating team members ..."
+
 TeamMember.destroy_all
 
 TeamMember.create!({
@@ -217,6 +219,7 @@ TeamMember.create!({
 
 ## QUESTIONS
 puts "Creating questions ..."
+
 Question.destroy_all
 
 Question.create!({
@@ -248,6 +251,7 @@ Question.create!({
 
 ## QUESTION OPTIONS
 puts "Creating question options ..."
+
 QuestionOption.destroy_all
 
 QuestionOption.create!({
@@ -372,6 +376,7 @@ QuestionOption.create!({
 
 ## CITIES
 puts "Creating cities ..."
+
 City.destroy_all
 
 City.create!({
@@ -386,6 +391,7 @@ City.create!({
 
 ## SURVEYS
 puts "Creating surveys ..."
+
 Survey.destroy_all
 
 Survey.create!({
