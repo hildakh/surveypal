@@ -3,9 +3,12 @@ class CreateSurveys < ActiveRecord::Migration[5.2]
     create_table :surveys do |t|
       t.string :name
       t.string :description
-      t.datetime :end_date
-      t.integer :created_by
-      t.integer :city_id
+      t.string :end_date
+      t.string :date
+      t.string :user_id
+      t.string :integer
+      t.string :city_id
+      t.string :integer
 
       t.timestamps
     end
