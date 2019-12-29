@@ -3,13 +3,19 @@
 one:
   name: MyString
   description: MyString
-  end_date: 2019-12-27 23:19:10
-  created_by: 1
-  city_id: 1
+  end_date: MyString
+  date: MyString
+  user_id: MyString
+  integer: MyString
+  city_id: MyString
+  integer: MyString
 
 two:
   name: MyString
   description: MyString
-  end_date: 2019-12-27 23:19:10
-  created_by: 1
-  city_id: 1
+  end_date: MyString
+  date: MyString
+  user_id: MyString
+  integer: MyString
+  city_id: MyString
+  integer: MyString
