@@ -244,24 +244,6 @@ puts "Creating question options ..."
 QuestionOption.destroy_all
 
 QuestionOption.create!({
-  question_id: 1,
-  option_text: 'Yes',
-  serial_order: 1
-})
-
-QuestionOption.create!({
-  question_id: 1,
-  option_text: 'No',
-  serial_order: 2
-})
-
-QuestionOption.create!({
-  question_id: 1,
-  option_text: 'No Answer',
-  serial_order: 3
-})
-
-QuestionOption.create!({
   question_id: 2,
   option_text: 'Yes',
   serial_order: 1
@@ -293,72 +275,90 @@ QuestionOption.create!({
 
 QuestionOption.create!({
   question_id: 3,
+  option_text: 'No Answer',
+  serial_order: 3
+})
+
+QuestionOption.create!({
+  question_id: 4,
+  option_text: 'Yes',
+  serial_order: 1
+})
+
+QuestionOption.create!({
+  question_id: 4,
+  option_text: 'No',
+  serial_order: 2
+})
+
+QuestionOption.create!({
+  question_id: 4,
   option_text: 'Don''t know / No Answer',
   serial_order: 3
 })
 
 QuestionOption.create!({
-  question_id: 4,
+  question_id: 5,
   option_text: 'Yes',
   serial_order: 1
 })
 
 QuestionOption.create!({
-  question_id: 4,
+  question_id: 5,
   option_text: 'No',
   serial_order: 2
 })
 
 QuestionOption.create!({
-  question_id: 4,
+  question_id: 5,
   option_text: 'No Answer',
   serial_order: 3
 })
 
 QuestionOption.create!({
-  question_id: 5,
+  question_id: 6,
   option_text: 'Days',
   serial_order: 1
 })
 
 QuestionOption.create!({
-  question_id: 5,
+  question_id: 6,
   option_text: 'Weeks',
   serial_order: 2
 })
 
 QuestionOption.create!({
-  question_id: 5,
+  question_id: 6,
   option_text: 'Months',
   serial_order: 3
 })
 
 QuestionOption.create!({
-  question_id: 5,
+  question_id: 6,
   option_text: 'Years',
   serial_order: 4
 })
 
 QuestionOption.create!({
-  question_id: 5,
+  question_id: 6,
   option_text: 'No Answer',
   serial_order: 5
 })
 
 QuestionOption.create!({
-  question_id: 6,
+  question_id: 7,
   option_text: 'Age',
   serial_order: 1
 })
 
 QuestionOption.create!({
-  question_id: 6,
+  question_id: 7,
   option_text: 'Year Born',
   serial_order: 2
 })
 
 QuestionOption.create!({
-  question_id: 6,
+  question_id: 7,
   option_text: 'No Answer',
   serial_order: 3
 })
