@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_29_012930) do
+ActiveRecord::Schema.define(version: 2019_12_31_205028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,57 +23,66 @@ ActiveRecord::Schema.define(version: 2019_12_29_012930) do
   end
 
   create_table "question_options", force: :cascade do |t|
-    t.integer "question_id"
     t.string "option_text"
     t.integer "serial_order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "question_id", null: false
+    t.index ["question_id"], name: "index_question_options_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "description"
-    t.integer "dependant_upon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "question_id", null: false
+    t.index ["question_id"], name: "index_questions_on_question_id"
   end
 
   create_table "survey_question_answers", force: :cascade do |t|
-    t.integer "survey_id"
-    t.integer "question_id"
-    t.integer "user_id"
-    t.integer "question_option_id"
     t.string "answer_text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "survey_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "question_option_id", null: false
+    t.index ["question_id"], name: "index_survey_question_answers_on_question_id"
+    t.index ["question_option_id"], name: "index_survey_question_answers_on_question_option_id"
+    t.index ["survey_id"], name: "index_survey_question_answers_on_survey_id"
+    t.index ["user_id"], name: "index_survey_question_answers_on_user_id"
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "end_date"
-    t.string "date"
-    t.string "user_id"
-    t.string "integer"
-    t.string "city_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_surveys_on_city_id"
+    t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
   create_table "team_members", force: :cascade do |t|
-    t.integer "team_id"
-    t.integer "user_id"
     t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "team_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["team_id"], name: "index_team_members_on_team_id"
+    t.index ["user_id"], name: "index_team_members_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "purpose"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "user_types", force: :cascade do |t|
@@ -86,11 +95,24 @@ ActiveRecord::Schema.define(version: 2019_12_29_012930) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "user_type_id"
     t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_type_id", null: false
+    t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
+  add_foreign_key "question_options", "questions"
+  add_foreign_key "questions", "questions"
+  add_foreign_key "survey_question_answers", "question_options"
+  add_foreign_key "survey_question_answers", "questions"
+  add_foreign_key "survey_question_answers", "surveys"
+  add_foreign_key "survey_question_answers", "users"
+  add_foreign_key "surveys", "cities"
+  add_foreign_key "surveys", "users"
+  add_foreign_key "team_members", "teams"
+  add_foreign_key "team_members", "users"
+  add_foreign_key "teams", "users"
+  add_foreign_key "users", "user_types"
 end
