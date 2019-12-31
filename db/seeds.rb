@@ -6,13 +6,14 @@ puts "Creating user_types ..."
 
 UserType.destroy_all
 
-UserType.create!({
-name: 'admin',
-description: 'Admins can create users and surveys. They can create teams and add team members.'
+admin = UserType.create!({
+  name: 'Admin',
+  description: 'Admins can create users and surveys. They can create teams and add team members.'
 })
 
-UserType.create!({
-  name: 'surveyor',
+
+surveyor = UserType.create!({
+  name: 'Surveyor',
   description: 'Surveyors have access to surveys and can complete and submit the surveys.'
 })
 
@@ -22,143 +23,119 @@ puts "Creating users..."
 
 User.destroy_all
 
-User.create!({
+admin.users.create!({
 first_name: 'Bahar',
 last_name: 'Ghadimi',
-user_type_id: 1,
 email: 'bghadimi@msn.com',
-password: '123456',
-password_confirmation: '123456'
+password: '123456'
 })
 
-User.create!({
+admin.users.create!({
 first_name: 'Vanessa',
 last_name: 'Kroeker',
-user_type_id: 1,
 email: 'vk@msn.com',
-password: '123456',
-password_confirmation: '123456'
+password: '123456'
 })
 
-User.create!({
+admin.users.create!({
 first_name: 'Hilda',
 last_name: 'Matilda',
-user_type_id: 1,
 email: 'hili@msn.com',
-password: '123456',
-password_confirmation: '123456'
+password: '123456'
 })
 
 ## USERS
 
-User.create!({
+surveyor.users.create!({
 first_name: 'Hollow',
 last_name: 'Knight',
-user_type_id: 2,
 email: 'hollow@msn.com',
-password: 'password',
-password_confirmation: 'password'
+password: 'password'
 })
 
-User.create!({
+surveyor.users.create!({
 first_name: 'Yennefer',
 last_name: 'Mage',
-user_type_id: 2,
 email: 'yen@msn.com',
-password: 'geralt',
-password_confirmation: 'geralt'
+password: 'geralt'
 })
 
-User.create!({
+surveyor.users.create!({
 first_name: 'Mary',
 last_name: 'Poppins',
-user_type_id: 2,
 email: 'mary@msn.com',
-password: 'password',
-password_confirmation: 'password'
+password: 'password'
 })
 
-User.create!({
+surveyor.users.create!({
 first_name: 'Jessica',
 last_name: 'Jones',
-user_type_id: 2,
 email: 'jessi@msn.com',
-password: 'password',
-password_confirmation: 'password'
+password: 'password'
 })
 
-User.create!({
+surveyor.users.create!({
   first_name: 'Elsa',
   last_name: 'Frozen',
-  user_type_id: 2,
   email: 'elsa@msn.com',
-  password: 'olafolaf',
-  password_confirmation: 'olafolaf'
-  })
+  password: 'olafolaf'
+})
 
-User.create!({
+surveyor.users.create!({
   first_name: 'Serena',
   last_name: 'Martins',
-  user_type_id: 2,
   email: 'sari@msn.com',
-  password: 'password',
-  password_confirmation: 'password'
+  password: 'password'
 })
 
-User.create!({
+surveyor.users.create!({
   first_name: 'Joe',
   last_name: 'Goldberg',
-  user_type_id: 2,
   email: 'you@msn.com',
-  password: 'password',
-  password_confirmation: 'password'
+  password: 'password'
 })
 
-User.create!({
+surveyor.users.create!({
   first_name: 'Meredith',
   last_name: 'Grey',
-  user_type_id: 2,
   email: 'greys@msn.com',
-  password: 'password',
-  password_confirmation: 'password'
+  password: 'password'
 })
 
-User.create!({
+surveyor.users.create!({
   first_name: 'Geralt',
   last_name: 'Rivia',
-  user_type_id: 2,
   email: 'roach@msn.com',
-  password: 'yennefer',
-  password_confirmation: 'yennefer'
-  })
+  password: 'yennefer'
+})
     
 ## TEAMS
 puts "Creating teams ..."
 
 Team.destroy_all
 
-Team.create!({
-  name: 'Team B',
+teambahareh = Team.create!({
+  name: 'Team Bahareh',
   description: 'Team created by Bahareh',
   purpose: 'To keep track of the surveyors and update them',
   user_id: 1
   })
       
-Team.create!({
-  name: 'Team V',
+teamvanessa = Team.create!({
+  name: 'Team Vanessa',
   description: 'Team created by Vanessa',
   purpose: 'To keep track of the surveyors and update them',
   user_id: 2
 })
 
-Team.create!({
-  name: 'Team H',
+teamhilda = Team.create!({
+  name: 'Team Hilda',
   description: 'Team created by Hilda',
   purpose: 'To keep track of the surveyors and update them',
   user_id: 3
 })
 
-## TEAM MEMBERS
+# TEAM MEMBERS
 puts "Creating team members ..."
 
 TeamMember.destroy_all
@@ -223,30 +200,42 @@ puts "Creating questions ..."
 Question.destroy_all
 
 Question.create!({
-  description: 'Will you be sleeping in this shelter tonight?'
+  description: 'This question is independent from any other questions',
+  question_id: 1
+})
+
+
+Question.create!({
+  description: 'Will you be sleeping in this shelter tonight?',
+  question_id: 1
 })
 
 Question.create!({
   description: 'Have you already answered a survey today (with
-  someone wearing a yellow sticker)?'
+  someone wearing a yellow sticker)?',
+  question_id: 1
 })
 
 Question.create!({
   description: 'Have you already answered a survey in another
-  community in the last 6 weeks?'
+  community in the last 6 weeks?',
+  question_id: 1
 })
 
 Question.create!({
   description: 'Do you currently have a place to stay where you pay
-  monthly rent?'
+  monthly rent?',
+  question_id: 1
 })
 
 Question.create!({
-  description: 'How long have you been without a place of your own?'
+  description: 'How long have you been without a place of your own?',
+  question_id: 1
 })
 
 Question.create!({
-  description: 'How old are you [OR] what year were you born?'
+  description: 'How old are you [OR] what year were you born?',
+  question_id: 1
 })
 
 ## QUESTION OPTIONS
