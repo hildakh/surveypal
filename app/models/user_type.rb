@@ -1,5 +1,5 @@
 class UserType < ApplicationRecord
-  has_many :user
+  has_many :users
 
   validates :name , presence: true
   validates :description , presence: true
