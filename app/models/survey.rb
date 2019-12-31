@@ -1,5 +1,5 @@
 class Survey < ApplicationRecord
-  belongs_to :users
-  belongs_to :cities
+  belongs_to :user
+  belongs_to :city
 
 end

@@ -1,7 +1,7 @@
 class SurveyQuestionAnswer < ApplicationRecord
-  belongs_to :surveys
-  belongs_to :questions
-  belongs_to :users
-  belongs_to :question_options
+  belongs_to :survey
+  belongs_to :question
+  belongs_to :user
+  belongs_to :question_option
 
 end
