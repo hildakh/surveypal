@@ -200,42 +200,36 @@ puts "Creating questions ..."
 Question.destroy_all
 
 Question.create!({
-  description: 'This question is independent from any other questions',
-  question_id: 1
-})
-
-
-Question.create!({
-  description: 'Will you be sleeping in this shelter tonight?',
-  question_id: 1
+  description: 'This question is independent from any other questions'
 })
 
 Question.create!({
   description: 'Have you already answered a survey today (with
-  someone wearing a yellow sticker)?',
-  question_id: 1
+  someone wearing a yellow sticker)?'
 })
 
 Question.create!({
   description: 'Have you already answered a survey in another
-  community in the last 6 weeks?',
-  question_id: 1
+  community in the last 6 weeks?'
 })
 
 Question.create!({
   description: 'Do you currently have a place to stay where you pay
-  monthly rent?',
-  question_id: 1
+  monthly rent?'
 })
 
 Question.create!({
   description: 'How long have you been without a place of your own?',
-  question_id: 1
+  dependent_on_question_id: 4
 })
 
 Question.create!({
-  description: 'How old are you [OR] what year were you born?',
-  question_id: 1
+  description: 'Will you be sleeping in this shelter tonight?',
+  dependent_on_question_id: 4
+})
+
+Question.create!({
+  description: 'How old are you [OR] what year were you born?'
 })
 
 ## QUESTION OPTIONS
