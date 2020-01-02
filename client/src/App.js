@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import AppBar from './components/navbar/AppBar'
+import AppBar from './components/navbar/AppBar';
+import SideDrawer from './components/admin-dashboard/SideDrawer';
 
 class App extends Component {
   constructor(props) {
@@ -26,13 +27,17 @@ class App extends Component {
 
   render() {
     return (
-      <AppBar />
-      // <div className="App">
-      //   <h1>{this.state.message}</h1>
-      //   <button onClick={this.fetchData} >
-      //     Fetch Data
-      //   </button>
-      // </div>
+      <div>
+        <AppBar />
+        <SideDrawer />
+       {/* // <div className="App">
+      // //   <h1>{this.state.message}</h1>
+      // //   <button onClick={this.fetchData} >
+      // //     Fetch Data
+      // //   </button>
+      // // </div> */}
+
+      </div>
     );
   }
 }
