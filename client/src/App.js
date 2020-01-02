@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AppBar />
+        {/* <AppBar /> */}
         <SideDrawer />
        {/* // <div className="App">
       // //   <h1>{this.state.message}</h1>
