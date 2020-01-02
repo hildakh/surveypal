@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from '@bit/mui-org.material-ui.styles';
 import { Box, Container, CssBaseline, IconButton, Typography } from '@material-ui/core';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -13,15 +12,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NextButton() {
+export default function BeforeButton() {
   const classes = useStyles();
 
   return (
     <div>
-      <IconButton className={classes.button} aria-label="go to next question" component="span">
-        <NavigateNextIcon />
+      <IconButton className={classes.button} aria-label="go to previous question" component="span">
+        <NavigateBeforeIcon />
       </IconButton>
-      <input accept="???" className={classes.input} id="icon-button-next" type="???" />
+      <input accept="???" className={classes.input} id="icon-button-before" type="???" />
     </div>
   );
 }
