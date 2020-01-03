@@ -12,7 +12,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,6 +29,10 @@
   "devDependencies": {
     "@material-ui/core": "^4.8.2",
     "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.8.2"
+    "@material-ui/styles": "^4.8.2",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8"
   }
 }
