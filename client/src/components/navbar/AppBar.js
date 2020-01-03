@@ -203,7 +203,6 @@ export default function PrimarySearchAppBar() {
         className={classes.drawer}
         variant="persistent"
         anchor="left"
-        open={open}
         classes={{
           paper: classes.drawerPaper,
         }}
