@@ -68,6 +68,9 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
   hide: {
     display: 'none',
   },
@@ -203,6 +206,7 @@ export default function PrimarySearchAppBar() {
         className={classes.drawer}
         variant="persistent"
         anchor="left"
+        open={open}
         classes={{
           paper: classes.drawerPaper,
         }}
