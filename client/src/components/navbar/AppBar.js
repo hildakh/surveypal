@@ -24,6 +24,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import BallotIcon from '@material-ui/icons/Ballot';
 import BubbleChartIcon from '@material-ui/icons/BubbleChart';
+import FaceIcon from '@material-ui/icons/Face';
 
 
 const drawerWidth = 240;
@@ -227,7 +228,7 @@ export default function PrimarySearchAppBar() {
             <ListItemText primary='Reports'/>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><BallotIcon /></ListItemIcon>
+            <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors'/>
           </ListItem>
           <ListItem button>
