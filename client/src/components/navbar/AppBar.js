@@ -270,7 +270,7 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+              <Badge badgeContent={2} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
