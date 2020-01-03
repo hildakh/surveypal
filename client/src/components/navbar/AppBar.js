@@ -22,6 +22,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import BallotIcon from '@material-ui/icons/Ballot';
+import BubbleChartIcon from '@material-ui/icons/BubbleChart';
+
 
 const drawerWidth = 240;
 
@@ -67,9 +70,6 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
   },
   hide: {
     display: 'none',
@@ -206,7 +206,7 @@ export default function PrimarySearchAppBar() {
         className={classes.drawer}
         variant="persistent"
         anchor="left"
-        open={open}
+        open={drawerOpen}
         classes={{
           paper: classes.drawerPaper,
         }}
@@ -218,18 +218,20 @@ export default function PrimarySearchAppBar() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon><BallotIcon /></ListItemIcon>
+            <ListItemText primary='Surveys'/>
+          </ListItem>
+          <ListItem button key='Reports'>
+            <ListItemIcon><BubbleChartIcon /></ListItemIcon>
+            <ListItemText primary='Reports'/>
+          </ListItem>
         </List>
         <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <BallotIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
