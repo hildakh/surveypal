@@ -23,8 +23,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import BallotIcon from '@material-ui/icons/Ballot';
-import BubbleChartIcon from '@material-ui/icons/BubbleChart';
+import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import FaceIcon from '@material-ui/icons/Face';
+import PollIcon from '@material-ui/icons/Poll';
+
 
 
 const drawerWidth = 240;
@@ -224,7 +226,7 @@ export default function PrimarySearchAppBar() {
             <ListItemText primary='Surveys'/>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><BubbleChartIcon /></ListItemIcon>
+            <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports'/>
           </ListItem>
           <ListItem button>
@@ -232,11 +234,11 @@ export default function PrimarySearchAppBar() {
             <ListItemText primary='Surveyors'/>
           </ListItem>
           <ListItem button>
-            <ListItemIcon><BubbleChartIcon /></ListItemIcon>
+            <ListItemIcon><GroupWorkIcon /></ListItemIcon>
             <ListItemText primary='Teams'/>
           </ListItem>
         </List>
-        <Divider />
+        {/* <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
@@ -244,7 +246,7 @@ export default function PrimarySearchAppBar() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>)}
       <AppBar position="static">
         <Toolbar>
