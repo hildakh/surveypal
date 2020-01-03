@@ -222,9 +222,17 @@ export default function PrimarySearchAppBar() {
             <ListItemIcon><BallotIcon /></ListItemIcon>
             <ListItemText primary='Surveys'/>
           </ListItem>
-          <ListItem button key='Reports'>
+          <ListItem button>
             <ListItemIcon><BubbleChartIcon /></ListItemIcon>
             <ListItemText primary='Reports'/>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><BallotIcon /></ListItemIcon>
+            <ListItemText primary='Surveyors'/>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon><BubbleChartIcon /></ListItemIcon>
+            <ListItemText primary='Teams'/>
           </ListItem>
         </List>
         <Divider />
