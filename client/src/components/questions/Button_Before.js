@@ -3,7 +3,7 @@ import React from "react";
 
 import { IconButton} from '@material-ui/core';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import { useSwipeable, Swipeable } from 'react-swipeable';
+// import { useSwipeable, Swipeable } from 'react-swipeable';
 
 let classNames = require("classnames");
 
