@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Button from '@material-ui/core/Button';
 import ErrorIcon from '@material-ui/icons/Error';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
@@ -68,12 +67,13 @@ const useStyles2 = makeStyles(theme => ({
   },
 }));
 
-export default function CustomizedSnackbars() {
+export default function CustomizedSnackbars(props) {
   const classes = useStyles2();
   const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
     setOpen(false);
+    console.log('hello');
     return;
   };
 
@@ -86,7 +86,7 @@ export default function CustomizedSnackbars() {
         }}
         open={open}
         autoHideDuration={6000}
-        onClose={handleClose}
+        onClick={props.onClick}
       >
         <MySnackbarContentWrapper
           variant="error"

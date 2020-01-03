@@ -15,13 +15,18 @@ export default function FormDialog() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleError = () => {
-    setStatus('ERROR')
-  }
+
   const handleClose = () => {
     setOpen(false);
-    setStatus("BASIC")
   };
+
+  //handle error
+  const openError = () => {
+    setStatus('ERROR')
+  }
+  const closeError = () => {
+    setStatus('BASIC');
+  }
 
   return (
     <div>
@@ -54,10 +59,10 @@ export default function FormDialog() {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleError} color="primary">
+          <Button onClick={openError} color="primary">
             Login
           </Button>
-          {status === 'ERROR' && (<Error />)}
+          {status === 'ERROR' && (<Error onClick={closeError} />)}
         </DialogActions>
       </Dialog>
     </div>
