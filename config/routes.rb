@@ -3,20 +3,18 @@ Rails.application.routes.draw do
 
   namespace :api do # /api/data
 
-    root to: 'app#show'
-    
     get '/about' => 'about#show'
-    
+
     get '/login' => 'sessions#new'
     post '/login' => 'sessions#create'
     get '/logout' => 'sessions#destroy'
 
     get '/surveys' => 'surveys#index'
-    
+
     resources :surveys, except: [:destroy]
     resources :teams, only: [:index, :show]
   end
-  
+
   namespace :admin do
     root to: '/admin/dashboard#index'
     resources :surveys
