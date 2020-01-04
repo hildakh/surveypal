@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import AppBar from './components/navbar/AppBar';
-// import SideDrawer from './components/admin-dashboard/SideDrawer';
-// import { AppBar } from '@material-ui/core';
+import Card from './components/users/Card';
+
+
+
 
 class App extends Component {
   constructor(props) {
     super(props)
+    const cardMessages = ['Surveys', `Today's completed surveys`]
     this.state = {
-      users: []
+      message: cardMessages
     }
+    console.log(this.state.message[0])
   }
+
 
   fetchData = () => {
 
@@ -32,6 +37,8 @@ class App extends Component {
 
       <div className="App">
         <AppBar />
+        <Card message={this.state.message[0]} counter={5} />
+        <Card message={this.state.message[1]} counter={10} />
       </div>
     );
   }
