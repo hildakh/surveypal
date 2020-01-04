@@ -47,7 +47,7 @@ export default function Show(props) {
 
       <Container maxWidth="sm" className={styleClasses.container} disableGutters="true" >
         
-        <BackToSurveyButton onClick="{action('button-clicked')}" alignItems="flex-end"/>
+        <BackToSurveyButton onClick="{action('button-clicked')}" className={styleClasses.navButton}/>
 
         <Grid container className={styleClasses.grid} direction="row" >
         
@@ -57,11 +57,11 @@ export default function Show(props) {
         
           <Grid container item xs={6} className={styleClasses.grid} alignItems="flex-start" justify="center">
         
-              <Grid item sx className={styleClasses.item} ml={0} mr={0}>
+              <Grid item sx className={styleClasses.item} mx={0}>
                 <Paper className={styleClasses.question}>props.question-text >> Question text goes here.</Paper>
               </Grid>
         
-              <Grid item sx className={styleClasses.item} ml={0} mr={0} mb={4}>
+              <Grid item sx className={styleClasses.item} mx={0} mb={4}>
                 <Paper className={styleClasses.questionOptions}> props.question-options-list >> Question options list goes here</Paper>
               </Grid>
         
