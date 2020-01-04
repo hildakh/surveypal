@@ -59,8 +59,15 @@ class Geolocation extends Component {
         <p>Longitude: {this.state.longitude}</p>
         <h4>Google Maps Reverse Geocoding</h4>
         <p>Address: {this.state.userAddress}</p>
+        {
+          this.state.latitude && this.state.longitude ?
+          <img src={`https://maps.googleapis.com/maps/api/staticmap?center=
+          ${this.state.latitude},${this.state.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${this.state.latitude},${this.state.longitude}&key=AIzaSyCxwrcf4Sy2D432ULIHQ_Wy4EhsBK7yTtk`} alt=' '/>
+          :
+          null
+        }
       </div>
-    );
+    )
   }
 }
 
