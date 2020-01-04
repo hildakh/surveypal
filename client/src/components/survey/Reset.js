@@ -5,7 +5,9 @@ import AutorenewIcon from "@material-ui/icons/Autorenew";
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    background: '#7f0000',
+    color: 'white',
   }
 }));
 
@@ -16,7 +18,6 @@ export default function Reset() {
     <div>
       <Button
         variant="contained"
-        color="secondary"
         className={classes.button}
         startIcon={<AutorenewIcon />}
       >
