@@ -12,12 +12,9 @@ import Question_Options_List from 'Question_Options_List'
 
 export default function Question(props) {
 
-
-
-
-
   return (<article className="question">
 
 
   </article>
+  )
 }
