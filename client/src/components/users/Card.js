@@ -11,6 +11,9 @@ const useStyles = makeStyles({
     margin: '0 auto',
     marginTop: '40px',
     backgroundColor: '#56B4FD',
+    '&:hover': {
+      background: "#0B8BCC",
+    }
   },
   badge: {
     display: 'block',
@@ -21,7 +24,6 @@ const useStyles = makeStyles({
     padding: '10px 12px',
     fontFamily: 'Arial, sans- serif',
     color: 'white',
-    border: '1px solid green',
     borderRadius: '50%',
     boxShadow: 'inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08)',
     marginTop: '-17px',
