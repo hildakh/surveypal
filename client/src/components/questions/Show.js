@@ -1,11 +1,11 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Container, CssBaseline, Grid, Paper, Typography } from '@material-ui/core';
-// import NextButton from './Button_Next.js';
-// import BeforeButton from './Button_Before.js';
+import { Container, Grid, Paper } from '@material-ui/core';
+import NextButton from './Button_Next.js';
+import BeforeButton from './Button_Before.js';
 import BackToSurveyButton from './Back_To_Survey_Button.js';
 
-let classNames = require("classnames");
+// let classNames = require("classnames");
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,11 +13,10 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     maxWidth: "sm",
-    backgroundColor: "#f4a9a8"
+    // backgroundColor: "#f4a9a8"
   },
   grid: {
     padding: theme.spacing(0),
-    alignItems: "center"
   },
   item: {
     margin: theme.spacing(.5)
@@ -40,22 +39,35 @@ export default function Show(props) {
 
   return (
 
-    <div className={styleClasses.root}>
-      <Container maxWidth="sm" className={styleClasses.container}>
-        <Grid container className={styleClasses.grid} direction="column">
-          <Grid item xs={6} className={styleClasses.item} >
-            <BackToSurveyButton onClick="{action('button-clicked')}" aligntems="flex-start"/>
-          </Grid>
-          <Grid item sx={6} className={styleClasses.item}>
-            <Paper className={styleClasses.question}>Question goes here and how big is this grid item? Does it keep going and going and going?</Paper>
-          </Grid>
-          <Grid item sx={6} className={styleClasses.questionOptions} mb={4}>
-            <Paper className={styleClasses.question}>Question options list goes here</Paper>
-          </Grid>
-        </Grid>
-      </Container>
+      <Container maxWidth="sm" className={styleClasses.container} disableGutters="true" >
+        
+        <BackToSurveyButton onClick="{action('button-clicked')}" alignItems="flex-end"/>
 
-    </div>
+        <Grid container direction="row" >
+        
+          <Grid container item xs={3} justify="flex-start">
+            <BeforeButton onClick="{action('button-clicked')}" />
+          </Grid>
+        
+          <Grid container item xs={3} className={styleClasses.grid} alignItems="flex-start" justify="center">
+        
+              <Grid item sx={6} className={styleClasses.item}>
+                <Paper className={styleClasses.question}>props.question-text >> Question text goes here.</Paper>
+              </Grid>
+        
+              <Grid item sx={6} className={styleClasses.questionOptions} mb={4}>
+                <Paper className={styleClasses.question}> props.question-options-list >> Question options list goes here</Paper>
+              </Grid>
+        
+          </Grid>
+        
+          <Grid container item xs={3} justify="flex-end">
+            <NextButton onClick="{action('button-clicked')}"  />
+          </Grid>
+        
+        </Grid>     
+
+      </Container>
 
   );
 }
