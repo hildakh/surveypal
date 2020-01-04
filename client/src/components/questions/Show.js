@@ -15,6 +15,11 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "sm",
     // backgroundColor: "#f4a9a8"
   },
+  navButton: {
+    margin: 0,
+    padding: 0,
+    maxWidth: "10%"
+  },
   grid: {
     padding: theme.spacing(0),
   },
@@ -22,11 +27,12 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(.5)
   },
   question: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
     backgroundColor: '#95b6c9'
   },
   questionOptions: {
+    padding: theme.spacing(1),
     margin: theme.spacing(2),
     textAlign: 'center',
     backgroundColor: '#ff795f'
@@ -43,25 +49,25 @@ export default function Show(props) {
         
         <BackToSurveyButton onClick="{action('button-clicked')}" alignItems="flex-end"/>
 
-        <Grid container direction="row" >
+        <Grid container className={styleClasses.grid} direction="row" >
         
-          <Grid container item xs={3} justify="flex-start">
+          <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
             <BeforeButton onClick="{action('button-clicked')}" />
           </Grid>
         
-          <Grid container item xs={3} className={styleClasses.grid} alignItems="flex-start" justify="center">
+          <Grid container item xs={6} className={styleClasses.grid} alignItems="flex-start" justify="center">
         
-              <Grid item sx={6} className={styleClasses.item}>
+              <Grid item sx className={styleClasses.item} ml={0} mr={0}>
                 <Paper className={styleClasses.question}>props.question-text >> Question text goes here.</Paper>
               </Grid>
         
-              <Grid item sx={6} className={styleClasses.questionOptions} mb={4}>
-                <Paper className={styleClasses.question}> props.question-options-list >> Question options list goes here</Paper>
+              <Grid item sx className={styleClasses.item} ml={0} mr={0} mb={4}>
+                <Paper className={styleClasses.questionOptions}> props.question-options-list >> Question options list goes here</Paper>
               </Grid>
         
           </Grid>
         
-          <Grid container item xs={3} justify="flex-end">
+          <Grid container item xs className={styleClasses.navButton} justify="flex-end">
             <NextButton onClick="{action('button-clicked')}"  />
           </Grid>
         
