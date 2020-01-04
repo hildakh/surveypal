@@ -1,15 +1,15 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import AutorenewIcon from "@material-ui/icons/Autorenew";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    background: "#9a0007",
+    background: "#1faa00",
     color: "white",
     fontSize: 15,
-    fontFamily: 'Dancing Script'
+    fontFamily: "Dancing Script"
   }
 }));
 
@@ -21,9 +21,9 @@ export default function Reset() {
       <Button
         variant="contained"
         className={classes.button}
-        startIcon={<AutorenewIcon />}
+        startIcon={<PlayCircleFilledIcon />}
       >
-        Reset
+        Start
       </Button>
     </div>
   );
