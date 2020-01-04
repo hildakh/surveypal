@@ -11,6 +11,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  container: {
+    maxWidth: "sm",
+    backgroundColor: "#f4a9a8"
+  },
   grid: {
     padding: theme.spacing(0),
     alignItems: "center"
@@ -37,17 +41,20 @@ export default function Show(props) {
   return (
 
     <div className={styleClasses.root}>
+      <Container maxWidth="sm" className={styleClasses.container}>
         <Grid container className={styleClasses.grid} direction="column">
           <Grid item xs={6} className={styleClasses.item} >
             <BackToSurveyButton onClick="{action('button-clicked')}" aligntems="flex-start"/>
           </Grid>
           <Grid item sx={6} className={styleClasses.item}>
-            <Paper className={styleClasses.question}>Question goes here and how big is this grid item? Does it keep going and going and going? When will it wrap?</Paper>
+            <Paper className={styleClasses.question}>Question goes here and how big is this grid item? Does it keep going and going and going?</Paper>
           </Grid>
           <Grid item sx={6} className={styleClasses.questionOptions} mb={4}>
             <Paper className={styleClasses.question}>Question options list goes here</Paper>
           </Grid>
         </Grid>
+      </Container>
+
     </div>
 
   );
