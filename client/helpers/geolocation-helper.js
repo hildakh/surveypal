@@ -1,13 +1,16 @@
-
 export function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(getCoordinates, handleLocationError);
-    } else {
-      alert("Bummer!");
-    }
-  }
+  return new Promise(function(resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
 
- const handleLocationError = (error) => {
+getLocation()
+  .then(position => {
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+    return position.coords;
+  })
+  .catch(error => {
     switch (error.code) {
       case error.PERMISSION_DENIED:
         alert("User denied the request for Geolocation.");
@@ -24,13 +27,4 @@ export function getLocation() {
       default:
         alert("An unknown error occurred.");
     }
-  }
-
-  const getCoordinates = position => {
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
-  };
-
-  // To check if it prints the lat and long to the console
-  // getLocation();
-
+  });
