@@ -12,11 +12,10 @@ export default function BeforeButton(props) {
   const beforeButtonClass = classNames("before-button")
 
   return (
-    <div>
+    <React.Fragment>
       <IconButton class={beforeButtonClass} id="previous-question-button" label="go to previous question" onClick={props.onClick}>
         <NavigateBeforeIcon />
       </IconButton>
-      {/* <input accept="???" className={classes.input} id="icon-button-next" type="???" /> */}
-    </div>
+    </React.Fragment>
   );
 }
