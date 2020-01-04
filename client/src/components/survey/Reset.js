@@ -6,8 +6,8 @@ import AutorenewIcon from "@material-ui/icons/Autorenew";
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    background: '#7f0000',
-    color: 'white',
+    background: "#9a0007",
+    color: "white"
   }
 }));
 
