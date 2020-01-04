@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import ErrorIcon from '@material-ui/icons/Error';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { makeStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const variantIcon = {
-  error: ErrorIcon
+  success: CheckCircleIcon
 };
 
 const useStyles1 = makeStyles(theme => ({
   error: {
-    backgroundColor: theme.palette.error.dark,
+    backgroundColor: green[600],
   },
   icon: {
     fontSize: 20,
@@ -32,7 +33,7 @@ const useStyles1 = makeStyles(theme => ({
 function MySnackbarContentWrapper(props) {
   const classes = useStyles1();
   const { className, message, onClose, variant, ...other } = props;
-  const Icon = variantIcon[variant];
+  const Icon = variantIcon['success'];
 
   return (
     <SnackbarContent
@@ -61,17 +62,9 @@ MySnackbarContentWrapper.propTypes = {
   variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
 };
 
-const useStyles2 = makeStyles(theme => ({
-  margin: {
-    margin: theme.spacing(1),
-  },
-}));
 
 export default function CustomizedSnackbars(props) {
-  const classes = useStyles2();
-  const [open, setOpen] = React.useState(true);
-
-
+  const classes = useStyles1();
   return (
     <div>
       <Snackbar
@@ -79,14 +72,14 @@ export default function CustomizedSnackbars(props) {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        open={open}
+        open={true}
         autoHideDuration={6000}
         onClick={props.onClick}
       >
         <MySnackbarContentWrapper
           variant="error"
           className={classes.margin}
-          message="Your request has been denied!"
+          message="Your request has been succeeded!"
         />
       </Snackbar>
     </div>
