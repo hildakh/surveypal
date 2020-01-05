@@ -1,19 +1,19 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import AutorenewIcon from "@material-ui/icons/Autorenew";
 
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    background: "#1faa00",
+    background: "#8e24aa",
     color: "white",
     fontSize: 15,
     fontFamily: "Dancing Script"
   }
 }));
 
-export default function Start() {
+export default function Resume() {
   const classes = useStyles();
 
   return (
@@ -21,9 +21,9 @@ export default function Start() {
       <Button
         variant="contained"
         className={classes.button}
-        startIcon={<PlayCircleFilledIcon />}
+        startIcon={<AutorenewIcon />}
       >
-        Start
+        Resume
       </Button>
     </div>
   );
