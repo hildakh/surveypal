@@ -3,20 +3,23 @@ import axios from 'axios';
 import './App.css';
 import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
-
-
-
+import Expand from 'react-expand-animated';
 
 class App extends Component {
   constructor(props) {
     super(props)
     const cardMessages = ['Surveys', `Today's completed surveys`]
     this.state = {
-      message: cardMessages
+      message: cardMessages,
+      open: false,
+
     }
-    console.log(this.state.message[0])
+
   }
 
+  toggle = () => {
+    this.setState(prevState => ({ open: !prevState.open }));
+  };
 
   fetchData = () => {
 
@@ -37,7 +40,13 @@ class App extends Component {
 
       <div className="App">
         <AppBar />
-        <Card message={this.state.message[0]} counter={5} />
+        <React.Fragment>
+          <Card message={this.state.message[0]} counter={5} onClick={this.toggle} />
+          <Expand open={this.state.open}>
+            <div style={{ width: '300px', height: '400px', backgroundColor: '#56B4FD', margin: '0 auto' }}></div>
+          </Expand>
+        </React.Fragment>
+
         <Card message={this.state.message[1]} counter={10} />
       </div>
     );

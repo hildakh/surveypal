@@ -42,15 +42,18 @@ export default function SimpleCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <span className={classes.badge}>{props.counter}</span>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {props.message}
-        </Typography>
-      </CardContent>
-      <CardActions>
-      </CardActions>
-    </Card>
+    <div onClick={props.onClick}>
+      <Card className={classes.card}>
+        <span className={classes.badge}>{props.counter}</span>
+        <CardContent>
+          <Typography className={classes.title} color="textSecondary" gutterBottom>
+            {props.message}
+          </Typography>
+        </CardContent>
+        <CardActions>
+        </CardActions>
+      </Card>
+    </div>
+
   );
 }
