@@ -12,15 +12,17 @@ class App extends Component {
     const cardMessages = ['Surveys', `Today's completed surveys`]
     this.state = {
       message: cardMessages,
-      open: false,
+      surveyOpen: false,
+      compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
       completedSurveyList: ['Vancouver homeless count 2018']
     }
-
   }
-
-  toggle = () => {
-    this.setState(prevState => ({ open: !prevState.open }));
+  toggleFirst = () => {
+    this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
+  };
+  toggleSecond = () => {
+    this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
 
   fetchData = () => {
@@ -43,12 +45,17 @@ class App extends Component {
       <div className="App">
         <AppBar />
         <React.Fragment>
-          <Card message={this.state.message[0]} counter={5} onClick={this.toggle} />
-          <Expand open={this.state.open}>
+          <Card message={this.state.message[0]} counter={5} onClick={this.toggleFirst} />
+          <Expand open={this.state.surveyOpen}>
             <SurveyList list={this.state.surveyList} />
           </Expand>
         </React.Fragment>
-        <Card message={this.state.message[1]} counter={10} onClick={this.toggle} />
+        <React.Fragment>
+          <Card message={this.state.message[1]} counter={10} onClick={this.toggleSecond} />
+          <Expand open={this.state.compSurvOpen}>
+            <SurveyList list={this.state.completedSurveyList} />
+          </Expand>
+        </React.Fragment>
       </div>
     );
   }
