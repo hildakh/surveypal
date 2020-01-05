@@ -6,10 +6,11 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    background: "#1faa00",
+    background: "#64dd17",
     color: "white",
     fontSize: 15,
-    fontFamily: "Dancing Script"
+    fontFamily: "Dancing Script",
+    borderRadius: 20
   }
 }));
 
