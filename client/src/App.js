@@ -46,8 +46,7 @@ class App extends Component {
             <div style={{ width: '300px', height: '400px', backgroundColor: '#56B4FD', margin: '0 auto' }}></div>
           </Expand>
         </React.Fragment>
-
-        <Card message={this.state.message[1]} counter={10} />
+        <Card message={this.state.message[1]} counter={10} onClick={this.toggle} />
       </div>
     );
   }
