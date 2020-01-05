@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     maxWidth: "sm",
-    // backgroundColor: "#f4a9a8"
+    backgroundColor: "#f4a9a8"
   },
   navButton: {
     margin: 0,
@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     padding: theme.spacing(0),
+    width: "100%"
   },
   item: {
     margin: theme.spacing(.5)
@@ -45,24 +46,24 @@ export default function Show(props) {
 
   return (
 
-      <Container maxWidth="sm" className={styleClasses.container} disableGutters="true" >
+      <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
         
         <BackToSurveyButton onClick="{action('button-clicked')}" className={styleClasses.navButton}/>
 
-        <Grid container className={styleClasses.grid} direction="row" >
+        <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
         
           <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
             <BeforeButton onClick="{action('button-clicked')}" />
           </Grid>
         
-          <Grid container item xs={6} className={styleClasses.grid} alignItems="flex-start" justify="center">
+          <Grid container item xs={9} className={styleClasses.grid} alignItems="flex-start" >
         
               <Grid item sx className={styleClasses.item} mx={0}>
-                <Paper className={styleClasses.question}>props.question-text >> Question text goes here.</Paper>
+                <Paper className={styleClasses.question}> props.question-text </Paper>
               </Grid>
         
               <Grid item sx className={styleClasses.item} mx={0} mb={4}>
-                <Paper className={styleClasses.questionOptions}> props.question-options-list >> Question options list goes here</Paper>
+                <Paper className={styleClasses.questionOptions}> props.question-options-list </Paper>
               </Grid>
         
           </Grid>
