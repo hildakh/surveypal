@@ -4,6 +4,7 @@ import './App.css';
 import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
+import SurveyList from './components/users/SurveyList'
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class App extends Component {
         <React.Fragment>
           <Card message={this.state.message[0]} counter={5} onClick={this.toggle} />
           <Expand open={this.state.open}>
-            <div style={{ width: '300px', height: '400px', backgroundColor: '#56B4FD', margin: '0 auto' }}></div>
+            <SurveyList />
           </Expand>
         </React.Fragment>
         <Card message={this.state.message[1]} counter={10} onClick={this.toggle} />
