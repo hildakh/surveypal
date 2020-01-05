@@ -6,8 +6,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Error from '../Error'
-import Confirmation from '../Confirmation'
+import Error from '../status/Error'
+import Confirmation from '../status/Confirmation'
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
