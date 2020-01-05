@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       message: cardMessages,
       open: false,
-
+      surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
+      completedSurveyList: ['Vancouver homeless count 2018']
     }
 
   }
@@ -44,7 +45,7 @@ class App extends Component {
         <React.Fragment>
           <Card message={this.state.message[0]} counter={5} onClick={this.toggle} />
           <Expand open={this.state.open}>
-            <SurveyList />
+            <SurveyList list={this.state.surveyList} />
           </Expand>
         </React.Fragment>
         <Card message={this.state.message[1]} counter={10} onClick={this.toggle} />
