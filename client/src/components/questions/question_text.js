@@ -20,7 +20,9 @@ export default function QuestionText(props) {
 
   return (
     <Grid item sx className={styleClasses.item} mx={0}>
-    <Paper className={styleClasses.question}>Question text goes here.</Paper>
+    <Paper className={styleClasses.question}>
+      {props.description}
+    </Paper>
     </Grid>
   )
 
