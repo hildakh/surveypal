@@ -22,7 +22,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
 import BallotIcon from '@material-ui/icons/Ballot';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import FaceIcon from '@material-ui/icons/Face';
@@ -223,19 +222,19 @@ export default function PrimarySearchAppBar() {
         <List>
           <ListItem button>
             <ListItemIcon><BallotIcon /></ListItemIcon>
-            <ListItemText primary='Surveys'/>
+            <ListItemText primary='Surveys' />
           </ListItem>
           <ListItem button>
             <ListItemIcon><PollIcon /></ListItemIcon>
-            <ListItemText primary='Reports'/>
+            <ListItemText primary='Reports' />
           </ListItem>
           <ListItem button>
             <ListItemIcon><FaceIcon /></ListItemIcon>
-            <ListItemText primary='Surveyors'/>
+            <ListItemText primary='Surveyors' />
           </ListItem>
           <ListItem button>
             <ListItemIcon><GroupWorkIcon /></ListItemIcon>
-            <ListItemText primary='Teams'/>
+            <ListItemText primary='Teams' />
           </ListItem>
         </List>
         {/* <Divider />
