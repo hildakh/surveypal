@@ -23,7 +23,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import BallotIcon from '@material-ui/icons/Ballot';
-import GroupWorkIcon from '@material-ui/icons/GroupWork';
+// import GroupWorkIcon from '@material-ui/icons/GroupWork';
+import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
 
@@ -233,8 +234,8 @@ export default function PrimarySearchAppBar() {
             <ListItemText primary='Surveyors' />
           </ListItem>
           <ListItem button>
-            <ListItemIcon><GroupWorkIcon /></ListItemIcon>
-            <ListItemText primary='Teams' />
+            <ListItemIcon><FaUsers /></ListItemIcon>
+            <ListItemText primary='Teams'/>
           </ListItem>
         </List>
         {/* <Divider />
