@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import AppBar from './components/navbar/AppBar';
-// import SideDrawer from './components/admin-dashboard/SideDrawer';
-// import { AppBar } from '@material-ui/core';
+import Card from './components/users/Card';
+import Expand from 'react-expand-animated';
+import SurveyList from './components/users/SurveyList'
 
 class App extends Component {
   constructor(props) {
     super(props)
+    const cardMessages = ['Surveys', `Today's completed surveys`]
     this.state = {
-      users: []
+      message: cardMessages,
+      open: false,
+
     }
+
   }
+
+  toggle = () => {
+    this.setState(prevState => ({ open: !prevState.open }));
+  };
 
   fetchData = () => {
 
@@ -32,6 +41,13 @@ class App extends Component {
 
       <div className="App">
         <AppBar />
+        <React.Fragment>
+          <Card message={this.state.message[0]} counter={5} onClick={this.toggle} />
+          <Expand open={this.state.open}>
+            <SurveyList />
+          </Expand>
+        </React.Fragment>
+        <Card message={this.state.message[1]} counter={10} onClick={this.toggle} />
       </div>
     );
   }
