@@ -39,31 +39,23 @@ export default function QuestionOptionsList(props) {
   return (
     <List >
       {props.questionOptions.map(option => {
-        const labelID = `question-options-list-label-${option.serial_order}`
-
+        
+        const value = `${option.serial_order}`
+        const labelID = `question-options-list-label-${value}`
+        
         return (
           <QuestionOptionsListItem
-            onClick={props.onClick}
+            onClick={handleToggle(value)}
             // value == QuestionOptionsListItem, ListItem key
-            value={option.serial_order}
-            checked={checked.indexOf(option.serial_order) !== -1}
+            value={value}
+            checked={checked.indexOf(value) !== -1}
             //labelID connects ListItemIcon and ListItemText in Question_Options_List_Item
             labelID={labelID}
             option_text={option.option_text}
+            inputProps={{ 'aria-laballedby': labelID}}
           />
         )
       })}
     </List>
   )
-
-
-
-  return (
-    <Grid item sx className={styleClasses.item} mx={0} mb={4}>
-      <Paper className={styleClasses.questionOptions}>
-        Questions Options List
-    </Paper>
-    </Grid>
-  )
-
 }
