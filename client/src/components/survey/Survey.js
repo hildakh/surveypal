@@ -7,24 +7,22 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import QuestionPreview from "./QuestionPreview";
 import Back from "./Back";
 import Reset from "./Reset";
 import Start from "./Start";
 import Resume from "./Resume";
 
 const useStyles = makeStyles(theme => ({
-  back: {
-    margin: theme.spacing()
+  root: {
+    width: "100%",
+    backgroundColor: "#e6ceff"
   }
-  // buttonContainer: {
-  //   justify: "space-between",
-  //   spacing: 24
-  // }
 }));
 
 export default function SurveyForm() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [status, setStatus] = React.useState("BASIC");
 
   const handleOpen = () => {
@@ -50,13 +48,15 @@ export default function SurveyForm() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogActions>
-          <Back onClick={handleClose} className={classes.back} />
+        <DialogActions className={classes.root}>
+          <Back onClick={handleClose} />
           <Reset onClick={handleClose} />
         </DialogActions>
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
+        <DialogTitle id="form-dialog-title" className={classes.root}>
+          Vancouver 2019 Survey
+        </DialogTitle>
+        <DialogContent className={classes.root}>
+          {/* <DialogContentText>
             Please Enter your Email and Password.
           </DialogContentText>
           <TextField
@@ -73,7 +73,8 @@ export default function SurveyForm() {
             label="Password"
             type="password"
             fullWidth
-          />
+          /> */}
+          <QuestionPreview />
         </DialogContent>
         <DialogActions>
           <Resume onClick={handleClose} />
