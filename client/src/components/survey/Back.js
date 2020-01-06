@@ -14,12 +14,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Back() {
+export default function Back(props) {
   const classes = useStyles();
 
   return (
     <div>
       <Button
+        onClick={props.onClick}
         variant="contained"
         className={classes.button}
         startIcon={<ArrowBackIcon />}
