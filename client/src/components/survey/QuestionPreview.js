@@ -11,7 +11,9 @@ const action = (
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 600
+    width: "95%",
+    position: "relative",
+    margin: "0 auto"
   },
   snackbar: {
     margin: theme.spacing(1)
