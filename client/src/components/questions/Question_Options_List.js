@@ -20,27 +20,27 @@ const useStyles = makeStyles(theme => ({
 export default function QuestionOptionsList(props) {
 
   const styleClasses = useStyles();
-  const [checked, setChecked] = React.useState([0]);
+  // const [checked, setChecked] = React.useState([0]);
 
 
-  const handleToggle = value => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  // const handleToggle = value => () => {
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [...checked];
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
 
-    setChecked(newChecked);
-  };
+  //   setChecked(newChecked);
+  // };
 
-  const mapQuestionOptions = props.questionOptions.map(option => {
+  // const mapQuestionOptions = props.questionOptions.map(option => {
 
-  })
+  // })
 
-  return mapQuestionOptions;
+  // return mapQuestionOptions;
 
 
   return (

@@ -22,7 +22,7 @@ storiesOf('Question Options List Items', module)
 
 // stories for question options list
 storiesOf('Question Options List', module)
-  .add('List', () => <QuestionOptionsList />)
+  .add('List', () => <QuestionOptionsList Questions Options List/>)
 
 // stories for Question component
 storiesOf('Question', module)
