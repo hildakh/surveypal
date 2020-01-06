@@ -33,12 +33,33 @@ const testQuestionOptionsList = [
   {question_id: 6,
     option_text: "Unable to pay rent or mortgage",
     serial_order: 2
-  }
+  },
+  {question_id: 6,
+    option_text: "Illness or medical condition",
+    serial_order: 3
+  },
+  {question_id: 6,
+    option_text: "Addiction or substance use",
+    serial_order: 4
+  },
+  {question_id: 6,
+    option_text: "Unsafe housing conditions",
+    serial_order: 5
+  },
+  {question_id: 6,
+    option_text: "Experienced abuse by: parent/guardian",
+    serial_order: 6
+  },
+  {question_id: 6,
+    option_text: "Experienced abuse by: spouse/partner",
+    serial_order: 7
+  },
 ]
 
 
+const testQuestionText = <QuestionText description="What happened that caused you to lose your housing most recently?"/>
+
 // stories for Question component
 storiesOf('Question', module)
-  .add('Question', () =>  <Show />)
-  .add('Question Text', () => <QuestionText description="Do you currently have a place to stay where you pay
-  monthly rent?"/>)
+  .add('Question', () =>  <Show question_text={testQuestionText} question_options_list={<QuestionOptionsList questionOptions={testQuestionOptionsList}/>}/>)
+  .add('Question Text', () => testQuestionText)
