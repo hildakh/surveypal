@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import Feedback from "../users/Feedback"
 
-import SurveyListItem from '../users/SurveyListItem'
+import ComSurvListItem from '../users/CompSurvListItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PinnedSubheaderList(props) {
+export default function CompSurveyList(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -46,11 +46,12 @@ export default function PinnedSubheaderList(props) {
       <ul className={classes.ul}>
         {props.list.map(item => {
           return (
-            <SurveyListItem
-              title={item}
+            <ComSurvListItem
+              title={item.title}
+              date={item.date}
               onClick={showDialog}
             >
-            </SurveyListItem>
+            </ComSurvListItem>
           )
         })}
       </ul>
