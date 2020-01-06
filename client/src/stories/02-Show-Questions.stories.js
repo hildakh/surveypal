@@ -22,11 +22,23 @@ storiesOf('Question Options List Items', module)
 
 // stories for question options list
 storiesOf('Question Options List', module)
-  .add('List', () => <QuestionOptionsList Questions Options List/>)
+  .add('Lists question options', () => <QuestionOptionsList questionOptions={testQuestionOptionsList}/>)
+
+
+const testQuestionOptionsList = [
+  {question_id: 6,
+    option_text: "Job loss",
+    serial_order: 1
+  },
+  {question_id: 6,
+    option_text: "Unable to pay rent or mortgage",
+    serial_order: 2
+  }
+]
+
 
 // stories for Question component
 storiesOf('Question', module)
   .add('Question', () =>  <Show />)
   .add('Question Text', () => <QuestionText description="Do you currently have a place to stay where you pay
   monthly rent?"/>)
-  .add('Question Options List', () => <QuestionOptionsList />)
