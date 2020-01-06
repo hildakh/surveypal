@@ -40,6 +40,9 @@ export default function PinnedSubheaderList(props) {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleSubmit = () => {
+    // submit the feedback
+  }
   return (
     <List className={classes.root} subheader={<li />}>
       <ul className={classes.ul}>
@@ -53,7 +56,7 @@ export default function PinnedSubheaderList(props) {
           )
         })}
       </ul>
-      <Feedback open={open} close={handleClose} />
+      <Feedback open={open} close={handleClose} submit={handleSubmit} />
     </List>
   );
 }

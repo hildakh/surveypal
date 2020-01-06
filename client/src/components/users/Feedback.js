@@ -8,40 +8,30 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function FormDialog(props) {
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div>
-      <Dialog open={props.open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+      <Dialog open={props.open} onClose={props.close} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Feedback!</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
+            Use this form to provide feedback.
           </DialogContentText>
           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
+            id="outlined-multiline-static"
+            label="Feedback"
+            multiline
+            rows="4"
+            variant="outlined"
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={props.close} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
+          <Button onClick={props.submit} color="primary">
+            submit
           </Button>
         </DialogActions>
       </Dialog>
