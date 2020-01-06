@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     maxWidth: "sm",
-    backgroundColor: "#f4a9a8"
+    // backgroundColor: "#f4a9a8"
   },
   navButton: {
     margin: 0,
@@ -50,9 +50,9 @@ export default function Show(props) {
         
           <Grid container item xs={9} className={styleClasses.grid} alignItems="flex-start" justify="center">
         
-              <QuestionText />
+              {props.question_text}
 
-              <QuestionOptionsList />        
+              {props.question_options_list}
           </Grid>
         
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
