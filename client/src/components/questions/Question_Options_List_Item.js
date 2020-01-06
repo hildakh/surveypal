@@ -14,6 +14,9 @@ let classNames = require("classnames");
 const useStyles = makeStyles(theme => ({
   item: {
     margin: theme.spacing(.5)
+  },
+  optionSelected: {
+    backgroundColor: "#ffdbd9"
   }
 }));
 
@@ -23,19 +26,20 @@ export default function QuestionOptionsListItem(props) {
   const styleClasses = useStyles();
 
   const optionClass = classNames({
-    "optionSelected": props.selected
+    "optionSelected": props.checked
   })
 
   return (
-    <Grid item sx className={classNames(styleClasses.item, styleClasses.optionClass)} mx={0} mb={4}>
+    <Grid item sx className={classNames(styleClasses.item, optionClass)} mx={0} mb={4}>
       <ListItem key={props.value} role={undefined} dense button divider onClick={props.onClick}>
         <ListItemIcon>
           <Checkbox
-            edge="start"
+            edge="end"
+            onClick={props.onClick}
             checked={props.checked}
+            inputProps={props.inputProps}
             tabIndex={-1}
             disableRipple
-            inputProps={{ 'aria-laballedby': props.labelId}}
           />
         </ListItemIcon>
         <ListItemText id={props.labelId} primary={props.option_text}/>
