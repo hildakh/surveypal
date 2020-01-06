@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
 
+import QuestionOptionsListItem from './Question_Options_List_Item';
+
 const useStyles = makeStyles(theme => ({
   item: {
     margin: theme.spacing(.5)
@@ -18,11 +20,28 @@ const useStyles = makeStyles(theme => ({
 export default function QuestionText(props) {
 
   const styleClasses = useStyles();
+  const [checked, setChecked] = React.useState([0]);
+
+
+  const handleToggle = value => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
 
   return (
     <Grid item sx className={styleClasses.item} mx={0} mb={4}>
-    <Paper className={styleClasses.questionOptions}> props.question-option Question options list goes here</Paper>
-  </Grid>
+      <Paper className={styleClasses.questionOptions}>
+        Questions Options List
+    </Paper>
+    </Grid>
   )
 
 }
