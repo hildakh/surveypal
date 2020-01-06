@@ -10,9 +10,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 export default function FormDialog(props) {
 
 
+
   return (
     <div>
-      <Dialog open={props.open} onClose={props.close} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={props.open}
+        onClose={props.close}
+        aria-labelledby="form-dialog-title"
+        fullWidth='100%'>
         <DialogTitle id="form-dialog-title">Feedback!</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -22,7 +27,8 @@ export default function FormDialog(props) {
             id="outlined-multiline-static"
             label="Feedback"
             multiline
-            rows="4"
+            rows="6"
+            fullWidth='100%'
             variant="outlined"
           />
         </DialogContent>
