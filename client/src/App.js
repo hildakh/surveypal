@@ -4,7 +4,8 @@ import './App.css';
 import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
-import SurveyList from './components/users/SurveyList'
+import SurveyList from './components/users/SurveyList';
+import Survey from './components/survey/Survey';
 
 class App extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class App extends Component {
             <SurveyList list={this.state.completedSurveyList} />
           </Expand>
         </React.Fragment>
+        <Survey />
       </div>
     );
   }

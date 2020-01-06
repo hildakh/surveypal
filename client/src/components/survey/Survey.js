@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     alignItems: "center",
     justifyContent: "center",
-    overflow: "scroll"
+    overflowY: "scroll"
   },
   heading: {
     textAlign: "center"
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SurveyForm() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleOpen = () => {
     setOpen(true);
