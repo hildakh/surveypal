@@ -3,19 +3,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
+import Feedback from "../users/Feedback"
+
+import SurveyListItem from '../users/SurveyListItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    maxWidth: 650,
-    backgroundColor: '#8BD6FC',
+    maxWidth: '47%',
+    backgroundColor: '#E2F2F9',
     position: 'relative',
     overflow: 'auto',
     maxHeight: 300,
     margin: '0 auto',
     padding: 0,
-    color: 'white'
+    color: '#08648C'
 
   },
   listSection: {
@@ -28,23 +29,34 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PinnedSubheaderList() {
+export default function PinnedSubheaderList(props) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
 
+  const showDialog = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleSubmit = () => {
+    // submit the feedback
+  }
   return (
     <List className={classes.root} subheader={<li />}>
-      {[0, 1, 2, 3, 4].map(sectionId => (
-        <li key={`section-${sectionId}`} className={classes.listSection}>
-          <ul className={classes.ul}>
-            {[0, 1, 2].map(item => (
-              <ListItem key={`item-${sectionId}-${item}`}>
-                <ListItemText primary={`Item ${item}`} />
-              </ListItem>
-            ))}
-          </ul>
-          <Divider />
-        </li>
-      ))}
+      <ul className={classes.ul}>
+        {props.list.map(item => {
+          return (
+            <SurveyListItem
+              title={item}
+              onClick={showDialog}
+            >
+            </SurveyListItem>
+          )
+        })}
+      </ul>
+      <Feedback open={open} close={handleClose} submit={handleSubmit} />
     </List>
   );
 }

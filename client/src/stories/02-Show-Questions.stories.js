@@ -20,8 +20,11 @@ storiesOf('Question Options List Items', module)
   .add('Selected', () => <QuestionOptionsListItem option_text='Job loss' serial_order="2" selected/>)
   .add('Clickable', () => <QuestionOptionsListItem option_text='Unable to pay rent or mortgage' serial_order="3" onClick={action('button-clicked')}/>)
 
+// stories for question options list
+storiesOf('Question Options List', module)
+  .add('List', () => <QuestionOptionsList />)
 
-// stories for next button module
+// stories for Question component
 storiesOf('Question', module)
   .add('Question', () =>  <Show />)
   .add('Question Text', () => <QuestionText description="Do you currently have a place to stay where you pay

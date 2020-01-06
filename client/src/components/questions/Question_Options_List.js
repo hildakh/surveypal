@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function QuestionText(props) {
+export default function QuestionOptionsList(props) {
 
   const styleClasses = useStyles();
   const [checked, setChecked] = React.useState([0]);
@@ -35,6 +35,13 @@ export default function QuestionText(props) {
 
     setChecked(newChecked);
   };
+
+  const mapQuestionOptions = props.questionOptions.map(option => {
+
+  })
+
+  return mapQuestionOptions;
+
 
   return (
     <Grid item sx className={styleClasses.item} mx={0} mb={4}>

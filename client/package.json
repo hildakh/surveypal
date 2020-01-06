@@ -32,9 +32,14 @@
     "@material-ui/core": "^4.8.2",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.8.2",
+<<<<<<< HEAD
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8"
+=======
+    "react-expand-animated": "^1.0.1",
+    "react-icons": "^3.8.0"
+>>>>>>> 519c769f1692f396ba73972a2eb5faa6563d4971
   }
 }
