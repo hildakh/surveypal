@@ -16,8 +16,6 @@ export default {
 
 // stories for question options list items
 storiesOf('Question Options List Items', module)
-  .add('Unselected', () => <QuestionOptionsListItem option_text='Days' serial_order="1"/>)
-  .add('Selected', () => <QuestionOptionsListItem option_text='Job loss' serial_order="2" selected/>)
   .add('Clickable', () => <QuestionOptionsListItem option_text='Unable to pay rent or mortgage' serial_order="3" onClick={action('button-clicked')}/>)
 
 // stories for question options list
@@ -61,5 +59,5 @@ const testQuestionText = <QuestionText description="What happened that caused yo
 
 // stories for Question component
 storiesOf('Question', module)
-  .add('Question', () =>  <Show question_text={testQuestionText} question_options_list={<QuestionOptionsList questionOptions={testQuestionOptionsList}/>}/>)
+  .add('Question with options list', () =>  <Show question_text={testQuestionText} question_options_list={<QuestionOptionsList questionOptions={testQuestionOptionsList}/>}/>)
   .add('Question Text', () => testQuestionText)
