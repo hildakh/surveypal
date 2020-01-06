@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function SurveyForm() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
