@@ -41,6 +41,9 @@ export default function PinnedSubheaderList(props) {
   const handleSubmit = () => {
     // submit the feedback
   }
+  const handleListItem = () => {
+    //show feedback dialog or show the survey/completed survey preview
+  }
   return (
     <List className={classes.root} subheader={<li />}>
       <ul className={classes.ul}>
@@ -48,7 +51,7 @@ export default function PinnedSubheaderList(props) {
           return (
             <SurveyListItem
               title={item}
-              onClick={showDialog}
+              onClick={handleListItem}
             >
             </SurveyListItem>
           )
