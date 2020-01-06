@@ -15,14 +15,15 @@ export default {
 
 
 // stories for question options list items
-storiesOf('Question Options', module)
+storiesOf('Question Options List Items', module)
   .add('Unselected', () => <QuestionOptionsListItem option_text='Days' serial_order="1"/>)
-  .add('Selected', () => <QuestionOptionsListItem option_text='Days' serial_order="1" selected/>)
-  .add('Clickable', () => <QuestionOptionsListItem option_text='Days' serial_order="1" onClick={action('button-clicked')}/>)
+  .add('Selected', () => <QuestionOptionsListItem option_text='Job loss' serial_order="2" selected/>)
+  .add('Clickable', () => <QuestionOptionsListItem option_text='Unable to pay rent or mortgage' serial_order="3" onClick={action('button-clicked')}/>)
 
 
 // stories for next button module
 storiesOf('Question', module)
   .add('Question', () =>  <Show />)
-  .add('Question Text', () => <QuestionText />)
+  .add('Question Text', () => <QuestionText description="Do you currently have a place to stay where you pay
+  monthly rent?"/>)
   .add('Question Options List', () => <QuestionOptionsList />)
