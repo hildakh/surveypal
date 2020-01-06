@@ -8,8 +8,7 @@ import SurveyListItem from '../users/SurveyListItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    maxWidth: 700,
+    maxWidth: '47%',
     backgroundColor: '#E2F2F9',
     position: 'relative',
     overflow: 'auto',
