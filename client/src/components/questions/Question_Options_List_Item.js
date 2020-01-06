@@ -26,24 +26,8 @@ export default function QuestionOptionsListItem(props) {
     "optionSelected": props.selected
   })
 
-  const [checked, setChecked] = React.useState([0]);
-
-
-  const handleToggle = value => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
   return (
-    <Grid item sx className={styleClasses.item, styleClasses.optionClass} mx={0} mb={4}>
+    <Grid item sx className={classNames(styleClasses.item, styleClasses.optionClass)} mx={0} mb={4}>
       <ListItem key={props.value} role={undefined} dense button divider onClick={props.onClick}>
         <ListItemIcon>
           <Checkbox
