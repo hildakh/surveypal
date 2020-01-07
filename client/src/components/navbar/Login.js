@@ -9,6 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
 import Confirmation from '../status/Success'
 import { FaSave } from 'react-icons/fa';
+import axios from 'axios';
+
 
 export default function FormDialog(props) {
   const [state, setState] = React.useState({
@@ -18,6 +20,14 @@ export default function FormDialog(props) {
     open: false
   })
 
+  const fetchData = (email, password) => {
+
+    axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
+      .then((response) => {
+        // handle success
+        console.log(response.data)
+      })
+  }
   const handleClickOpen = () => {
     setState({ ...state, open: true });
   };
@@ -25,20 +35,8 @@ export default function FormDialog(props) {
   const handleClose = () => {
     setState({ ...state, open: false });
   };
-
-  //handle error
-  // const openError = () => {
-  //   setStatus('ERROR')
-  // }
-  // const closeMessage = () => {
-  //   setStatus('BASIC');
-  // }
-  //handle success
-  // const openSuccess = () => {
-  //   setStatus('SUCCESS')
-  // }
-  const save = () => {
-    props.onSave(state.email, state.password)
+  const validate = () => {
+    fetchData(state.email, state.password)
   }
 
   return (
@@ -74,7 +72,7 @@ export default function FormDialog(props) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={save} color="primary">
+          <Button onClick={validate} color="primary">
             Login
           </Button>
           {/* {status === 'SUCCESS' && (<Confirmation onClick={closeMessage} />)}

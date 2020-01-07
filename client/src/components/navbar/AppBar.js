@@ -117,7 +117,6 @@ export default function PrimarySearchAppBar(props) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const userType = props.userType;
 
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -144,9 +143,6 @@ export default function PrimarySearchAppBar(props) {
 
   const handleDrawerClose = event => {
     setDrawerOpen(false);
-  }
-  const save = (email, password) => {
-    props.onSave(email, password)
   }
 
   const menuId = 'primary-search-account-menu';
@@ -244,7 +240,7 @@ export default function PrimarySearchAppBar(props) {
           </ListItem>
         </List>
       </Drawer>)}
-      <AppBar position="static">
+      <AppBar position="static" inputfield={props.inputfield} >
         <Toolbar>
           {userType === "ADMIN" && (<IconButton
             edge="start"
@@ -295,7 +291,7 @@ export default function PrimarySearchAppBar(props) {
               </IconButton>
             </div>
           </div>)}
-          {userType === "PUBLIC" && (<Login onSave={save} />)}
+          {userType === "PUBLIC" && (<Login />)}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

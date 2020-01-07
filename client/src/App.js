@@ -18,7 +18,10 @@ class App extends Component {
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
       completedSurveyList: [{ title: 'Vancouver homeless count 2018', date: 'Dec 9, 2019' }]
     }
+    this.status = 'NULL';
+
   }
+
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   }; 1
@@ -26,24 +29,12 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
 
-  fetchData = (email, password) => {
-
-    axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
-      .then((response) => {
-        // handle success
-        if (response.data.user) {
-          this.state.user = response.data.user
-        }
-        console.log(this.state)
-      })
-  }
 
 
   render() {
     return (
-
       <div className="App">
-        <AppBar userType={this.state.userType} onSave={this.fetchData} />
+        <AppBar userType={this.state.userType} />
         {this.state.userType === 'USER' && (
           <div>
             <React.Fragment>
@@ -60,7 +51,6 @@ class App extends Component {
             </React.Fragment>
           </div>
         )}
-
       </div>
     );
   }
