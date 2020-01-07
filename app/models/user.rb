@@ -3,4 +3,9 @@ class User < ApplicationRecord
   has_many :teams
   has_many :surveys
   has_many :survey_question_answers
+
+  has_secure_password
+
+  
+
 end
