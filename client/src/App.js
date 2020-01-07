@@ -12,9 +12,7 @@ class App extends Component {
     super(props)
     this.state = {
       userType: 'PUBLIC',
-      user: {
-        email: ""
-      },
+      user: {},
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
@@ -33,8 +31,10 @@ class App extends Component {
     axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
       .then((response) => {
         // handle success
-
-        console.log(response.data)
+        if (response.data.user) {
+          this.state.user = response.data.user
+        }
+        console.log(this.state)
       })
   }
 
