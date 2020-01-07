@@ -32,38 +32,120 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const testQuestionText = <QuestionText description="What happened that caused you to lose your housing most recently?"/>
+const testQuestion1 = {id: 6, description: "What happened that caused you to lose your housing most recently?"}
+const testQuestion2 = {id: 7, description: "What are your sources of income? Check all that apply"}
 
-const testQuestionOptionsList = [
-  {question_id: 6,
+const testQuestionOptionsList1 = [
+  {
+    question_id: 6,
     option_text: "Job loss",
     serial_order: 1
   },
-  {question_id: 6,
+  {
+    question_id: 6,
     option_text: "Unable to pay rent or mortgage",
     serial_order: 2
   },
-  {question_id: 6,
+  {
+    question_id: 6,
     option_text: "Illness or medical condition",
     serial_order: 3
   },
-  {question_id: 6,
+  {
+    question_id: 6,
     option_text: "Addiction or substance use",
     serial_order: 4
   },
-  {question_id: 6,
+  {
+    question_id: 6,
     option_text: "Unsafe housing conditions",
     serial_order: 5
   },
-  {question_id: 6,
+  {
+    question_id: 6,
     option_text: "Experienced abuse by: parent/guardian",
     serial_order: 6
   },
-  {question_id: 6,
+  {
+    question_id: 6,
     option_text: "Experienced abuse by: spouse/partner",
     serial_order: 7
   },
 ]
+const testQuestionOptionsList2 = [
+  {
+    question_id: 7,
+    option_text: 'Welfare/income assistance',
+    serial_order: 1
+  },
+  {
+    question_id: 7,
+    option_text: 'Panhandling',
+    serial_order: 2
+  },
+  {
+    question_id: 7,
+    option_text: 'Binning/bottles',
+    serial_order: 4
+  },
+  {
+    question_id: 7,
+    option_text: 'Employment insurance',
+    serial_order: 5
+  },
+  {
+    question_id: 7,
+    option_text: 'Youth agreement',
+    serial_order: 6
+  },
+  {
+    question_id: 7,
+    option_text: 'Money from family/friends',
+    serial_order: 7
+  },
+  {
+    question_id: 7,
+    option_text: 'Job part-time or casual',
+    serial_order: 8
+  },
+  {
+    question_id: 7,
+    option_text: 'Job full-time',
+    serial_order: 9
+  },
+  {
+    question_id: 7,
+    option_text: 'CPP or other pension',
+    serial_order: 10
+  },
+  {
+    question_id: 7,
+    option_text: 'Honoraria',
+    serial_order: 11
+  },
+  {
+    question_id: 7,
+    option_text: 'Vending',
+    serial_order: 12
+  },
+  {
+    question_id: 7,
+    option_text: 'No income',
+    serial_order: 13
+  },
+  {
+    question_id: 7,
+    option_text: 'Other (specify)',
+    serial_order: 14
+  },
+  {
+    question_id: 7,
+    option_text: 'Don\'t know/No answer',
+    serial_order: 15
+  }
+];
+
+const testQuestionList = [testQuestion1, testQuestion2];
 
 export default function Index(props) {
 
@@ -81,7 +163,10 @@ export default function Index(props) {
             <BeforeButton onClick="{action('button-clicked')}" />
           </Grid>
 
-          <Show question_text={testQuestionText} question_options_list={<QuestionOptionsList questionOptions={testQuestionOptionsList}/>} />
+          <Show 
+            question_text={<QuestionText description={testQuestion1.description}/>}
+            question_options_list={<QuestionOptionsList questionOptions={testQuestionOptionsList1}/>} 
+          />
         
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
             <NextButton onClick="{action('button-clicked')}"  />
