@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
 import Confirmation from '../status/Success'
+import { FaSave } from 'react-icons/fa';
 
 export default function FormDialog(props) {
   const [state, setState] = React.useState({
@@ -36,9 +37,9 @@ export default function FormDialog(props) {
   // const openSuccess = () => {
   //   setStatus('SUCCESS')
   // }
-  // const save = () => {
-  //   props.onSave(email, password)
-  // }
+  const save = () => {
+    props.onSave(state.email, state.password)
+  }
 
   return (
     <div>
@@ -58,6 +59,7 @@ export default function FormDialog(props) {
             label="Email Address"
             type="email"
             fullWidth
+            onChange={(event) => setState({ ...state, email: event.target.value })}
           />
           <TextField
             margin="dense"
@@ -65,13 +67,14 @@ export default function FormDialog(props) {
             label="Password"
             type="password"
             fullWidth
+            onChange={(event) => setState({ ...state, password: event.target.value })}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={save} color="primary">
             Login
           </Button>
           {/* {status === 'SUCCESS' && (<Confirmation onClick={closeMessage} />)}

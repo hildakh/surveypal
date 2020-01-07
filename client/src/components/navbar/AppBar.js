@@ -145,6 +145,10 @@ export default function PrimarySearchAppBar(props) {
   const handleDrawerClose = event => {
     setDrawerOpen(false);
   }
+  const save = (email, password) => {
+    console.log(email);
+    console.log(email);
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -292,7 +296,7 @@ export default function PrimarySearchAppBar(props) {
               </IconButton>
             </div>
           </div>)}
-          {userType === "PUBLIC" && (<Login login={props.login} />)}
+          {userType === "PUBLIC" && (<Login onSave={save} />)}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
