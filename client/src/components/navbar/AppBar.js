@@ -27,6 +27,7 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
+import axios from 'axios';
 
 const drawerWidth = 240;
 
@@ -144,6 +145,17 @@ export default function PrimarySearchAppBar() {
     setDrawerOpen(false);
   }
 
+  const fetchTeams = () => {
+    axios.get('/api/teams')
+    .then(response => {
+      console.log(response);
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log('Hello! Error speaking!');
+    });
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -233,7 +245,7 @@ export default function PrimarySearchAppBar() {
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={fetchTeams}>
             <ListItemIcon><FaUsers /></ListItemIcon>
             <ListItemText primary='Teams'/>
           </ListItem>
