@@ -200,7 +200,7 @@ puts "Creating questions ..."
 Question.destroy_all
 
 Question.create!({
-  description: 'Will you be sleeping in this shelter tonight?',
+  description: 'Will you be sleeping in this shelter tonight?'
 })
 
 Question.create!({
