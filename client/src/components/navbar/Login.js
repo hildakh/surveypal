@@ -7,8 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
-import Success from '../status/Success'
-import { FaSave } from 'react-icons/fa';
 import axios from 'axios';
 
 
@@ -39,7 +37,7 @@ export default function FormDialog(props) {
   };
 
   const handleClose = () => {
-    setState({ ...state, open: false });
+    setState({ ...state, open: false, status: "PENDING" });
   };
   const validate = () => {
     fetchData(state.email, state.password)

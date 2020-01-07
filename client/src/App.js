@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userType: 'PUBLIC',
+      userType: 0,
       user: {},
       surveyOpen: false,
       compSurvOpen: false,
@@ -29,15 +29,15 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
   login = (user) => {
-    this.setState({ ...this.state, user: user })
-    console.log(this.state)
+    this.setState({ ...this.state, user: user, userType: user.user_type_id })
+    console.log(this.state.user);
   }
 
   render() {
     return (
       <div className="App">
         <AppBar userType={this.state.userType} login={this.login} />
-        {this.state.userType === 'USER' && (
+        {this.state.userType === 2 && (
           <div>
             <React.Fragment>
               <Card message={'Surveys'} counter={5} onClick={this.toggleFirst} />

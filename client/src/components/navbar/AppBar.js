@@ -242,7 +242,7 @@ export default function PrimarySearchAppBar(props) {
       </Drawer>)}
       <AppBar position="static" inputfield={props.inputfield} >
         <Toolbar>
-          {userType === "ADMIN" && (<IconButton
+          {userType === 1 && (<IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -255,43 +255,45 @@ export default function PrimarySearchAppBar(props) {
             SurveyPal
           </Typography>
           <div className={classes.grow} />
-          {userType !== "PUBLIC" && (<div><div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={2} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit">
-              <AccountCircle />
-            </IconButton>
-            {/* add user name */}
-            <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }}>
-              Logout
+          {userType !== 0 && (
+            <div>
+              <div className={classes.sectionDesktop}>
+                <IconButton aria-label="show 4 new mails" color="inherit">
+                  <Badge badgeContent={2} color="secondary">
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton aria-label="show 17 new notifications" color="inherit">
+                  <Badge badgeContent={4} color="secondary">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit">
+                  <AccountCircle />
+                </IconButton>
+                {/* add user name */}
+                <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }}>
+                  Logout
            </Button>
-          </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit">
-                <MoreIcon />
-              </IconButton>
-            </div>
-          </div>)}
-          {userType === "PUBLIC" && (<Login login={props.login} />)}
+              </div>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit">
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </div>)}
+          {userType === 0 && (<Login login={props.login} />)}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
