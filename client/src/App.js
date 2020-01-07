@@ -29,26 +29,15 @@ class App extends Component {
   };
 
   fetchData = (email, password) => {
-    // console.log(email, password);
-    axios.post('/api/login', { email: email }) // You can simply make your requests to "/api/whatever you want"
+
+    axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
       .then((response) => {
         // handle success
-        // console.log(response.data) // The entire response from the Rails API
-
-        // console.log(response.data) // Just the message
 
         console.log(response.data)
-        // this.setState({
-        //   users: response.data.users
-        // });
       })
   }
 
-  save = (email, password) => {
-    // do sth 
-
-
-  }
 
   render() {
     return (
