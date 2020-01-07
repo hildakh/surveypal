@@ -10,16 +10,18 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     fontSize: 15,
     fontFamily: "Dancing Script",
-    borderRadius: 20
+    borderRadius: 20,
+    float: 'left'
   }
 }));
 
-export default function Back() {
+export default function Back(props) {
   const classes = useStyles();
 
   return (
     <div>
       <Button
+        onClick={props.onClick}
         variant="contained"
         className={classes.button}
         startIcon={<ArrowBackIcon />}

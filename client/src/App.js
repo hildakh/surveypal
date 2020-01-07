@@ -5,6 +5,7 @@ import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
+import Survey from './components/survey/Survey';
 import CompSurvList from './components/users/CompSurvList';
 
 class App extends Component {
