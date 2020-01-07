@@ -41,8 +41,8 @@ export default function SimpleCard(props) {
   const classes = useStyles();
 
   return (
-    <div onClick={props.onClick}>
-      <Card className={classes.card}>
+    <div >
+      <Card className={classes.card} onClick={props.onClick}>
         <span className={classes.badge}>{props.counter}</span>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>

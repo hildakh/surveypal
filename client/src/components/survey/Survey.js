@@ -5,7 +5,6 @@ import Reset from "./Reset";
 import Start from "./Start";
 import Resume from "./Resume";
 import QuestionPreview from "./QuestionPreview";
-import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   surveyview: {

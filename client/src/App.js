@@ -6,6 +6,7 @@ import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 import Survey from './components/survey/Survey';
+import CompSurvList from './components/users/CompSurvList';
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
-      completedSurveyList: ['Vancouver homeless count 2018']
+      completedSurveyList: [{ title: 'Vancouver homeless count 2018', date: 'Dec 9, 2019' }]
     }
   }
   toggleFirst = () => {
@@ -54,7 +55,7 @@ class App extends Component {
         <React.Fragment>
           <Card message={this.state.message[1]} counter={10} onClick={this.toggleSecond} />
           <Expand open={this.state.compSurvOpen}>
-            <SurveyList list={this.state.completedSurveyList} />
+            <CompSurvList list={this.state.completedSurveyList} />
           </Expand>
         </React.Fragment>
         <Survey />

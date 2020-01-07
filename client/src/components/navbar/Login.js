@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
-import Confirmation from '../status/Confirmation'
+import Confirmation from '../status/Success'
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -64,11 +64,11 @@ export default function FormDialog() {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={openSuccess} color="primary">
+          <Button onClick={handleClose} color="primary">
             Login
           </Button>
-          {status === 'SUCCESS' && (<Confirmation onClick={closeMessage} />)}
-          {status === 'ERROR' && (<Error onClick={closeMessage} />)}
+          {/* {status === 'SUCCESS' && (<Confirmation onClick={closeMessage} />)}
+          {status === 'ERROR' && (<Error onClick={closeMessage} />)} */}
         </DialogActions>
       </Dialog>
     </div>
