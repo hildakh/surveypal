@@ -5,6 +5,7 @@ import Reset from "./Reset";
 import Start from "./Start";
 import Resume from "./Resume";
 import QuestionPreview from "./QuestionPreview";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   surveyview: {
@@ -12,10 +13,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#e6ceff",
     margin: "0 auto",
     padding: theme.spacing(1),
+    justifyContent: 'space-between',
+    borderRadius: 15
   },
   heading: {
     textAlign: "center"
-  },
+  }
 
 }));
 
@@ -33,17 +36,12 @@ export default function SurveyForm() {
 
   return (
     <div className={classes.surveyview}>
-            <Back onClick={handleClose} />
-            <Reset onClick={handleClose} />
-          <h4 className={classes.heading}>Vancouver 2019 Sheltered Survey</h4>
-          <p>
-            <QuestionPreview />
-          </p>
-          <footer>
-            <Resume />
-            <Start />
-          </footer>
-
+      <Back onClick={handleClose} />
+      <Reset onClick={handleClose} />
+      <h4 className={classes.heading}>Vancouver 2019 Sheltered Survey</h4>
+      <QuestionPreview />
+      <Resume />
+      <Start />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
+import QuestionOptionPreview from './QuestionOptionPreview';
 
 const action = (
   <Button color="secondary" size="small">
@@ -26,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 10,
     backgroundColor: '#424242',
     color: 'white'
+  },
+  title: {
+    color: 'white'
   }
 }));
 
@@ -35,50 +39,25 @@ export default function QuestionPreview() {
   return (
     <div className={classes.root}>
        <Card className={classes.card}>
-        <span className={classes.card}>"Hey</span>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            "Hilda"
+            Have you already answered a survey today (with someone wearing a yellow sticker)?
           </Typography>
         </CardContent>
         <CardActions>
+          <QuestionOptionPreview />
         </CardActions>
       </Card>
       <Card className={classes.card}>
-        <span className={classes.card}>"Hey</span>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            "Hilda"
+          Do you currently have a place to stay where you pay monthly rent?
           </Typography>
         </CardContent>
         <CardActions>
+          <QuestionOptionPreview />
         </CardActions>
       </Card>
-      {/* <SnackbarContent
-        className={classes.snackbar}
-        message="I love snacks."
-        action={action}
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message={
-          "I love candy. I love cookies. I love cupcakes. \
-          I love cheesecake. I love chocolate."
-        }
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message="I love candy. I love cookies. I love cupcakes."
-        action={action}
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message={
-          "I love candy. I love cookies. I love cupcakes. \
-          I love cheesecake. I love chocolate."
-        }
-        action={action}
-      /> */}
     </div>
   );
 }

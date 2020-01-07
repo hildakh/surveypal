@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     fontSize: 15,
     fontFamily: "Dancing Script",
-    borderRadius: 20
+    borderRadius: 20,
+    float: 'left'
   }
 }));
 
