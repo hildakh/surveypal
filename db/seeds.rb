@@ -394,52 +394,52 @@ QuestionOption.create!({
 QuestionOption.create!({
   question_id: 7,
   option_text: 'Money from family/friends',
-  serial_order: 8
+  serial_order: 7
 })
 QuestionOption.create!({
   question_id: 7,
   option_text: 'Job full-time',
-  serial_order: 9
-})
-QuestionOption.create!({
-  question_id: 7,
-  option_text: 'Job part-time or casual',
   serial_order: 8
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Old age security (OAS)/guaranteed income supplements (GIS)',
+  option_text: 'Job part-time or casual',
   serial_order: 9
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'CPP or other pension',
+  option_text: 'Old age security (OAS)/guaranteed income supplements (GIS)',
   serial_order: 10
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Honoraria',
+  option_text: 'CPP or other pension',
   serial_order: 11
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Vending',
+  option_text: 'Honoraria',
   serial_order: 12
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'No income',
+  option_text: 'Vending',
   serial_order: 13
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Other (specify)',
+  option_text: 'No income',
   serial_order: 14
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Don\'t know/No answer',
+  option_text: 'Other (specify)',
   serial_order: 15
+})
+QuestionOption.create!({
+  question_id: 7,
+  option_text: 'Don\'t know/No answer',
+  serial_order: 16
 })
 QuestionOption.create!({
   question_id: 8,
