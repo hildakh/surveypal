@@ -27,27 +27,18 @@ export default function QuestionPreview() {
     <div className={classes.root}>
       <SnackbarContent
         className={classes.snackbar}
-        message="I love snacks."
+        message="Yes"
         action={action}
       />
       <SnackbarContent
         className={classes.snackbar}
         message={
-          "I love candy. I love cookies. I love cupcakes. \
-          I love cheesecake. I love chocolate."
+          "No"
         }
       />
       <SnackbarContent
         className={classes.snackbar}
-        message="I love candy. I love cookies. I love cupcakes."
-        action={action}
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message={
-          "I love candy. I love cookies. I love cupcakes. \
-          I love cheesecake. I love chocolate."
-        }
+        message="I don/'t know"
         action={action}
       />
     </div>
