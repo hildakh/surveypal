@@ -75,18 +75,14 @@ export default function CustomizedSnackbars(props) {
   return (
     <div>
       <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
         open={open}
         autoHideDuration={6000}
-        onClick={props.onClick}
+        onClick={() => setOpen(false)}
       >
         <MySnackbarContentWrapper
           variant="error"
           className={classes.margin}
-          message="Your request has been denied!"
+          message={props.message}
         />
       </Snackbar>
     </div>

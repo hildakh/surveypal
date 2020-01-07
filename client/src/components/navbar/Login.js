@@ -7,7 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
-import Confirmation from '../status/Success'
+import Success from '../status/Success'
 import { FaSave } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -16,7 +16,7 @@ export default function FormDialog(props) {
   const [state, setState] = React.useState({
     email: "",
     password: "",
-    status: "BASIC",
+    status: "PENDING",
     open: false
   })
 
@@ -26,6 +26,9 @@ export default function FormDialog(props) {
       .then((response) => {
         // handle success
         console.log(response.data)
+        if (!response.data.user) {
+          setState({ ...state, status: "ERROR" })
+        }
       })
   }
   const handleClickOpen = () => {
@@ -46,6 +49,7 @@ export default function FormDialog(props) {
       </Button>
       <Dialog open={state.open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        {state.status === 'ERROR' && (<div><Error message="Email or password is incorrect!" /></div>)}
         <DialogContent>
           <DialogContentText>
             Please Enter your Email and Password.
@@ -75,8 +79,6 @@ export default function FormDialog(props) {
           <Button onClick={validate} color="primary">
             Login
           </Button>
-          {/* {status === 'SUCCESS' && (<Confirmation onClick={closeMessage} />)}
-          {status === 'ERROR' && (<Error onClick={closeMessage} />)} */}
         </DialogActions>
       </Dialog>
     </div>
