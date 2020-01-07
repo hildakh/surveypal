@@ -115,6 +115,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [userType, setUserType] = React.useState('USER');
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -235,7 +236,7 @@ export default function PrimarySearchAppBar() {
           </ListItem>
           <ListItem button>
             <ListItemIcon><FaUsers /></ListItemIcon>
-            <ListItemText primary='Teams'/>
+            <ListItemText primary='Teams' />
           </ListItem>
         </List>
         {/* <Divider />
