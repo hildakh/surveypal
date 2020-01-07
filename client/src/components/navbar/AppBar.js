@@ -149,6 +149,7 @@ export default function PrimarySearchAppBar() {
     axios.get('/api/teams')
     .then(response => {
       console.log(response);
+      console.log(response.data)
     })
     .catch(error => {
       console.log('Hello! Error speaking!');
