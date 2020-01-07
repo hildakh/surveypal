@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Button from '@material-ui/core/Button';
+import Logout from '../navbar/Logout'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -294,9 +294,7 @@ export default function PrimarySearchAppBar(props) {
                 <Typography className={classes.name} variant="h6" noWrap>
                   {props.userName}
                 </Typography>
-                <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }}>
-                  Logout
-           </Button>
+                <Logout />
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton
