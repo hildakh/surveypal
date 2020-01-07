@@ -220,7 +220,7 @@ Question.create!({
 
 Question.create!({
   description: 'How long have you been without a place of your own?',
-  question_id: 4
+  dependent_on_question_id: 4
 })
 
 Question.create!({
@@ -551,48 +551,48 @@ SurveyQuestionAnswer.create!({
   user_id: 1,
   question_order: 1
 })
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 2,
-  user_id: 1,
-  question_order: 2
-})
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 3,
-  user_id: 1,
-  question_order: 3
-})
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 4,
-  user_id: 1,
-  question_order: 4
-})
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 5,
-  user_id: 1,
-  question_order: 5
-})
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 6,
-  user_id: 1,
-  question_order: 6
-})
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 8,
-  user_id: 1,
-  question_order: 7
-})
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 7,
-  user_id: 1,
-  question_order: 8
-})
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 2,
+#   user_id: 1,
+#   question_order: 2
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 3,
+#   user_id: 1,
+#   question_order: 3
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 4,
+#   user_id: 1,
+#   question_order: 4
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 5,
+#   user_id: 1,
+#   question_order: 5
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 6,
+#   user_id: 1,
+#   question_order: 6
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 8,
+#   user_id: 1,
+#   question_order: 7
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 7,
+#   user_id: 1,
+#   question_order: 8
+# })
 
 
 puts "DONE!"
