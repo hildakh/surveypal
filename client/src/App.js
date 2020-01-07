@@ -43,7 +43,7 @@ class App extends Component {
     return (
 
       <div className="App">
-        <AppBar userType={this.state.userType} />
+        <AppBar userType={this.state.userType} login={() => alert('hello')} />
         {this.state.userType === 'USER' && (
           <div>
             <React.Fragment>

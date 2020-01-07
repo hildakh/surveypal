@@ -9,36 +9,43 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
 import Confirmation from '../status/Success'
 
-export default function FormDialog() {
-  const [open, setOpen] = React.useState(false);
-  const [status, setStatus] = React.useState('BASIC')
+export default function FormDialog(props) {
+  const [state, setState] = React.useState({
+    email: "",
+    password: "",
+    status: "BASIC",
+    open: false
+  })
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setState({ ...state, open: true });
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setState({ ...state, open: false });
   };
 
   //handle error
-  const openError = () => {
-    setStatus('ERROR')
-  }
-  const closeMessage = () => {
-    setStatus('BASIC');
-  }
+  // const openError = () => {
+  //   setStatus('ERROR')
+  // }
+  // const closeMessage = () => {
+  //   setStatus('BASIC');
+  // }
   //handle success
-  const openSuccess = () => {
-    setStatus('SUCCESS')
-  }
+  // const openSuccess = () => {
+  //   setStatus('SUCCESS')
+  // }
+  // const save = () => {
+  //   props.onSave(email, password)
+  // }
 
   return (
     <div>
       <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }} onClick={handleClickOpen}>
         Login
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={state.open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Login</DialogTitle>
         <DialogContent>
           <DialogContentText>
