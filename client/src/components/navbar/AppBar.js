@@ -110,8 +110,6 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-
-
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const theme = useTheme();
