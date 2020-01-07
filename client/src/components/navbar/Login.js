@@ -25,10 +25,13 @@ export default function FormDialog(props) {
     axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
       .then((response) => {
         // handle success
-        console.log(response.data)
         if (!response.data.user) {
           setState({ ...state, status: "ERROR" })
+        } else {
+          props.login(response.data.user);
+          handleClose();
         }
+
       })
   }
   const handleClickOpen = () => {

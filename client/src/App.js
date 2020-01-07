@@ -28,13 +28,15 @@ class App extends Component {
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
-
-
+  login = (user) => {
+    this.setState({ ...this.state, user: user })
+    console.log(this.state)
+  }
 
   render() {
     return (
       <div className="App">
-        <AppBar userType={this.state.userType} />
+        <AppBar userType={this.state.userType} login={this.login} />
         {this.state.userType === 'USER' && (
           <div>
             <React.Fragment>

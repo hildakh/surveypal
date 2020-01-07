@@ -291,7 +291,7 @@ export default function PrimarySearchAppBar(props) {
               </IconButton>
             </div>
           </div>)}
-          {userType === "PUBLIC" && (<Login />)}
+          {userType === "PUBLIC" && (<Login login={props.login} />)}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
