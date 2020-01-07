@@ -4,8 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import NotificationBadge from 'react-notification-badge';
-import { Effect } from 'react-notification-badge';
 
 const useStyles = makeStyles({
   card: {
