@@ -12,7 +12,9 @@ class App extends Component {
     super(props)
     this.state = {
       userType: 'PUBLIC',
-      users: {},
+      user: {
+        email: ""
+      },
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
@@ -26,16 +28,16 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
 
-  fetchData = () => {
-
-    axios.get('/api/login') // You can simply make your requests to "/api/whatever you want"
+  fetchData = (email, password) => {
+    // console.log(email, password);
+    axios.post('/api/login', { email: email }) // You can simply make your requests to "/api/whatever you want"
       .then((response) => {
         // handle success
         // console.log(response.data) // The entire response from the Rails API
 
         // console.log(response.data) // Just the message
-        this.setState({ ...this.state, users: response.data })
-        console.log(this.state)
+
+        console.log(response.data)
         // this.setState({
         //   users: response.data.users
         // });
