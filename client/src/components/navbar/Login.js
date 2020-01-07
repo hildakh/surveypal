@@ -20,13 +20,13 @@ export default function FormDialog(props) {
 
   const fetchData = (email, password) => {
 
-    axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
+    axios.post('/api/login', { email: email, password: password })
       .then((response) => {
         // handle success
         if (!response.data.user) {
           setState({ ...state, status: "ERROR" })
         } else {
-          props.login(response.data.user);
+          props.login(response.data);
           handleClose();
         }
 

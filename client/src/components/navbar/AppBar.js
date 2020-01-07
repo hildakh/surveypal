@@ -254,7 +254,7 @@ export default function PrimarySearchAppBar(props) {
           </ListItem>
         </List>
       </Drawer>)}
-      <AppBar position="static" inputfield={props.inputfield} >
+      <AppBar position="static" inputfield={props.inputfield} session={props.session}>
         <Toolbar>
           {userType === 1 && (<IconButton
             edge="start"
@@ -294,7 +294,7 @@ export default function PrimarySearchAppBar(props) {
                 <Typography className={classes.name} variant="h6" noWrap>
                   {props.userName}
                 </Typography>
-                <Logout />
+                <Logout logout={props.logout} />
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton

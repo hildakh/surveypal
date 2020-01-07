@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      session: null,
       userType: 0,
       user: {},
       surveyOpen: false,
@@ -29,15 +30,17 @@ class App extends Component {
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
-  login = (user) => {
-    this.setState({ ...this.state, user: user, userType: user.user_type_id })
-    console.log(this.state.user);
+  login = (data) => {
+    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
+  }
+  logout = () => {
+    this.setState({ ...this.state, userType: 0 })
   }
 
   render() {
     return (
       <div className="App">
-        <AppBar userType={this.state.userType} login={this.login} userName={this.state.user['first_name']} />
+        <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} />
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
