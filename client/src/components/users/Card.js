@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   badge: {
     display: 'block',
     position: 'absolute',
-    right: '3px',
+    right: '0.5%',
     lineHeight: '16px',
     height: '16px',
     padding: '10px 12px',
@@ -26,8 +26,8 @@ const useStyles = makeStyles({
     color: 'white',
     borderRadius: '50%',
     boxShadow: 'inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08)',
-    marginTop: '-17px',
-    marginRight: '340px',
+    marginTop: '-1%',
+    marginRight: '23.5%',
     backgroundColor: '#05B11F',
     color: 'white'
   },

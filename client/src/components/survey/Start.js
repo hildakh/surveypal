@@ -14,13 +14,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Start() {
+export default function Start(props) {
   const classes = useStyles();
 
   return (
     <div>
       <Button
         variant="contained"
+        onClick={props.onClick}
         className={classes.button}
         startIcon={<PlayCircleFilledIcon />}
       >

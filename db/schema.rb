@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_202157) do
+ActiveRecord::Schema.define(version: 2020_01_06_235748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,8 @@ ActiveRecord::Schema.define(version: 2020_01_02_202157) do
     t.bigint "survey_id", null: false
     t.bigint "question_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "question_option_id", null: false
+    t.integer "question_order"
     t.index ["question_id"], name: "index_survey_question_answers_on_question_id"
-    t.index ["question_option_id"], name: "index_survey_question_answers_on_question_option_id"
     t.index ["survey_id"], name: "index_survey_question_answers_on_survey_id"
     t.index ["user_id"], name: "index_survey_question_answers_on_user_id"
   end
@@ -104,7 +103,6 @@ ActiveRecord::Schema.define(version: 2020_01_02_202157) do
 
   add_foreign_key "question_options", "questions"
   add_foreign_key "questions", "questions", column: "dependent_on_question_id"
-  add_foreign_key "survey_question_answers", "question_options"
   add_foreign_key "survey_question_answers", "questions"
   add_foreign_key "survey_question_answers", "surveys"
   add_foreign_key "survey_question_answers", "users"
