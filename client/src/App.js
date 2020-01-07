@@ -12,6 +12,7 @@ class App extends Component {
     super(props)
     this.state = {
       userType: 'PUBLIC',
+      users: {},
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
@@ -32,20 +33,26 @@ class App extends Component {
         // handle success
         // console.log(response.data) // The entire response from the Rails API
 
-        console.log(response) // Just the message
+        // console.log(response.data) // Just the message
+        this.setState({ ...this.state, users: response.data })
+        console.log(this.state)
         // this.setState({
         //   users: response.data.users
         // });
       })
   }
+
   save = (email, password) => {
+    // do sth 
+
+
   }
 
   render() {
     return (
 
       <div className="App">
-        <AppBar userType={this.state.userType} onSave={this.save} />
+        <AppBar userType={this.state.userType} onSave={this.fetchData} />
         {this.state.userType === 'USER' && (
           <div>
             <React.Fragment>
