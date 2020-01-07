@@ -10,9 +10,8 @@ import CompSurvList from './components/users/CompSurvList';
 class App extends Component {
   constructor(props) {
     super(props)
-    const cardMessages = ['Surveys', `Today's completed surveys`]
     this.state = {
-      message: cardMessages,
+      userType: 'PUBLIC',
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
@@ -21,7 +20,7 @@ class App extends Component {
   }
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
-  };
+  }; 1
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
@@ -44,15 +43,15 @@ class App extends Component {
     return (
 
       <div className="App">
-        <AppBar />
+        {this.state.userType === 'PUBLIC' && (<AppBar />)}
         <React.Fragment>
-          <Card message={this.state.message[0]} counter={5} onClick={this.toggleFirst} />
+          <Card message={'Surveys'} counter={5} onClick={this.toggleFirst} />
           <Expand open={this.state.surveyOpen}>
             <SurveyList list={this.state.surveyList} />
           </Expand>
         </React.Fragment>
         <React.Fragment>
-          <Card message={this.state.message[1]} counter={10} onClick={this.toggleSecond} />
+          <Card message={`Today's completed surveys`} counter={10} onClick={this.toggleSecond} />
           <Expand open={this.state.compSurvOpen}>
             <CompSurvList list={this.state.completedSurveyList} />
           </Expand>
