@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import "../index.css";
 
+import Index from '../components/questions/Index.js';
 import Show from '../components/questions/Show.js';
 import QuestionText from '../components/questions/Question_Text';
 import QuestionOptionsList from '../components/questions/Question_Options_List';
@@ -61,3 +62,4 @@ const testQuestionText = <QuestionText description="What happened that caused yo
 storiesOf('Question', module)
   .add('Question with options list', () =>  <Show question_text={testQuestionText} question_options_list={<QuestionOptionsList questionOptions={testQuestionOptionsList}/>}/>)
   .add('Question Text', () => testQuestionText)
+  .add('Index', () => <Index />)
