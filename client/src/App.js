@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userType: 'USER',
+      userType: 'PUBLIC',
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: ['Vancouver 2019 Sheltered Survey', 'Toronto 2019 Sheltered Survey', 'Vancouver homeless count 2018'],
@@ -43,19 +43,24 @@ class App extends Component {
     return (
 
       <div className="App">
-        <AppBar userType={'USER'} />
-        <React.Fragment>
-          <Card message={'Surveys'} counter={5} onClick={this.toggleFirst} />
-          <Expand open={this.state.surveyOpen}>
-            <SurveyList list={this.state.surveyList} />
-          </Expand>
-        </React.Fragment>
-        <React.Fragment>
-          <Card message={`Today's completed surveys`} counter={10} onClick={this.toggleSecond} />
-          <Expand open={this.state.compSurvOpen}>
-            <CompSurvList list={this.state.completedSurveyList} />
-          </Expand>
-        </React.Fragment>
+        <AppBar userType={this.state.userType} />
+        {this.state.userType === 'USER' && (
+          <div>
+            <React.Fragment>
+              <Card message={'Surveys'} counter={5} onClick={this.toggleFirst} />
+              <Expand open={this.state.surveyOpen}>
+                <SurveyList list={this.state.surveyList} />
+              </Expand>
+            </React.Fragment>
+            <React.Fragment>
+              <Card message={`Today's completed surveys`} counter={10} onClick={this.toggleSecond} />
+              <Expand open={this.state.compSurvOpen}>
+                <CompSurvList list={this.state.completedSurveyList} />
+              </Expand>
+            </React.Fragment>
+          </div>
+        )}
+
       </div>
     );
   }

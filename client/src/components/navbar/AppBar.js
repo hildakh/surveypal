@@ -26,6 +26,7 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
+import Login from "../navbar/Login"
 
 const drawerWidth = 240;
 
@@ -291,6 +292,7 @@ export default function PrimarySearchAppBar(props) {
               </IconButton>
             </div>
           </div>)}
+          {userType === "PUBLIC" && (<Login />)}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
