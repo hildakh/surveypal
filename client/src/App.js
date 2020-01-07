@@ -38,12 +38,14 @@ class App extends Component {
         // });
       })
   }
+  save = (email, password) => {
+  }
 
   render() {
     return (
 
       <div className="App">
-        <AppBar userType={this.state.userType} login={() => alert('hello')} />
+        <AppBar userType={this.state.userType} onSave={this.save} />
         {this.state.userType === 'USER' && (
           <div>
             <React.Fragment>

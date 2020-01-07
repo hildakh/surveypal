@@ -146,8 +146,7 @@ export default function PrimarySearchAppBar(props) {
     setDrawerOpen(false);
   }
   const save = (email, password) => {
-    console.log(email);
-    console.log(email);
+    props.onSave(email, password)
   }
 
   const menuId = 'primary-search-account-menu';
