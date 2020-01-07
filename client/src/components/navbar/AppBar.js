@@ -110,6 +110,8 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
+
+
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const theme = useTheme();
@@ -145,15 +147,15 @@ export default function PrimarySearchAppBar() {
     setDrawerOpen(false);
   }
 
-  const getTeams = () => {
-    axios.get('/admin/teams')
+  const fetchTeams = () => {
+    axios.get('/api/teams')
     .then(response => {
       console.log(response);
     })
     .catch(error => {
-      console.log(error);
+      console.log('Hello! Error speaking!');
     });
-    }
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -244,7 +246,7 @@ export default function PrimarySearchAppBar() {
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
-          <ListItem button onClick={getTeams}>
+          <ListItem button onClick={fetchTeams}>
             <ListItemIcon><FaUsers /></ListItemIcon>
             <ListItemText primary='Teams'/>
           </ListItem>
