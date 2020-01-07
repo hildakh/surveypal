@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppBar userType={this.state.userType} login={this.login} />
+        <AppBar userType={this.state.userType} login={this.login} userName={this.state.user['first_name']} />
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>

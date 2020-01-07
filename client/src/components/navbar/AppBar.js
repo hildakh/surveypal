@@ -55,7 +55,9 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
-
+  name: {
+    margin: '10px'
+  },
   root: {
     display: 'flex',
   },
@@ -277,7 +279,9 @@ export default function PrimarySearchAppBar(props) {
                   color="inherit">
                   <AccountCircle />
                 </IconButton>
-                {/* add user name */}
+                <Typography className={classes.name} variant="h6" noWrap>
+                  {props.userName}
+                </Typography>
                 <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }}>
                   Logout
            </Button>
