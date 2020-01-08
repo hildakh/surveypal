@@ -213,7 +213,7 @@ QuestionType.create!({
 })
 QuestionType.create!({
   name: 'Number',
-  description: 'Select integer'
+  description: 'Select an integer from options presented'
 })
 QuestionType.create!({
   name: 'Days-Weeks-Months-Years',
@@ -356,7 +356,7 @@ QuestionOption.create!({
 
 QuestionOption.create!({
   question_id: 6,
-  option_text: 'Age',
+  option_text: 'Years old',
   serial_order: 1
 })
 
@@ -540,7 +540,7 @@ Survey.create!({
 })
 
 ## SURVEY QUESTION ANSWERS
-puts "Creating survey questions"
+puts "Creating survey questions ..."
 
 SurveyQuestion.destroy_all
 
@@ -586,7 +586,7 @@ SurveyQuestion.create!({
 })
 
 ## SURVEY QUESTION ANSWERS
-puts "Creating survey responses"
+puts "Creating survey responses ..."
 
 SurveyResponse.destroy_all
 
@@ -614,5 +614,59 @@ SurveyResponse.create!({
   survey_id: 1,
   user_id: 3
 })
+
+
+## SURVEY QUESTION ANSWERS
+
+puts "Creating question responses ..."
+
+QuestionResponse.destroy_all
+
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 2
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 5
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 8
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 13,
+  response_value: "3 years"
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 14,
+  response_value: "17"
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 20
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 16
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 20
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 38
+})
+QuestionResponse.create!({
+  survey_response_id: 1,
+  question_option_id: 35
+})
+
+
+
+
 
 puts "DONE!"

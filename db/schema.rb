@@ -10,25 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_035424) do
+ActiveRecord::Schema.define(version: 2020_01_08_041120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.string "province"
+    t.string "name", null: false
+    t.string "province", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "question_options", force: :cascade do |t|
-    t.string "option_text"
-    t.integer "serial_order"
+    t.string "option_text", null: false
+    t.integer "serial_order", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "question_id", null: false
     t.index ["question_id"], name: "index_question_options_on_question_id"
+  end
+
+  create_table "question_responses", force: :cascade do |t|
+    t.bigint "survey_response_id", null: false
+    t.bigint "question_option_id", null: false
+    t.string "response_value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_option_id"], name: "index_question_responses_on_question_option_id"
+    t.index ["survey_response_id"], name: "index_question_responses_on_survey_response_id"
   end
 
   create_table "question_types", force: :cascade do |t|
@@ -48,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_035424) do
   end
 
   create_table "survey_questions", force: :cascade do |t|
-    t.integer "serial_order"
+    t.integer "serial_order", null: false
     t.bigint "survey_id", null: false
     t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -67,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_035424) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
@@ -79,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_035424) do
   end
 
   create_table "team_members", force: :cascade do |t|
-    t.boolean "active"
+    t.boolean "active", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "team_id", null: false
@@ -89,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_035424) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
     t.string "purpose"
     t.datetime "created_at", precision: 6, null: false
@@ -99,16 +109,16 @@ ActiveRecord::Schema.define(version: 2020_01_08_035424) do
   end
 
   create_table "user_types", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -117,6 +127,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_035424) do
   end
 
   add_foreign_key "question_options", "questions"
+  add_foreign_key "question_responses", "question_options"
+  add_foreign_key "question_responses", "survey_responses"
   add_foreign_key "questions", "question_types"
   add_foreign_key "questions", "questions", column: "dependent_on_question_id"
   add_foreign_key "survey_questions", "questions"
