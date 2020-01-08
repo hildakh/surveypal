@@ -22,6 +22,12 @@ class App extends Component {
     this.status = 'NULL';
 
   }
+  fetchData = () => {
+    axios.get('/api/surveys?user_id=4')
+      .then((response) => {
+        console.log(response.data);
+      })
+  }
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -31,7 +37,6 @@ class App extends Component {
   };
   login = (user) => {
     this.setState({ ...this.state, user: user, userType: user.user_type_id })
-    console.log(this.state.user);
   }
 
   render() {
@@ -41,7 +46,7 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
-              <Card message={'Surveys'} counter={5} onClick={this.toggleFirst} />
+              <Card message={'Surveys'} counter={5} onClick={this.fetchData} />
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />
               </Expand>
