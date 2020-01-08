@@ -243,7 +243,7 @@ export default function PrimarySearchAppBar() {
         </div>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button onClick={fetchSurveys}>
             <ListItemIcon><BallotIcon /></ListItemIcon>
             <ListItemText primary='Surveys' />
           </ListItem>
