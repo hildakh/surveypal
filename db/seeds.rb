@@ -194,45 +194,80 @@ TeamMember.create!({
   active: true
 })
 
+## QUESTION TYPES
+puts "Creating question types ..."
+
+QuestionType.destroy_all
+
+QuestionType.create!({
+  name: 'Multiple Choice',
+  description: 'Multiple choice question allowing multiple responses'
+})
+QuestionType.create!({
+  name: 'Single Choice',
+  description: 'Multiple choice question allowing only single-answer responses'
+})
+QuestionType.create!({
+  name: 'Open-ended',
+  description: 'User-entered text'
+})
+QuestionType.create!({
+  name: 'Number',
+  description: 'Select integer'
+})
+QuestionType.create!({
+  name: 'Days-Weeks-Months-Years',
+  description: 'Select time duration in number of days, weeks, months, and/or years'
+})
+
+
 ## QUESTIONS
 puts "Creating questions ..."
 
 Question.destroy_all
 
 Question.create!({
-  description: 'Will you be sleeping in this shelter tonight?'
+  description: 'Will you be sleeping in this shelter tonight?',
+  question_type_id: 2
 })
 
 Question.create!({
   description: 'Have you already answered a survey today (with
-  someone wearing a yellow sticker)?'
+  someone wearing a yellow sticker)?',
+  question_type_id: 2
 })
 
 Question.create!({
   description: 'Have you already answered a survey in another
-  community in the last 6 weeks?'
+  community in the last 6 weeks?',
+  question_type_id: 2
 })
 
 Question.create!({
   description: 'Do you currently have a place to stay where you pay
-  monthly rent?'
+  monthly rent?',
+  question_type_id: 2
 })
 
 Question.create!({
   description: 'How long have you been without a place of your own?',
-  dependent_on_question_id: 4
+  dependent_on_question_id: 4,
+  question_type_id: 5
 })
 
 Question.create!({
-  description: 'How old are you [OR] what year were you born?'
+  description: 'How old are you?',
+  question_type_id: 5
 })
 
 Question.create!({
-  description: 'What are your sources of income? Check all that apply.'
+  description: 'What are your sources of income? Check all that apply.',
+  question_type_id: 1
 })
 
 Question.create!({
-  description: 'What happened that caused you to lose your housing most recently? (Do not read the options. Check all that apply.'
+  description: 'What happened that caused you to lose your housing most recently? (Do not read the options. Check all that apply.',
+  question_type_id: 1
 })
 
 
@@ -315,50 +350,14 @@ QuestionOption.create!({
 
 QuestionOption.create!({
   question_id: 5,
-  option_text: 'Days',
+  option_text: 'Days / Weeks / Months / Years',
   serial_order: 1
-})
-
-QuestionOption.create!({
-  question_id: 5,
-  option_text: 'Weeks',
-  serial_order: 2
-})
-
-QuestionOption.create!({
-  question_id: 5,
-  option_text: 'Months',
-  serial_order: 3
-})
-
-QuestionOption.create!({
-  question_id: 5,
-  option_text: 'Years',
-  serial_order: 4
-})
-
-QuestionOption.create!({
-  question_id: 5,
-  option_text: 'No Answer',
-  serial_order: 5
 })
 
 QuestionOption.create!({
   question_id: 6,
   option_text: 'Age',
   serial_order: 1
-})
-
-QuestionOption.create!({
-  question_id: 6,
-  option_text: 'Year Born',
-  serial_order: 2
-})
-
-QuestionOption.create!({
-  question_id: 6,
-  option_text: 'No Answer',
-  serial_order: 3
 })
 
 QuestionOption.create!({
@@ -394,52 +393,52 @@ QuestionOption.create!({
 QuestionOption.create!({
   question_id: 7,
   option_text: 'Money from family/friends',
-  serial_order: 8
+  serial_order: 7
 })
 QuestionOption.create!({
   question_id: 7,
   option_text: 'Job full-time',
-  serial_order: 9
-})
-QuestionOption.create!({
-  question_id: 7,
-  option_text: 'Job part-time or casual',
   serial_order: 8
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Old age security (OAS)/guaranteed income supplements (GIS)',
+  option_text: 'Job part-time or casual',
   serial_order: 9
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'CPP or other pension',
+  option_text: 'Old age security (OAS)/guaranteed income supplements (GIS)',
   serial_order: 10
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Honoraria',
+  option_text: 'CPP or other pension',
   serial_order: 11
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Vending',
+  option_text: 'Honoraria',
   serial_order: 12
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'No income',
+  option_text: 'Vending',
   serial_order: 13
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Other (specify)',
+  option_text: 'No income',
   serial_order: 14
 })
 QuestionOption.create!({
   question_id: 7,
-  option_text: 'Don\'t know/No answer',
+  option_text: 'Other (specify)',
   serial_order: 15
+})
+QuestionOption.create!({
+  question_id: 7,
+  option_text: 'Don\'t know',
+  serial_order: 16
 })
 QuestionOption.create!({
   question_id: 8,
@@ -508,7 +507,7 @@ QuestionOption.create!({
 })
 QuestionOption.create!({
   question_id: 8,
-  option_text: 'Don\'t know/No answer',
+  option_text: 'Don\'t know',
   serial_order: 14
 })
 
