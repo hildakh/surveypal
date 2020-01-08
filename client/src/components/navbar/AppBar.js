@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Button from '@material-ui/core/Button';
+import Logout from '../navbar/Logout'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -28,7 +28,6 @@ import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
 import Login from "../navbar/Login"
 import axios from 'axios';
-
 
 const drawerWidth = 240;
 
@@ -151,12 +150,22 @@ export default function PrimarySearchAppBar(props) {
 
   const fetchTeams = () => {
     axios.get('/api/teams')
+      .then(response => {
+        console.log(response);
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log('Hello! Error speaking!');
+      });
+  }
+
+  const fetchSurvoyers = () => {
+    axios.get('/admin/users')
     .then(response => {
-      console.log(response);
       console.log(response.data)
     })
     .catch(error => {
-      console.log('Hello! Error speaking!');
+      console.log('Eureka! Error finding surveyors!!');
     });
   }
 
@@ -245,7 +254,7 @@ export default function PrimarySearchAppBar(props) {
             <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports' />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={fetchSurvoyers}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
@@ -255,7 +264,7 @@ export default function PrimarySearchAppBar(props) {
           </ListItem>
         </List>
       </Drawer>)}
-      <AppBar position="static" inputfield={props.inputfield} >
+      <AppBar position="static" inputfield={props.inputfield} session={props.session}>
         <Toolbar>
           {userType === 1 && (<IconButton
             edge="start"
@@ -295,9 +304,7 @@ export default function PrimarySearchAppBar(props) {
                 <Typography className={classes.name} variant="h6" noWrap>
                   {props.userName}
                 </Typography>
-                <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }}>
-                  Logout
-           </Button>
+                <Logout logout={props.logout} />
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton
