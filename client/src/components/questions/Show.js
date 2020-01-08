@@ -7,7 +7,6 @@ import BackToSurveyButton from './Back_To_Survey_Button.js';
 import QuestionText from './Question_Text';
 import QuestionOptionsList from './Question_Options_List';
 
-
 // let classNames = require("classnames");
 
 const useStyles = makeStyles(theme => ({
@@ -39,27 +38,27 @@ export default function Show(props) {
   return (
 
       <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
-        
+
         <BackToSurveyButton onClick="{action('button-clicked')}" className={styleClasses.navButton} justify="flex-end"/>
 
         <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
-        
+
           <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
             <BeforeButton onClick="{action('button-clicked')}" />
           </Grid>
-        
+
           <Grid container item xs={9} className={styleClasses.grid} alignItems="flex-start" justify="center">
-        
+
               {props.question_text}
 
               {props.question_options_list}
           </Grid>
-        
+
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
             <NextButton onClick="{action('button-clicked')}"  />
           </Grid>
-        
-        </Grid>     
+
+        </Grid>
 
       </Container>
 
