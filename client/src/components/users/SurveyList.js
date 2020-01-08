@@ -50,7 +50,7 @@ export default function PinnedSubheaderList(props) {
         {props.list.map(item => {
           return (
             <SurveyListItem
-              title={item}
+              title={item.name}
               onClick={handleListItem}
             >
             </SurveyListItem>

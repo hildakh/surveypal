@@ -527,6 +527,11 @@ City.create!({
   province: 'AB'
 })
 
+City.create!({
+  name: 'Toronto',
+  province: 'ON'
+})
+
 ## SURVEYS
 puts "Creating surveys ..."
 
@@ -538,6 +543,92 @@ Survey.create!({
   user_id: 3,
   city_id: 1
 })
+Survey.create!({
+  name: 'Vancouver 2019 Sheltered Survey',
+  description: 'To report on the total number of the homeless in the city of Vancouver in 2019',
+  user_id: 4,
+  city_id: 1
+})
+Survey.create!({
+  name: 'Calgary 2019 Sheltered Survey',
+  description: 'To report on the total number of the homeless in the city of Calgary in 2019',
+  user_id: 4,
+  city_id: 3
+})
+Survey.create!({
+  name: 'Vancouver Homeless Aboriginal Survey',
+  description: 'To report on homeless aboriginal in the city of Vancouver',
+  user_id: 4,
+  city_id: 1
+})
+Survey.create!({
+  name: 'Vancouver Homeless Youth Survey',
+  description: 'To report on homeless youth who are between the ages 19 to 24 in the city of Vancouver',
+  user_id: 4,
+  city_id: 1
+})
+Survey.create!({
+  name: 'Vancouver Homeless Health Survey',
+  description: 'To report on physical and mental health condition of homeless in the city of Vancouver in 2019',
+  user_id: 4,
+  city_id: 1,
+  end_date: DateTime.strptime("01/09/2020 17:00", "%m/%d/%Y %H:%M")
+})
+
+## SURVEY QUESTION ANSWERS
+puts "Creating survey question answers"
+
+SurveyQuestionAnswer.destroy_all
+
+SurveyQuestionAnswer.create!({
+  survey_id: 1,
+  question_id: 1,
+  user_id: 1,
+  question_order: 1
+})
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 2,
+#   user_id: 1,
+#   question_order: 2
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 3,
+#   user_id: 1,
+#   question_order: 3
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 4,
+#   user_id: 1,
+#   question_order: 4
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 5,
+#   user_id: 1,
+#   question_order: 5
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 6,
+#   user_id: 1,
+#   question_order: 6
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 8,
+#   user_id: 1,
+#   question_order: 7
+# })
+# SurveyQuestionAnswer.create!({
+#   survey_id: 1,
+#   question_id: 7,
+#   user_id: 1,
+#   question_order: 8
+# })
+
 
 ## SURVEY QUESTION ANSWERS
 puts "Creating survey questions ..."

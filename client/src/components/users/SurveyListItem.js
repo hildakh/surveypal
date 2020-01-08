@@ -11,7 +11,6 @@ const useStyle = makeStyles(theme => ({
 }))
 export default function SurveyListItem(props) {
   const classes = useStyle()
-
   return (
     <li onClick={props.onClick}>
       <p className={classes.title}>
