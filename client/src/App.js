@@ -20,9 +20,7 @@ class App extends Component {
       completedSurveyList: [{ title: 'Vancouver homeless count 2018', date: 'Dec 9, 2019' }]
     }
     this.status = 'NULL';
-
   }
-
   fetchData = () => {
     axios.get(`/api/surveys?user_id=${this.state.user.id}`)
       .then((response) => {
@@ -31,7 +29,6 @@ class App extends Component {
   }
 
   toggleFirst = () => {
-    this.fetchData();
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   }; 1
   toggleSecond = () => {
@@ -39,6 +36,7 @@ class App extends Component {
   };
   login = (user) => {
     this.setState({ ...this.state, user: user, userType: user.user_type_id })
+    this.fetchData();
   }
 
   render() {
@@ -48,13 +46,13 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
-              <Card message={'Surveys'} counter={5} onClick={this.toggleFirst} />
+              <Card message={'Surveys'} counter={this.state.surveyList.length} onClick={this.toggleFirst} />
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />
               </Expand>
             </React.Fragment>
             <React.Fragment>
-              <Card message={`Completed surveys`} counter={10} onClick={this.toggleSecond} />
+              <Card message={`Completed surveys`} counter={this.state.completedSurveyList.length} onClick={this.toggleSecond} />
               <Expand open={this.state.compSurvOpen}>
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
