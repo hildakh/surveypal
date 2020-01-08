@@ -7,6 +7,7 @@ import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 import Survey from './components/survey/Survey';
 import CompSurvList from './components/users/CompSurvList';
+import fetchSurveys from './helpers/fetchSurveys';
 
 class App extends Component {
   constructor(props) {
@@ -23,20 +24,15 @@ class App extends Component {
     this.status = 'NULL';
   }
   fetchData = () => {
-    axios.get(`/api/surveys?user_id=${this.state.user.id}`)
-      .then((response) => {
-        const completed = response.data.survey.filter(element => element.end_date);
-        this.setState({
-          ...this.state,
-          surveyList: response.data.survey,
-          completedSurveyList: completed
-        });
-      })
+    if(this.state.user.userType === 1) {
+      fetchSurveys()
+    }
+
   }
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
-  }; 1
+  };
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
@@ -64,6 +60,7 @@ class App extends Component {
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
             </React.Fragment>
+            <Survey />
           </div>
         )}
       </div>

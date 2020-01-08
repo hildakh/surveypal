@@ -108,7 +108,7 @@ surveyor.users.create!({
   email: 'roach@msn.com',
   password: 'yennefer'
 })
-    
+
 ## TEAMS
 puts "Creating teams ..."
 
@@ -118,21 +118,24 @@ teambahareh = Team.create!({
   name: 'Team Bahareh',
   description: 'Team created by Bahareh',
   purpose: 'To keep track of the surveyors and update them',
-  user_id: 1
+  user_id: 1,
+  survey_id: 1
   })
-      
+
 teamvanessa = Team.create!({
   name: 'Team Vanessa',
   description: 'Team created by Vanessa',
   purpose: 'To keep track of the surveyors and update them',
-  user_id: 2
+  user_id: 2,
+  survey_id: 2
 })
 
 teamhilda = Team.create!({
   name: 'Team Hilda',
   description: 'Team created by Hilda',
   purpose: 'To keep track of the surveyors and update them',
-  user_id: 3
+  user_id: 3,
+  survey_id: 3
 })
 
 # TEAM MEMBERS
