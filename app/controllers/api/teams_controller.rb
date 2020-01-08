@@ -6,7 +6,7 @@ class Api::TeamsController < ApplicationController
    end
 
   def show
+   end
 
-  end
 
 end
