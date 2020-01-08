@@ -251,7 +251,7 @@ export default function PrimarySearchAppBar() {
             <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports' />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={fetchSurvoyers}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
