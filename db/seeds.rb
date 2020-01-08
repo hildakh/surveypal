@@ -557,7 +557,7 @@ Survey.create!({
   city_id: 3
 })
 Survey.create!({
-  name: 'Vancouver Homeless Aboriginal People Survey',
+  name: 'Vancouver Homeless Aboriginal Survey',
   description: 'To report on homeless aboriginal in the city of Vancouver',
   user_id: 4,
   city_id: 1
@@ -572,7 +572,8 @@ Survey.create!({
   name: 'Vancouver Homeless Health Survey',
   description: 'To report on physical and mental health condition of homeless in the city of Vancouver in 2019',
   user_id: 4,
-  city_id: 1
+  city_id: 1,
+  end_date: DateTime.strptime("01/09/2020 17:00", "%m/%d/%Y %H:%M")
 })
 
 ## SURVEY QUESTION ANSWERS
