@@ -17,8 +17,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: '/admin/dashboard#index'
+
     resources :surveys
     resources :teams
+    resources :users
   end
 
   get '*path', to: "static_pages#fallback_index_html", constraints: ->(request) do

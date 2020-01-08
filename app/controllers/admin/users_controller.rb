@@ -1,8 +1,10 @@
 class Admin::UsersController < ApplicationController
 
   def index
+    users = User.where(user_type_id: 2)
+    render json: users
   end
-  
+
   def new
   end
 
@@ -22,7 +24,7 @@ class Admin::UsersController < ApplicationController
 
   def edit
   end
-  
+
   def update
   end
 
