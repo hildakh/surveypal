@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_021227) do
+ActiveRecord::Schema.define(version: 2020_01_08_031825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,17 +47,14 @@ ActiveRecord::Schema.define(version: 2020_01_08_021227) do
     t.index ["question_type_id"], name: "index_questions_on_question_type_id"
   end
 
-  create_table "survey_question_answers", force: :cascade do |t|
-    t.string "answer_text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "survey_questions", force: :cascade do |t|
+    t.integer "serial_order"
     t.bigint "survey_id", null: false
     t.bigint "question_id", null: false
-    t.bigint "user_id", null: false
-    t.integer "question_order"
-    t.index ["question_id"], name: "index_survey_question_answers_on_question_id"
-    t.index ["survey_id"], name: "index_survey_question_answers_on_survey_id"
-    t.index ["user_id"], name: "index_survey_question_answers_on_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_survey_questions_on_question_id"
+    t.index ["survey_id"], name: "index_survey_questions_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -113,9 +110,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_021227) do
   add_foreign_key "question_options", "questions"
   add_foreign_key "questions", "question_types"
   add_foreign_key "questions", "questions", column: "dependent_on_question_id"
-  add_foreign_key "survey_question_answers", "questions"
-  add_foreign_key "survey_question_answers", "surveys"
-  add_foreign_key "survey_question_answers", "users"
+  add_foreign_key "survey_questions", "questions"
+  add_foreign_key "survey_questions", "surveys"
   add_foreign_key "surveys", "cities"
   add_foreign_key "surveys", "users"
   add_foreign_key "team_members", "teams"
