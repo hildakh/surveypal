@@ -45,12 +45,12 @@ export default function CompSurveyList(props) {
     <List className={classes.root} subheader={<li />}>
       <ul className={classes.ul}>
         {props.list.map(item => {
+
           return (
             <ComSurvListItem
-              title={item.title}
-              date={item.date}
-              onClick={showDialog}
-            >
+              title={item.name}
+              date={`Conducted in: ${item.end_date}`}
+              onClick={showDialog}>
             </ComSurvListItem>
           )
         })}
