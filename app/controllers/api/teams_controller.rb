@@ -1,7 +1,7 @@
 class Api::TeamsController < ApplicationController
 
   def index
-    teams = Team.first
+    teams = Team.all.select(:id, :name, :description, :purpose)
     render json: teams
    end
 

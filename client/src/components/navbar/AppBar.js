@@ -31,6 +31,16 @@ import axios from 'axios';
 
 const drawerWidth = 240;
 
+const fetchTeams = () => {
+  axios.get('/api/teams')
+  .then(response => {
+    console.log(response.data)
+  })
+  .catch(error => {
+    console.log('Hello! Error speaking!');
+  });
+}
+
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
@@ -145,16 +155,7 @@ export default function PrimarySearchAppBar() {
     setDrawerOpen(false);
   }
 
-  const fetchTeams = () => {
-    axios.get('/api/teams')
-    .then(response => {
-      console.log(response);
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log('Hello! Error speaking!');
-    });
-  }
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
