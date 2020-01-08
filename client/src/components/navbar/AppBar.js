@@ -27,7 +27,6 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
-import axios from 'axios';
 
 const drawerWidth = 240;
 
@@ -143,27 +142,6 @@ export default function PrimarySearchAppBar() {
 
   const handleDrawerClose = event => {
     setDrawerOpen(false);
-  }
-
-  const fetchTeams = () => {
-    axios.get('/api/teams')
-    .then(response => {
-      console.log(response);
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log('Hello! Error speaking!');
-    });
-  }
-
-  const fetchSurvoyers = () => {
-    axios.get('/admin/users')
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log('Eureka! Error finding surveyors!!');
-    });
   }
 
   const menuId = 'primary-search-account-menu';
