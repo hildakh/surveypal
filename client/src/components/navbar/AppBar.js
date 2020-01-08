@@ -148,8 +148,6 @@ export default function PrimarySearchAppBar() {
     setDrawerOpen(false);
   }
 
-
-
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
