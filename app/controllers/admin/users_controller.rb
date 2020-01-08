@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    users = User.find_by user_type_id: 2
+    users = User.where(user_type_id: 2)
     render json: users
   end
 
