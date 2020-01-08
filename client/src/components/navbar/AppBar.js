@@ -156,6 +156,16 @@ export default function PrimarySearchAppBar() {
     });
   }
 
+  const fetchSurvoyers = () => {
+    axios.get('/admin/users')
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log('Eureka! Error finding surveyors!!');
+    });
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
