@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Login from '../navbar/Login';
 import Logout from '../navbar/Logout'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -26,9 +27,8 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
-import fetchTeams from '../../helpers/fetchteams';
-// import axios from 'axios';
-import Login from "../navbar/Login";
+import fetchTeams from '../../helpers/fetchTeams';
+import fetchSurveys from '../../helpers/fetchSurveys';
 
 const drawerWidth = 240;
 
@@ -236,7 +236,7 @@ export default function PrimarySearchAppBar(props) {
         </div>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button onClick={fetchSurveys}>
             <ListItemIcon><BallotIcon /></ListItemIcon>
             <ListItemText primary='Surveys' />
           </ListItem>
