@@ -585,4 +585,34 @@ SurveyQuestion.create!({
   serial_order: 8
 })
 
+## SURVEY QUESTION ANSWERS
+puts "Creating survey responses"
+
+SurveyResponse.destroy_all
+
+SurveyResponse.create!({
+  survey_id: 1,
+  user_id: 1
+})
+SurveyResponse.create!({
+  survey_id: 1,
+  user_id: 1
+})
+SurveyResponse.create!({
+  survey_id: 1,
+  user_id: 1
+})
+SurveyResponse.create!({
+  survey_id: 1,
+  user_id: 2
+})
+SurveyResponse.create!({
+  survey_id: 1,
+  user_id: 3
+})
+SurveyResponse.create!({
+  survey_id: 1,
+  user_id: 3
+})
+
 puts "DONE!"
