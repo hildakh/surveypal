@@ -7,30 +7,40 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
-import Confirmation from '../status/Success'
+import axios from 'axios';
 
-export default function FormDialog() {
-  const [open, setOpen] = React.useState(false);
-  const [status, setStatus] = React.useState('BASIC')
 
+export default function FormDialog(props) {
+  const [state, setState] = React.useState({
+    email: "",
+    password: "",
+    status: "PENDING",
+    open: false
+  })
+
+  const fetchData = (email, password) => {
+
+    axios.post('/api/login', { email: email, password: password }) // You can simply make your requests to "/api/whatever you want"
+      .then((response) => {
+        // handle success
+        if (!response.data.user) {
+          setState({ ...state, status: "ERROR" })
+        } else {
+          props.login(response.data.user);
+          handleClose();
+        }
+
+      })
+  }
   const handleClickOpen = () => {
-    setOpen(true);
+    setState({ ...state, open: true });
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setState({ ...state, open: false, status: "PENDING" });
   };
-
-  //handle error
-  const openError = () => {
-    setStatus('ERROR')
-  }
-  const closeMessage = () => {
-    setStatus('BASIC');
-  }
-  //handle success
-  const openSuccess = () => {
-    setStatus('SUCCESS')
+  const validate = () => {
+    fetchData(state.email, state.password)
   }
 
   return (
@@ -38,8 +48,9 @@ export default function FormDialog() {
       <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }} onClick={handleClickOpen}>
         Login
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog open={state.open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        {state.status === 'ERROR' && (<div><Error message="Email or password is incorrect!" /></div>)}
         <DialogContent>
           <DialogContentText>
             Please Enter your Email and Password.
@@ -51,6 +62,7 @@ export default function FormDialog() {
             label="Email Address"
             type="email"
             fullWidth
+            onChange={(event) => setState({ ...state, email: event.target.value })}
           />
           <TextField
             margin="dense"
@@ -58,17 +70,16 @@ export default function FormDialog() {
             label="Password"
             type="password"
             fullWidth
+            onChange={(event) => setState({ ...state, password: event.target.value })}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={validate} color="primary">
             Login
           </Button>
-          {/* {status === 'SUCCESS' && (<Confirmation onClick={closeMessage} />)}
-          {status === 'ERROR' && (<Error onClick={closeMessage} />)} */}
         </DialogActions>
       </Dialog>
     </div>
