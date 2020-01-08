@@ -1,7 +1,10 @@
 class Api::SurveysController < ApplicationController
 
   def index
-    
+    surveys = Survey.where({user_id: params[:user_id]})
+    render json: {
+      survey: surveys
+    }
   end
 
   def new
