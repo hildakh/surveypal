@@ -1,8 +1,10 @@
 class Admin::UsersController < ApplicationController
-
+  # respond_to :json
   def index
     users = User.where(user_type_id: 2)
+    # userobj = users.map {|user| {first_name: user.first_name}}
     render json: users
+
   end
 
   def new
