@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Login from '../navbar/Login';
 import Logout from '../navbar/Logout'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -26,8 +27,8 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
-import Login from "../navbar/Login"
-import axios from 'axios';
+import fetchTeams from '../../helpers/fetchTeams';
+import fetchSurveys from '../../helpers/fetchSurveys';
 
 const drawerWidth = 240;
 
@@ -148,17 +149,6 @@ export default function PrimarySearchAppBar(props) {
     setDrawerOpen(false);
   }
 
-  const fetchTeams = () => {
-    axios.get('/api/teams')
-      .then(response => {
-        console.log(response);
-        console.log(response.data)
-      })
-      .catch(error => {
-        console.log('Hello! Error speaking!');
-      });
-  }
-
   const fetchSurvoyers = () => {
     axios.get('/admin/users')
     .then(response => {
@@ -167,16 +157,6 @@ export default function PrimarySearchAppBar(props) {
     .catch(error => {
       console.log('Eureka! Error finding surveyors!!');
     });
-  }
-
-  const fetchSurveys = () => {
-    axios.get('admin/surveys')
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
-    })
   }
 
   const menuId = 'primary-search-account-menu';
