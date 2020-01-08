@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const fetchTeams = () => {
-  axios.get('/api/teams')
+  axios.get('/admin/teams')
   .then(response => {
     console.log(response.data)
   })
