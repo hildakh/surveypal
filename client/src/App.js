@@ -35,7 +35,6 @@ class App extends Component {
       })
   }
 
-
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   }; 1
@@ -55,7 +54,7 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
-      
+
               <Card message={'Surveys'} counter={this.state.surveyList.length || 0} onClick={this.toggleFirst} />
 
               <Expand open={this.state.surveyOpen}>
