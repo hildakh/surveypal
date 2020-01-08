@@ -1,6 +1,7 @@
 class Api::SurveysController < ApplicationController
 
   def index
+    
   end
 
   def new
