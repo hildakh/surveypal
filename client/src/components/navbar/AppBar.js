@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Login from './Login';
+import Logout from '../navbar/Logout'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -23,10 +23,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import BallotIcon from '@material-ui/icons/Ballot';
-// import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
+import Login from "../navbar/Login"
+import axios from 'axios';
 
 const drawerWidth = 240;
 
@@ -55,7 +56,9 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
-
+  name: {
+    margin: '10px'
+  },
   root: {
     display: 'flex',
   },
@@ -109,12 +112,13 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const userType = props.userType;
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -142,6 +146,27 @@ export default function PrimarySearchAppBar() {
 
   const handleDrawerClose = event => {
     setDrawerOpen(false);
+  }
+
+  const fetchTeams = () => {
+    axios.get('/api/teams')
+      .then(response => {
+        console.log(response);
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log('Hello! Error speaking!');
+      });
+  }
+
+  const fetchSurvoyers = () => {
+    axios.get('/admin/users')
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log('Eureka! Error finding surveyors!!');
+    });
   }
 
   const menuId = 'primary-search-account-menu';
@@ -172,7 +197,6 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {/* Reponsive menu items */}
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={2} color="secondary">
@@ -205,6 +229,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
+
       {drawerOpen && (<Drawer
         className={classes.drawer}
         variant="persistent"
@@ -229,74 +254,70 @@ export default function PrimarySearchAppBar() {
             <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports' />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={fetchSurvoyers}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={fetchTeams}>
             <ListItemIcon><FaUsers /></ListItemIcon>
-            <ListItemText primary='Teams'/>
+            <ListItemText primary='Teams' />
           </ListItem>
         </List>
-        {/* <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <BallotIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>)}
-      <AppBar position="static">
+      <AppBar position="static" inputfield={props.inputfield} session={props.session}>
         <Toolbar>
-          <IconButton
+          {userType === 1 && (<IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
-          >
+            onClick={handleDrawerOpen}>
             <MenuIcon />
-          </IconButton>
+          </IconButton>)}
+
           <Typography className={classes.title} variant="h6" noWrap>
             SurveyPal
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={2} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Login />
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
+          {userType !== 0 && (
+            <div>
+              <div className={classes.sectionDesktop}>
+                <IconButton aria-label="show 4 new mails" color="inherit">
+                  <Badge badgeContent={2} color="secondary">
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton aria-label="show 17 new notifications" color="inherit">
+                  <Badge badgeContent={4} color="secondary">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit">
+                  <AccountCircle />
+                </IconButton>
+                <Typography className={classes.name} variant="h6" noWrap>
+                  {props.userName}
+                </Typography>
+                <Logout logout={props.logout} />
+              </div>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit">
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </div>)}
+          {userType === 0 && (<Login login={props.login} />)}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
