@@ -23,12 +23,10 @@ class App extends Component {
     }
     this.status = 'NULL';
   }
-  fetchData = () => {
-    if(this.state.user.userType === 1) {
-      fetchSurveys()
-    }
-
-  }
+  // fetchData = () => {
+  //   if(this.state.user.userType === 1) {
+  //     fetchSurveys()
+  //   }
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -65,7 +63,7 @@ class App extends Component {
         )}
       </div>
     );
-  }
+}
 }
 
 export default App;
