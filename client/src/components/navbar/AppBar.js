@@ -159,6 +159,16 @@ export default function PrimarySearchAppBar(props) {
       });
   }
 
+  const fetchSurvoyers = () => {
+    axios.get('/admin/users')
+    .then(response => {
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.log('Eureka! Error finding surveyors!!');
+    });
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -244,7 +254,7 @@ export default function PrimarySearchAppBar(props) {
             <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports' />
           </ListItem>
-          <ListItem button>
+          <ListItem button onClick={fetchSurvoyers}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
