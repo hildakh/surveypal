@@ -151,8 +151,8 @@ export default function PrimarySearchAppBar(props) {
   }
 
   const handleFetchSurveys = () => {
-    const user_id = JSON.parse(localStorage.getItem('token')).user_id;
-    fetchSurveys(user_id)
+    const user = JSON.parse(localStorage.getItem('token'));
+    fetchSurveys(user)
   }
 
   const menuId = 'primary-search-account-menu';

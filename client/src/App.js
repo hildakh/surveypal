@@ -44,7 +44,7 @@ class App extends Component {
   };
   login = (data) => {
     this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
-    this.fetchData();
+    // this.fetchData();
   }
   logout = () => {
     localStorage.clear();
