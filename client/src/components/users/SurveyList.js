@@ -36,7 +36,6 @@ export default function PinnedSubheaderList(props) {
   }
   return (
     <List className={classes.root} subheader={<li />}>
-      {/* <ul className={classes.ul}> */}
         {props.list.map(item => {
           return (
             <SurveyListItem
@@ -46,7 +45,6 @@ export default function PinnedSubheaderList(props) {
             </SurveyListItem>
           )
         })}
-      {/* </ul> */}
     </List>
   );
 }

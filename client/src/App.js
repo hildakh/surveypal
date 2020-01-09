@@ -6,10 +6,10 @@ import Expand from "react-expand-animated";
 import SurveyList from "./components/users/SurveyList";
 import CompSurvList from "./components/users/CompSurvList";
 import fetchSurveys from "./helpers/fetchSurveys";
-// import SurveyForm from "./components/survey/SurveyForm";
-// import List from "@material-ui/core/List";
-// import ListItem from "@material-ui/core/ListItem";
-// import { ListItemText } from "@material-ui/core";
+import SurveyForm from "./components/survey/SurveyForm";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import { ListItemText } from "@material-ui/core";
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +36,10 @@ class App extends Component {
   }
   componentDidMount = () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    this.state.surveyList = fetchSurveys(token);
+    const surveys = fetchSurveys(token);
+    setTimeout(() => {
+      this.setState({...this.state, surveyList: surveys});
+    }, 1000);
   };
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -45,7 +48,7 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
   login = (data) => {
-    this.setState({ ...this.state, surveyList: surveys, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
+    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id})
   }
   logout = () => {
     localStorage.clear();
@@ -57,7 +60,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} />
+        <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} loadSurveys={this.loadSurveys}/>
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>

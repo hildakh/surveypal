@@ -6,8 +6,10 @@ const fetchSurveys = (user) => {
     if (user.user_type_id === 1) {
       axios.get(`admin/surveys?user_id=${user.id}`)
       .then(response => {
-        surveys.push(response.data)
+        response.data.forEach(item => {
+          surveys.push(item)
       })
+    })
         .catch(error => {
           console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
         })
@@ -19,7 +21,7 @@ const fetchSurveys = (user) => {
           })
         })
         .catch(error => {
-          console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
+          console.log(`Couldnt get user surveys`);
         })
     }
   }
