@@ -5,23 +5,31 @@ import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
-import Survey from './components/survey/Survey';
 import CompSurvList from './components/users/CompSurvList';
 import fetchSurveys from './helpers/fetchSurveys';
 
 class App extends Component {
   constructor(props) {
     super(props)
+    const token = JSON.parse(localStorage.getItem('token'))
+    let currentUser = {}
+    let user_type = 0
+    if (token) {
+      currentUser = token
+      user_type = token.user_type_id
+    }
     this.state = {
       session: null,
-      userType: 0,
-      user: {},
+      userType: user_type,
+      user: currentUser,
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: [],
       completedSurveyList: []
     }
+
     this.status = 'NULL';
+
   }
   // fetchData = () => {
   //   if(this.state.user.userType === 1) {
@@ -36,8 +44,10 @@ class App extends Component {
   };
   login = (data) => {
     this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
+    this.fetchData();
   }
   logout = () => {
+    localStorage.clear();
     this.setState({ ...this.state, userType: 0 })
   }
   render() {
@@ -47,6 +57,7 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
+
               <Card message={'Surveys'} counter={this.state.surveyList.length || 0} onClick={this.toggleFirst} />
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />

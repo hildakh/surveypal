@@ -29,6 +29,7 @@ import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
 import fetchTeams from '../../helpers/fetchTeams';
 import fetchSurveys from '../../helpers/fetchSurveys';
+import fetchSurvoyers from '../../helpers/fetchSurveyors';
 
 const drawerWidth = 240;
 
@@ -147,16 +148,6 @@ export default function PrimarySearchAppBar(props) {
 
   const handleDrawerClose = event => {
     setDrawerOpen(false);
-  }
-
-  const fetchSurvoyers = () => {
-    axios.get('/admin/users')
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log('Eureka! Error finding surveyors!!');
-    });
   }
 
   const menuId = 'primary-search-account-menu';

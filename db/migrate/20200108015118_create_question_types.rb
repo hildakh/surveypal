@@ -1,9 +1,8 @@
-class CreateTeams < ActiveRecord::Migration[6.0]
+class CreateQuestionTypes < ActiveRecord::Migration[6.0]
   def change
-    create_table :teams do |t|
+    create_table :question_types do |t|
       t.string :name, null: false
       t.string :description
-      t.string :purpose
 
       t.timestamps
     end

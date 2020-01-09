@@ -1,7 +1,8 @@
 class Admin::UsersController < ApplicationController
 
   def index
-
+    users = User.where(user_type_id: 2).select(:id, :first_name, :last_name, :email)
+    render json: users
   end
 
   def new
