@@ -12,6 +12,8 @@ import ListItem from "@material-ui/core/ListItem";
 import { ListItemText } from "@material-ui/core";
 
 class App extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     const token = JSON.parse(localStorage.getItem("token"));
@@ -21,6 +23,7 @@ class App extends Component {
       currentUser = token;
       user_type = token.user_type_id;
     }
+
     this.state = {
       session: null,
       userType: user_type,
@@ -35,11 +38,12 @@ class App extends Component {
     this.status = "NULL";
   }
   componentDidMount = () => {
+    this._isMounted = true;
     const token = JSON.parse(localStorage.getItem("token"));
     const surveys = fetchSurveys(token);
-    setTimeout(() => {
-      this.setState({...this.state, surveyList: surveys});
-    }, 1000);
+    if (this._isMounted) {
+      this.setState({ ...this.state, surveyList: surveys });
+    }
   };
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -47,12 +51,16 @@ class App extends Component {
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
-  login = (data) => {
-    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id})
-  }
+  login = data => {
+    this.setState({
+      ...this.state,
+      user: data.user,
+      userType: data.user.user_type_id
+    });
+  };
   logout = () => {
     localStorage.clear();
-    this.setState({ ...this.state, userType: 0 });
+    this.setState({ ...this.state, userType: 0, adminSurveyList: false });
   };
   loadSurveys = () => {
     this.setState({ ...this.state, adminSurveyList: true });
@@ -60,19 +68,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} loadSurveys={this.loadSurveys}/>
+        <AppBar
+          userType={this.state.userType}
+          logout={this.logout}
+          login={this.login}
+          userName={this.state.user["first_name"]}
+          loadSurveys={this.loadSurveys}
+        />
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
-              <Card message={'Surveys'} counter={this.state.surveyList.length || 0} onClick={this.toggleFirst} />
+              <Card
+                message={"Surveys"}
+                counter={this.state.surveyList.length || 0}
+                onClick={this.toggleFirst}
+              />
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />
               </Expand>
             </React.Fragment>
-            </div>
+          </div>
         )}
-        {this.state.adminSurveyList && (<SurveyList list={this.state.surveyList}/>
-            )}
+        {this.state.adminSurveyList && (
+          <SurveyList list={this.state.surveyList} />
+        )}
       </div>
     );
   }
