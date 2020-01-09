@@ -6,6 +6,7 @@ import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 import CompSurvList from './components/users/CompSurvList';
+import fetchSurveys from './helpers/fetchSurveys';
 
 class App extends Component {
   constructor(props) {
@@ -30,17 +31,10 @@ class App extends Component {
     this.status = 'NULL';
 
   }
-  fetchData = () => {
-    axios.get(`/api/surveys?user_id=${this.state.user.id}`)
-      .then((response) => {
-        const completed = response.data.survey.filter(element => element.end_date);
-        this.setState({
-          ...this.state,
-          surveyList: response.data.survey,
-          completedSurveyList: completed
-        });
-      })
-  }
+  // fetchData = () => {
+  //   if(this.state.user.userType === 1) {
+  //     fetchSurveys()
+  //   }
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -50,7 +44,7 @@ class App extends Component {
   };
   login = (data) => {
     this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
-    this.fetchData();
+    fetchSurveys(data.user)
   }
   logout = () => {
     localStorage.clear();
@@ -75,11 +69,12 @@ class App extends Component {
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
             </React.Fragment>
+            <Survey />
           </div>
         )}
       </div>
     );
-  }
+}
 }
 
 export default App;

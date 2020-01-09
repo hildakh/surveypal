@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_041120) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.integer "survey_id", null: false
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
