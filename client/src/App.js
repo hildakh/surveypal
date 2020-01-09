@@ -31,7 +31,16 @@ class App extends Component {
     this.status = 'NULL';
 
   }
-
+  componentDidMount = () => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    fetchSurveys(token);
+    // const completed = response.data.survey.filter(element => element.end_date);
+    // this.setState({
+    //   ...this.state,
+    //   surveyList: response.data.survey,
+    //   completedSurveyList: completed
+    // });
+  }
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   };
@@ -39,7 +48,6 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
   login = (data) => {
-    fetchSurveys(data.user)
     this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
   }
   logout = () => {
@@ -50,9 +58,9 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} />
-        {this.state.userType === 2 && (
-          <div>
-            <React.Fragment>
+        {/* {this.state.userType === 2 && (
+          <div> */}
+        {/* <React.Fragment>
 
               <Card message={'Surveys'} counter={this.state.surveyList.length || 0} onClick={this.toggleFirst} />
               <Expand open={this.state.surveyOpen}>
@@ -65,12 +73,18 @@ class App extends Component {
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
             </React.Fragment>
+<<<<<<< HEAD
             <SurveyForm />
           </div>
         )}
+=======
+            <Survey /> */}
+>>>>>>> b0d000c06975ad36e76a91c0af21c526fbd95cbb
       </div>
+      // )}
+      // </div>
     );
-}
+  }
 }
 
 export default App;
