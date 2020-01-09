@@ -1,10 +1,11 @@
 import axios from 'axios';
 
   const fetchSurveys = (user) => {
-    console.log('hello you!')
+    const surveys = [];
+    // console.log('hello you!')
     if(user.user_type_id === 1) {
     axios.get(`admin/surveys?user_id=${user.id}`)
-    .then(response => response.data)
+    .then(response => surveys.push(response.data))
     .catch(error => {
       console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
     })
@@ -21,7 +22,7 @@ import axios from 'axios';
         //   completedSurveyList: completed
         // });
   }
-
+  return surveys;
   }
 
   export default fetchSurveys;

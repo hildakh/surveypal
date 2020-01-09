@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
@@ -7,6 +6,7 @@ import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 import CompSurvList from './components/users/CompSurvList';
 import fetchSurveys from './helpers/fetchSurveys';
+import SurveyForm from './components/survey/SurveyForm';
 
 class App extends Component {
   constructor(props) {
@@ -31,10 +31,6 @@ class App extends Component {
     this.status = 'NULL';
 
   }
-  // fetchData = () => {
-  //   if(this.state.user.userType === 1) {
-  //     fetchSurveys()
-  //   }
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -69,7 +65,7 @@ class App extends Component {
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
             </React.Fragment>
-            <Survey />
+            <SurveyForm />
           </div>
         )}
       </div>
