@@ -24,7 +24,7 @@ class App extends Component {
       user: currentUser,
       surveyOpen: false,
       compSurvOpen: false,
-      surveyList: [],
+      surveyList: ['hello'],
       adminSurveyList: false,
       completedSurveyList: []
     }
@@ -55,10 +55,13 @@ class App extends Component {
     localStorage.clear();
     this.setState({ ...this.state, userType: 0 })
   }
+  loadSurveys = () => {
+    this.setState({ ...this.state, adminSurveyList: true })
+  }
   render() {
     return (
       <div className="App">
-        <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} />
+        <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} loadSurveys={this.loadSurveys}/>
         {/* {this.state.userType === 2 && (
           <div> */}
         {/* <React.Fragment>
@@ -75,6 +78,7 @@ class App extends Component {
               </Expand>
             </React.Fragment>
             <Survey /> */}
+           {this.state.adminSurveyList && <SurveyList list={this.state.surveyList}/>}
       </div>
       // )}
       // </div>
