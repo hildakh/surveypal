@@ -14,7 +14,9 @@ const fetchSurveys = (user) => {
     } else {
       axios.get(`/api/surveys?user_id=${user.id}`)
         .then(response => {
-          surveys.push(response.data)
+          response.data.survey.forEach(item => {
+            surveys.push(item)
+          })
         })
         .catch(error => {
           console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
