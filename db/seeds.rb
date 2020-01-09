@@ -575,62 +575,8 @@ Survey.create!({
   end_date: DateTime.strptime("01/09/2020 17:00", "%m/%d/%Y %H:%M")
 })
 
-## SURVEY QUESTION ANSWERS
-puts "Creating survey question answers"
 
-SurveyQuestionAnswer.destroy_all
-
-SurveyQuestionAnswer.create!({
-  survey_id: 1,
-  question_id: 1,
-  user_id: 1,
-  question_order: 1
-})
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 2,
-#   user_id: 1,
-#   question_order: 2
-# })
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 3,
-#   user_id: 1,
-#   question_order: 3
-# })
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 4,
-#   user_id: 1,
-#   question_order: 4
-# })
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 5,
-#   user_id: 1,
-#   question_order: 5
-# })
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 6,
-#   user_id: 1,
-#   question_order: 6
-# })
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 8,
-#   user_id: 1,
-#   question_order: 7
-# })
-# SurveyQuestionAnswer.create!({
-#   survey_id: 1,
-#   question_id: 7,
-#   user_id: 1,
-#   question_order: 8
-# })
-
-
-## SURVEY QUESTION ANSWERS
+## SURVEY QUESTIONS
 puts "Creating survey questions ..."
 
 SurveyQuestion.destroy_all
@@ -676,7 +622,7 @@ SurveyQuestion.create!({
   serial_order: 8
 })
 
-## SURVEY QUESTION ANSWERS
+## SURVEY RESPONSES
 puts "Creating survey responses ..."
 
 SurveyResponse.destroy_all
@@ -707,7 +653,7 @@ SurveyResponse.create!({
 })
 
 
-## SURVEY QUESTION ANSWERS
+## QUESTION RESPONSES
 
 puts "Creating question responses ..."
 
