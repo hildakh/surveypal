@@ -43,8 +43,8 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
   login = (data) => {
-    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
     fetchSurveys(data.user)
+    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
   }
   logout = () => {
     localStorage.clear();
