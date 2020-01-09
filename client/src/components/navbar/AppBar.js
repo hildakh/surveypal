@@ -28,8 +28,8 @@ import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
 import fetchTeams from '../../helpers/fetchTeams';
-import fetchSurveys from '../../helpers/fetchSurveys';
-import fetchSurvoyers from '../../helpers/fetchSurveyors';
+// import fetchSurveys from '../../helpers/fetchSurveys';
+// import fetchSurvoyers from '../../helpers/fetchSurveyors';
 
 const drawerWidth = 240;
 
@@ -235,7 +235,7 @@ export default function PrimarySearchAppBar(props) {
             <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports' />
           </ListItem>
-          <ListItem button onClick={fetchSurvoyers}>
+          <ListItem button onClick={props.loadSurveyors}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>

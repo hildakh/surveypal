@@ -6,10 +6,11 @@ import Expand from "react-expand-animated";
 import SurveyList from "./components/users/SurveyList";
 import CompSurvList from "./components/users/CompSurvList";
 import fetchSurveys from "./helpers/fetchSurveys";
-import SurveyForm from "./components/survey/SurveyForm";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import { ListItemText } from "@material-ui/core";
+// import SurveyForm from "./components/survey/SurveyForm";
+// import List from "@material-ui/core/List";
+// import ListItem from "@material-ui/core/ListItem";
+// import { ListItemText } from "@material-ui/core";
+import fetchSurveyors from '../src/helpers/fetchSurveyors';
 
 class App extends Component {
   _isMounted = false;
@@ -32,7 +33,9 @@ class App extends Component {
       compSurvOpen: false,
       surveyList: [],
       adminSurveyList: false,
-      completedSurveyList: []
+      completedSurveyList: [],
+      surveyorListOpen: false,
+      surveyorList: []
     };
 
     this.status = "NULL";
@@ -41,8 +44,9 @@ class App extends Component {
     this._isMounted = true;
     const token = JSON.parse(localStorage.getItem("token"));
     const surveys = fetchSurveys(token);
+    const surveyors = fetchSurveyors();
     if (this._isMounted) {
-      this.setState({ ...this.state, surveyList: surveys });
+      this.setState({ ...this.state, surveyList: surveys, surveyorList: surveyors });
     }
   };
   toggleFirst = () => {
@@ -65,6 +69,9 @@ class App extends Component {
   loadSurveys = () => {
     this.setState({ ...this.state, adminSurveyList: true });
   };
+  loadSurveyors = () => {
+    this.setState({ ...this.state, surveyorListOpen: true});
+  };
   render() {
     return (
       <div className="App">
@@ -74,6 +81,7 @@ class App extends Component {
           login={this.login}
           userName={this.state.user["first_name"]}
           loadSurveys={this.loadSurveys}
+          loadSurveyors={this.loadSurveyors}
         />
         {this.state.userType === 2 && (
           <div>
@@ -91,6 +99,9 @@ class App extends Component {
         )}
         {this.state.adminSurveyList && (
           <SurveyList list={this.state.surveyList} />
+        )}
+        {this.state.surveyorListOpen && (
+          <SurveyList list={this.state.surveyorList} />
         )}
       </div>
     );
