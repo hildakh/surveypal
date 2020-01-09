@@ -14,7 +14,7 @@ export default function SurveyListItem(props) {
   return (
     <li onClick={props.onClick}>
       <p className={classes.title}>
-        {props.title}
+        {/* {props.title} */}
       </p>
       <Divider />
     </li>

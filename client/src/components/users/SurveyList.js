@@ -57,7 +57,7 @@ export default function PinnedSubheaderList(props) {
           )
         })}
       </ul>
-      <Feedback open={open} close={handleClose} submit={handleSubmit} />
+      {/* <Feedback open={open} close={handleClose} submit={handleSubmit} /> */}
     </List>
   );
 }
