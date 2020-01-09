@@ -31,16 +31,12 @@ class App extends Component {
     this.status = 'NULL';
 
   }
-  componentDidMount = () => {
-    const token = JSON.parse(localStorage.getItem('token'));
-    fetchSurveys(token);
-    // const completed = response.data.survey.filter(element => element.end_date);
-    // this.setState({
-    //   ...this.state,
-    //   surveyList: response.data.survey,
-    //   completedSurveyList: completed
-    // });
-  }
+  // componentWillMount = () => {
+  //   const token = JSON.parse(localStorage.getItem('token'));
+  //   const surveys = fetchSurveys(token);
+  //   console.log(surveys);
+  //   this.setState({ ...this.state, surveyList: surveys });
+  // }
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   };
@@ -48,7 +44,8 @@ class App extends Component {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
   login = (data) => {
-    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
+    const surveys = fetchSurveys(token);
+    this.setState({ ...this.state, surveyList: surveys, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
   }
   logout = () => {
     localStorage.clear();
@@ -58,25 +55,24 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar userType={this.state.userType} logout={this.logout} login={this.login} userName={this.state.user['first_name']} />
-        {/* {this.state.userType === 2 && (
-          <div> */}
-        {/* <React.Fragment>
-
+        {this.state.userType === 2 && (
+          <div>
+            <React.Fragment>
               <Card message={'Surveys'} counter={this.state.surveyList.length || 0} onClick={this.toggleFirst} />
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />
               </Expand>
             </React.Fragment>
-            <React.Fragment>
+            {/* <React.Fragment>
               <Card message={`Completed surveys`} counter={this.state.completedSurveyList.length || 0} onClick={this.toggleSecond} />
               <Expand open={this.state.compSurvOpen}>
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
-            </React.Fragment>
-            <Survey /> */}
+            </React.Fragment> */}
+            {/* <Survey /> */}
+          </div>
+        )}
       </div>
-      // )}
-      // </div>
     );
   }
 }
