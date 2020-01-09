@@ -25,6 +25,7 @@ class App extends Component {
       surveyOpen: false,
       compSurvOpen: false,
       surveyList: [],
+      adminSurveyList: false,
       completedSurveyList: []
     }
 
@@ -73,13 +74,7 @@ class App extends Component {
                 <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
             </React.Fragment>
-<<<<<<< HEAD
-            <SurveyForm />
-          </div>
-        )}
-=======
             <Survey /> */}
->>>>>>> b0d000c06975ad36e76a91c0af21c526fbd95cbb
       </div>
       // )}
       // </div>
