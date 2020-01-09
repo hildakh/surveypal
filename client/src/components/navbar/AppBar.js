@@ -150,6 +150,11 @@ export default function PrimarySearchAppBar(props) {
     setDrawerOpen(false);
   }
 
+  const handleFetchSurveys = () => {
+    const user = JSON.parse(localStorage.getItem('token'));
+    fetchSurveys(user)
+  }
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -227,7 +232,7 @@ export default function PrimarySearchAppBar(props) {
         </div>
         <Divider />
         <List>
-          <ListItem button onClick={fetchSurveys}>
+          <ListItem button onClick={handleFetchSurveys}>
             <ListItemIcon><BallotIcon /></ListItemIcon>
             <ListItemText primary='Surveys' />
           </ListItem>
