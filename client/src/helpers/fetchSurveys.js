@@ -2,7 +2,7 @@ import axios from 'axios';
 
   const fetchSurveys = (userid) => {
     // if(userid === 1) {
-    axios.get(`admin/surveys?user_id=${4}`)
+    axios.get(`admin/surveys?user_id=${userid}`)
     .then(response => console.log(response.data))
     .catch(error => {
       console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
