@@ -91,14 +91,14 @@ class App extends Component {
               </Expand>
             </React.Fragment>
             <Survey /> */}
-        {this.state.adminSurveyList && (
-          <List>
-            {this.state.surveyList.map(survey => (
-              <ListItem button>
-                <ListItemText>{survey.name}</ListItemText>
-              </ListItem>
-            ))}
-          </List>
+        {this.state.adminSurveyList && (<SurveyList list={this.state.surveyList}/>
+          // <List>
+          //   {this.state.surveyList.map(survey => (
+          //     <ListItem button>
+          //       <ListItemText>primary={survey.name}</ListItemText>
+          //     </ListItem>
+          //   ))}
+          // </List>
         )}
       </div>
       // )}

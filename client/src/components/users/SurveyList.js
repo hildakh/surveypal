@@ -31,22 +31,12 @@ export default function PinnedSubheaderList(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const showDialog = () => {
-    setOpen(true);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleSubmit = () => {
-    // submit the feedback
-  }
   const handleListItem = () => {
     //show feedback dialog or show the survey/completed survey preview
   }
   return (
     <List className={classes.root} subheader={<li />}>
-      <ul className={classes.ul}>
+      {/* <ul className={classes.ul}> */}
         {props.list.map(item => {
           return (
             <SurveyListItem
@@ -56,8 +46,7 @@ export default function PinnedSubheaderList(props) {
             </SurveyListItem>
           )
         })}
-      </ul>
-      {/* <Feedback open={open} close={handleClose} submit={handleSubmit} /> */}
+      {/* </ul> */}
     </List>
   );
 }
