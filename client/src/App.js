@@ -31,10 +31,8 @@ class App extends Component {
       userType: user_type,
       user: currentUser,
       surveyOpen: false,
-      compSurvOpen: false,
       surveyList: survey_list,
       adminSurveyList: false,
-      completedSurveyList: [],
       surveyorListOpen: false,
       surveyorList: surveyor_list,
       teamListOpen: false,
@@ -51,7 +49,15 @@ class App extends Component {
   };
   login = () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    this.setState({ ...this.state, user: token.user, userType: token.user.user_type_id, surveyList: token.surveys, surveyorList: token.surveyors, teamList: token.teams })
+    this.setState({
+      ...this.state,
+      user: token.user,
+      userType: token.user.user_type_id,
+      surveyList: token.surveys,
+      surveyorList: token.surveyors, 
+      teamList: token.teams
+      
+    })
   }
   logout = () => {
     localStorage.clear();
