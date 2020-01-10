@@ -7,6 +7,7 @@ import SurveyList from './components/users/SurveyList';
 // import CompSurvList from './components/users/CompSurvList';
 import fetchSurveyors from '../src/helpers/fetchSurveyors';
 import SurveyorList from './components/users/SurveyorList';
+import SurveyTable from './components/admin/SurveyTable';
 
 class App extends Component {
 
@@ -93,7 +94,7 @@ class App extends Component {
           </div>
         )}
         {this.state.adminSurveyList && (
-          <SurveyList list={this.state.surveyList} />
+          <SurveyTable list={this.state.surveyList} />
         )}
         {this.state.surveyorListOpen && (
           <SurveyorList list={this.state.surveyorList} />
