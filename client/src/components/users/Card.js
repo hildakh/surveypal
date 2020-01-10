@@ -4,6 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Spinner from '../status/Spinner';
+
 const useStyles = makeStyles({
   card: {
     maxWidth: '50%',
@@ -35,19 +37,29 @@ const useStyles = makeStyles({
     fontSize: 35,
     color: 'white'
   },
+  spinner: {
+    marginTop: '1%',
+    color: 'white'
+  }
 });
 
 export default function SimpleCard(props) {
   const classes = useStyles();
+  const [progress, setProgress] = React.useState(true)
+
+  setTimeout(() => {
+    setProgress(false)
+  }, 2000)
 
   return (
     <div >
       <Card className={classes.card} onClick={props.onClick}>
-        <span className={classes.badge}>{props.counter}</span>
+        {!progress && <span className={classes.badge}>{props.counter}</span>}
         <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
+          {progress && <Spinner className={classes.spinner} color='secondary' />}
+          {!progress && (<Typography className={classes.title} color="textSecondary" gutterBottom>
             {props.message}
-          </Typography>
+          </Typography>)}
         </CardContent>
         <CardActions>
         </CardActions>
