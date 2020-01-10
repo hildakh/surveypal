@@ -57,9 +57,8 @@ class App extends Component {
       user: token.user,
       userType: token.user.user_type_id,
       surveyList: token.surveys,
-      surveyorList: token.surveyors, 
+      surveyorList: token.surveyors,
       teamList: token.teams
-      
     })
   }
   logout = () => {
