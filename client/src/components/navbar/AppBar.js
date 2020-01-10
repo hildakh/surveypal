@@ -149,6 +149,10 @@ export default function PrimarySearchAppBar(props) {
   const handleDrawerClose = event => {
     setDrawerOpen(false);
   }
+  const logout = event => {
+    setDrawerOpen(false);
+    props.logout();
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -285,7 +289,7 @@ export default function PrimarySearchAppBar(props) {
                 <Typography className={classes.name} variant="h6" noWrap>
                   {props.userName}
                 </Typography>
-                <Logout logout={props.logout} />
+                <Logout logout={logout} />
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton
