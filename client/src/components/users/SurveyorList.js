@@ -1,9 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import Feedback from "../users/Feedback"
-
-import SurveyListItem from '../users/SurveyListItem'
+import SurveyorListItem from './SurveyorListItem';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,11 +36,11 @@ export default function PinnedSubheaderList(props) {
     <List className={classes.root} subheader={<li />}>
         {props.list.map(item => {
           return (
-            <SurveyListItem
+            <SurveyorListItem
               title={`${item.first_name} ${item.last_name}`}
               onClick={handleListItem}
             >
-            </SurveyListItem>
+            </SurveyorListItem>
           )
         })}
     </List>

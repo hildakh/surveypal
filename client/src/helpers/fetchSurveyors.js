@@ -1,17 +1,15 @@
 import axios from 'axios';
 
 const fetchSurveyors = () => {
-  const surveyors = [];
+  // const surveyors = [];
   axios.get('/admin/users')
   .then(response => {
-    response.data.forEach(item => {
-      surveyors.push(item)
+    return response.data
   })
-})
   .catch(error => {
     console.log('Eureka! Error finding surveyors!!');
   });
-  return surveyors;
+  // return surveyors;
 }
 
 export default fetchSurveyors;

@@ -27,6 +27,7 @@ export default function FormDialog(props) {
           setState({ ...state, status: "ERROR" })
         } else {
           localStorage.setItem('token', JSON.stringify(response.data.user))
+
           props.login(response.data);
           handleClose();
         }
