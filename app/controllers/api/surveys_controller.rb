@@ -1,7 +1,9 @@
 class Api::SurveysController < ApplicationController
 
   def index
-    surveys = Survey.where({user_id: params[:user_id]})
+    team_id = TeamMember.where({user_id: params[:user_id]}).select(:team_id)
+    survey_id = Team.where({id: team_id}).select(:survey_id)
+    surveys = Survey.where({id: survey_id})
     render json: {
       survey: surveys
     }
