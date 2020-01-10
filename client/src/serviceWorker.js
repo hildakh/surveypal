@@ -44,13 +44,14 @@ export function register(config) {
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then((registration) => {
           console.log(
-            `This web app is being served cache-first by a service worker. To learn more, visit https://bit.ly/CRA-PWA' +
-            registration`, registration
+            `This web app is being served cache-first by a service worker.`, registration
           );
         });
+
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
+
       }
     });
   }
@@ -128,6 +129,8 @@ function checkValidServiceWorker(swUrl, config) {
     });
 }
 
+
+
 export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {
@@ -135,3 +138,7 @@ export function unregister() {
     });
   }
 }
+
+// window.self.addEventListener('fetch', event => {
+//   console.log('fetch event', event)
+// })
