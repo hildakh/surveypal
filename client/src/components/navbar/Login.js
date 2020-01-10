@@ -1,16 +1,16 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Error from '../status/Error'
-import axios from 'axios';
-import fetchSurveys from '../../helpers/fetchSurveys';
-import fetchSurveyors from '../../helpers/fetchSurveyors';
-import fetchTeams from '../../helpers/fetchTeams';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Error from "../status/Error";
+import axios from "axios";
+import fetchSurveys from "../../helpers/fetchSurveys";
+import fetchSurveyors from "../../helpers/fetchSurveyors";
+import fetchTeams from "../../helpers/fetchTeams";
 
 export default function FormDialog(props) {
   const [state, setState] = React.useState({
@@ -18,38 +18,35 @@ export default function FormDialog(props) {
     password: "",
     status: "PENDING",
     open: false
-  })
+  });
 
   const fetchData = (email, password) => {
-    const token = {}
-    axios.post('/api/login', { email: email, password: password })
-      .then((response) => {
+    const token = {};
+    axios
+      .post("/api/login", { email: email, password: password })
+      .then(response => {
         // handle success
         if (!response.data.user) {
-          setState({ ...state, status: "ERROR" })
+          setState({ ...state, status: "ERROR" });
         } else {
-          token['user'] = response.data.user
-          fetchSurveys(response.data.user)
-            .then((data) => {
-              token['surveys'] = data;
-              if(token.user.user_type_id === 1) {
-                fetchSurveyors()
-                .then( (surveyors) => {
-                  token['surveyors'] = surveyors;
-                fetchTeams()
-                .then( (teams) => {
-                  token['teams'] = teams;
-                  localStorage.setItem('token', JSON.stringify(token));
-                  props.login();
-                  handleClose();
-                })
-                })
-              }
-
-            });
+          token["user"] = response.data.user;
+          fetchSurveys(response.data.user).then(data => {
+            token["surveys"] = data;
+            if (token.user.user_type_id === 1) {
+              fetchSurveyors().then(surveyors => {
+                token["surveyors"] = surveyors;
+                fetchTeams().then(teams => {
+                  token["teams"] = teams;
+                });
+              });
+            }
+            localStorage.setItem("token", JSON.stringify(token));
+            props.login();
+            handleClose();
+          });
         }
-      })
-  }
+      });
+  };
   const handleClickOpen = () => {
     setState({ ...state, open: true });
   };
@@ -58,17 +55,35 @@ export default function FormDialog(props) {
     setState({ ...state, open: false, status: "PENDING" });
   };
   const validate = () => {
-    fetchData(state.email, state.password)
-  }
+    fetchData(state.email, state.password);
+  };
 
   return (
     <div>
-      <Button variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px', color: 'white', borderColor: 'white' }} onClick={handleClickOpen}>
+      <Button
+        variant="outlined"
+        color="default"
+        style={{
+          marginLeft: "10px",
+          marginTop: "5px",
+          color: "white",
+          borderColor: "white"
+        }}
+        onClick={handleClickOpen}
+      >
         Login
       </Button>
-      <Dialog open={state.open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={state.open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
         <DialogTitle id="form-dialog-title">Login</DialogTitle>
-        {state.status === 'ERROR' && (<div><Error message="Email or password is incorrect!" /></div>)}
+        {state.status === "ERROR" && (
+          <div>
+            <Error message="Email or password is incorrect!" />
+          </div>
+        )}
         <DialogContent>
           <DialogContentText>
             Please Enter your Email and Password.
@@ -80,7 +95,9 @@ export default function FormDialog(props) {
             label="Email Address"
             type="email"
             fullWidth
-            onChange={(event) => setState({ ...state, email: event.target.value })}
+            onChange={event =>
+              setState({ ...state, email: event.target.value })
+            }
           />
           <TextField
             margin="dense"
@@ -88,7 +105,9 @@ export default function FormDialog(props) {
             label="Password"
             type="password"
             fullWidth
-            onChange={(event) => setState({ ...state, password: event.target.value })}
+            onChange={event =>
+              setState({ ...state, password: event.target.value })
+            }
           />
         </DialogContent>
         <DialogActions>
