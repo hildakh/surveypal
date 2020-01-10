@@ -8,7 +8,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
 import axios from 'axios';
-
+import fetchSurveys from '../../helpers/fetchSurveys';
+import fetchSurveyors from '../../helpers/fetchSurveyors';
 
 export default function FormDialog(props) {
   const [state, setState] = React.useState({
@@ -19,19 +20,28 @@ export default function FormDialog(props) {
   })
 
   const fetchData = (email, password) => {
-
+    const token = {}
     axios.post('/api/login', { email: email, password: password })
       .then((response) => {
         // handle success
         if (!response.data.user) {
           setState({ ...state, status: "ERROR" })
         } else {
-          localStorage.setItem('token', JSON.stringify(response.data.user))
-
-          props.login(response.data);
-          handleClose();
+          token['user'] = response.data.user
+          fetchSurveys(response.data.user)
+            .then((data) => {
+              token['surveys'] = data;
+              if(token.user.user_type_id === 1) {
+                fetchSurveyors()
+                .then( (surveyors) => {
+                  token['surveyors'] = surveyors;
+                  localStorage.setItem('token', JSON.stringify(token));
+                  props.login();
+                  handleClose();
+                })
+              }
+            });
         }
-
       })
   }
   const handleClickOpen = () => {

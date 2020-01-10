@@ -1,30 +1,27 @@
-import React, { Component } from "react";
-import "./App.css";
-import AppBar from "./components/navbar/AppBar";
-import Card from "./components/users/Card";
-import Expand from "react-expand-animated";
-import SurveyList from "./components/users/SurveyList";
-import CompSurvList from "./components/users/CompSurvList";
-import fetchSurveys from "./helpers/fetchSurveys";
-// import SurveyForm from "./components/survey/SurveyForm";
-// import List from "@material-ui/core/List";
-// import ListItem from "@material-ui/core/ListItem";
-// import { ListItemText } from "@material-ui/core";
+import React, { Component } from 'react';
+import './App.css';
+import AppBar from './components/navbar/AppBar';
+import Card from './components/users/Card';
+import Expand from 'react-expand-animated';
+import SurveyList from './components/users/SurveyList';
+// import CompSurvList from './components/users/CompSurvList';
 import fetchSurveyors from '../src/helpers/fetchSurveyors';
 import SurveyorList from './components/users/SurveyorList';
 
 class App extends Component {
-  // _isMounted = false;
-  // _isLoading = true;
 
   constructor(props) {
     super(props);
     const token = JSON.parse(localStorage.getItem("token"));
     let currentUser = {};
     let user_type = 0;
+    let survey_list = [];
+    let surveyor_list = [];
     if (token) {
-      currentUser = token;
-      user_type = token.user_type_id;
+      currentUser = token.user;
+      user_type = currentUser.user_type_id;
+      survey_list = token.surveys;
+      surveyor_list = token.surveyors;
     }
 
     this.state = {
@@ -33,49 +30,25 @@ class App extends Component {
       user: currentUser,
       surveyOpen: false,
       compSurvOpen: false,
-      surveyList: [],
+      surveyList: survey_list,
       adminSurveyList: false,
       completedSurveyList: [],
       surveyorListOpen: false,
-      surveyorList: []
+      surveyorList: surveyor_list
     };
-
     this.status = "NULL";
   }
-  componentDidMount = () => {
-    // this._isMounted = true;
-    const token = JSON.parse(localStorage.getItem("token"));
-    fetchSurveys(token).then( (surveys) => {
-      console.log(surveys);
-      // this._isLoading = false;
-      this.setState({ ...this.state, surveyList: surveys})
 
-      //
-      //   const surveyors = fetchSurveyors();
-      //   this.setState({ ...this.state, surveyList: surveys, surveyorList: surveyors});
-      //   } else if (this._isMounted) {
-      //   }
-    }) // loader = false, setState);
-    if (token.user_type_id === 1) {
-    fetchSurveyors().then( (surveyors) => {
-      console.log(surveyors)
-      this.setState({...this.state, surveyorList: surveyors})
-    })
-  }
-  };
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   };
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
-  login = data => {
-    this.setState({
-      ...this.state,
-      user: data.user,
-      userType: data.user.user_type_id
-    });
-  };
+  login = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    this.setState({ ...this.state, user: token.user, userType: token.user.user_type_id, surveyList: token.surveys, surveyorList: token.surveyors })
+  }
   logout = () => {
     localStorage.clear();
     this.setState({ ...this.state, userType: 0, adminSurveyList: false });
@@ -84,6 +57,7 @@ class App extends Component {
     this.setState({ ...this.state, adminSurveyList: true });
   };
   loadSurveyors = () => {
+    console.log(this.state);
     this.setState({ ...this.state, surveyorListOpen: true});
   };
   render() {
@@ -121,5 +95,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

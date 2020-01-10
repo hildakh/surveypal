@@ -35,6 +35,7 @@ export default function PinnedSubheaderList(props) {
   return (
     <List className={classes.root} subheader={<li />}>
         {props.list.map(item => {
+          console.log(item);
           return (
             <SurveyorListItem
               title={`${item.first_name} ${item.last_name}`}
