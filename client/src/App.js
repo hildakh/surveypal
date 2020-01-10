@@ -1,51 +1,71 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
-import Survey from './components/survey/Survey';
-import CompSurvList from './components/users/CompSurvList';
+// import CompSurvList from './components/users/CompSurvList';
+import fetchSurveys from './helpers/fetchSurveys';
+
 
 class App extends Component {
+
   constructor(props) {
-    super(props)
+    super(props);
+    const token = JSON.parse(localStorage.getItem("token"));
+    let currentUser = {};
+    let user_type = 0;
+    let survey_list = []
+    if (token) {
+      currentUser = token.user;
+      user_type = currentUser.user_type_id;
+      survey_list = token.surveys
+    }
     this.state = {
       session: null,
-      userType: 0,
-      user: {},
+      userType: user_type,
+      user: currentUser,
       surveyOpen: false,
       compSurvOpen: false,
-      surveyList: [],
+      surveyList: survey_list,
+      adminSurveyList: false,
       completedSurveyList: []
-    }
-    this.status = 'NULL';
+    };
+    this.status = "NULL";
   }
 
-  fetchData = () => {
-    axios.get(`/api/surveys?user_id=${this.state.user.id}`)
-      .then((response) => {
-        const completed = response.data.survey.filter(element => element.end_date);
-        this.setState({
-          ...this.state,
-          surveyList: response.data.survey,
-          completedSurveyList: completed
-        });
-      })
-  }
-
+  componentDidMount = () => {
+    // const user = localStorage.getItem('token');
+    // if (user) {
+    //   if (user.user_type_id === 1) {
+    //     axios.get(`admin/surveys?user_id=${user.id}`)
+    //       .then(response => response.data)
+    //       .catch(error => {
+    //         console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
+    //       })
+    //   } else {
+    //     axios.get(`/api/surveys?user_id=${user.id}`)
+    //       .then(response => {
+    //       })
+    //       .catch(error => {
+    //         console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
+    //       })
+    //   }
+    // }
+  };
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
-  }; 1
+  };
   toggleSecond = () => {
     this.setState(prevState => ({ compSurvOpen: !prevState.compSurvOpen }));
   };
-  login = (data) => {
-    this.setState({ ...this.state, user: data.user, userType: data.user.user_type_id, session: data.session.user_id })
+  login = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    this.setState({ ...this.state, user: token.user, userType: token.user.user_type_id, surveyList: token.surveys })
   }
   logout = () => {
+    localStorage.clear();
     this.setState({ ...this.state, userType: 0 })
   }
   render() {
@@ -55,19 +75,9 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             <React.Fragment>
-      
               <Card message={'Surveys'} counter={this.state.surveyList.length || 0} onClick={this.toggleFirst} />
-
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />
-              </Expand>
-            </React.Fragment>
-            <React.Fragment>
-
-              <Card message={`Completed surveys`} counter={this.state.completedSurveyList.length || 0} onClick={this.toggleSecond} />
-
-              <Expand open={this.state.compSurvOpen}>
-                <CompSurvList list={this.state.completedSurveyList} />
               </Expand>
             </React.Fragment>
           </div>
@@ -76,5 +86,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

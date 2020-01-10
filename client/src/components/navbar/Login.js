@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
 import axios from 'axios';
+import fetchSurveys from '../../helpers/fetchSurveys';
 
 
 export default function FormDialog(props) {
@@ -17,19 +18,30 @@ export default function FormDialog(props) {
     status: "PENDING",
     open: false
   })
+  const [showProgress, setShowProgress] = React.useState(false)
 
   const fetchData = (email, password) => {
-
+    const token = {}
     axios.post('/api/login', { email: email, password: password })
       .then((response) => {
         // handle success
         if (!response.data.user) {
           setState({ ...state, status: "ERROR" })
         } else {
-          props.login(response.data);
-          handleClose();
-        }
+          token['user'] = response.data.user
+          fetchSurveys(response.data.user)
+            .then((data) => {
+              console.log(token)
+              console.log(">>>>>data>>>>" + data)
 
+              token['surveys'] = data;
+              localStorage.setItem('token', JSON.stringify(token));
+              console.log(token)
+
+              props.login();
+              handleClose();
+            });
+        }
       })
   }
   const handleClickOpen = () => {
