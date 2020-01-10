@@ -13,7 +13,7 @@ import fetchSurveys from "./helpers/fetchSurveys";
 import fetchSurveyors from '../src/helpers/fetchSurveyors';
 
 class App extends Component {
-  _isMounted = false;
+  // _isMounted = false;
 
   constructor(props) {
     super(props);
@@ -35,19 +35,20 @@ class App extends Component {
       adminSurveyList: false,
       completedSurveyList: [],
       surveyorListOpen: false,
-      surveyorList: []
+      // surveyorList: []
     };
 
     this.status = "NULL";
   }
   componentDidMount = () => {
-    this._isMounted = true;
+    // this._isMounted = true;
     const token = JSON.parse(localStorage.getItem("token"));
     const surveys = fetchSurveys(token);
     const surveyors = fetchSurveyors();
-    if (this._isMounted) {
-      this.setState({ ...this.state, surveyList: surveys, surveyorList: surveyors });
-    }
+    // if (this._isMounted) {
+      setTimeout( () => {
+        this.setState({ ...this.state, surveyList: surveys});
+      }, 2000);
   };
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -100,9 +101,9 @@ class App extends Component {
         {this.state.adminSurveyList && (
           <SurveyList list={this.state.surveyList} />
         )}
-        {this.state.surveyorListOpen && (
+        {/* {this.state.surveyorListOpen && (
           <SurveyList list={this.state.surveyorList} />
-        )}
+        )} */}
       </div>
     );
   }
