@@ -61,13 +61,13 @@ class App extends Component {
     this.setState({ ...this.state, userType: 0, adminSurveyList: false,  surveyorListOpen: false, teamListOpen: false});
   };
   loadSurveys = () => {
-    this.setState({ ...this.state, adminSurveyList: true });
+    this.setState({ ...this.state, adminSurveyList: true, surveyorListOpen: false, teamListOpen: false });
   };
   loadSurveyors = () => {
-    this.setState({ ...this.state, surveyorListOpen: true});
+    this.setState({ ...this.state, surveyorListOpen: true, adminSurveyList: false, teamListOpen: false});
   };
   loadTeams = () => {
-    this.setState({ ...this.state, teamListOpen: true});
+    this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false});
   }
   render() {
     return (
