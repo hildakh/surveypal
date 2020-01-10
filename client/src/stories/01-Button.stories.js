@@ -9,7 +9,6 @@ import BeforeButton from '../components/questions/Button_Before.js';
 import BackToSurveyButton from '../components/questions/Back_To_Survey_Button';
 // import { BeforeButton } from '../components/questions/Button_Before';
 import SubmitButton from '../components/questions/Submit_Button';
-import SurveyTable from '../components/admin/SurveyTable';
 
 export default {
   title: 'Message Nav Button',
