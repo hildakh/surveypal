@@ -239,7 +239,7 @@ export default function PrimarySearchAppBar(props) {
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
-          <ListItem button onClick={fetchTeams}>
+          <ListItem button onClick={props.loadTeams}>
             <ListItemIcon><FaUsers /></ListItemIcon>
             <ListItemText primary='Teams' />
           </ListItem>

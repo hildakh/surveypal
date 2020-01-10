@@ -10,6 +10,7 @@ import Error from '../status/Error'
 import axios from 'axios';
 import fetchSurveys from '../../helpers/fetchSurveys';
 import fetchSurveyors from '../../helpers/fetchSurveyors';
+import fetchTeams from '../../helpers/fetchTeams';
 
 export default function FormDialog(props) {
   const [state, setState] = React.useState({
@@ -35,9 +36,13 @@ export default function FormDialog(props) {
                 fetchSurveyors()
                 .then( (surveyors) => {
                   token['surveyors'] = surveyors;
+                fetchTeams()
+                .then( (teams) => {
+                  token['teams'] = teams;
                   localStorage.setItem('token', JSON.stringify(token));
                   props.login();
                   handleClose();
+                })
                 })
               }
             });

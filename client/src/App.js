@@ -17,11 +17,13 @@ class App extends Component {
     let user_type = 0;
     let survey_list = [];
     let surveyor_list = [];
+    let team_list = [];
     if (token) {
       currentUser = token.user;
       user_type = currentUser.user_type_id;
       survey_list = token.surveys;
       surveyor_list = token.surveyors;
+      team_list = token.teams;
     }
 
     this.state = {
@@ -34,7 +36,9 @@ class App extends Component {
       adminSurveyList: false,
       completedSurveyList: [],
       surveyorListOpen: false,
-      surveyorList: surveyor_list
+      surveyorList: surveyor_list,
+      teamListOpen: false,
+      teamList: team_list,
     };
     this.status = "NULL";
   }
@@ -47,7 +51,7 @@ class App extends Component {
   };
   login = () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    this.setState({ ...this.state, user: token.user, userType: token.user.user_type_id, surveyList: token.surveys, surveyorList: token.surveyors })
+    this.setState({ ...this.state, user: token.user, userType: token.user.user_type_id, surveyList: token.surveys, surveyorList: token.surveyors, teamList: token.teams })
   }
   logout = () => {
     localStorage.clear();
@@ -57,9 +61,11 @@ class App extends Component {
     this.setState({ ...this.state, adminSurveyList: true });
   };
   loadSurveyors = () => {
-    console.log(this.state);
     this.setState({ ...this.state, surveyorListOpen: true});
   };
+  loadTeams = () => {
+    this.setState({ ...this.state, teamListOpen: true});
+  }
   render() {
     return (
       <div className="App">
@@ -70,6 +76,7 @@ class App extends Component {
           userName={this.state.user["first_name"]}
           loadSurveys={this.loadSurveys}
           loadSurveyors={this.loadSurveyors}
+          loadTeams={this.loadTeams}
         />
         {this.state.userType === 2 && (
           <div>
@@ -90,6 +97,9 @@ class App extends Component {
         )}
         {this.state.surveyorListOpen && (
           <SurveyorList list={this.state.surveyorList} />
+        )}
+        {this.state.teamListOpen && (
+          <SurveyList list={this.state.teamList} />
         )}
       </div>
     );
