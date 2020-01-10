@@ -18,7 +18,6 @@ export default function FormDialog(props) {
     status: "PENDING",
     open: false
   })
-  const [showProgress, setShowProgress] = React.useState(false)
 
   const fetchData = (email, password) => {
     const token = {}
@@ -31,13 +30,8 @@ export default function FormDialog(props) {
           token['user'] = response.data.user
           fetchSurveys(response.data.user)
             .then((data) => {
-              console.log(token)
-              console.log(">>>>>data>>>>" + data)
-
               token['surveys'] = data;
               localStorage.setItem('token', JSON.stringify(token));
-              console.log(token)
-
               props.login();
               handleClose();
             });

@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import Feedback from "../users/Feedback"
 
 import SurveyListItem from '../users/SurveyListItem'
 
@@ -29,18 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PinnedSubheaderList(props) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
-  const showDialog = () => {
-    setOpen(true);
-  }
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleSubmit = () => {
-    // submit the feedback
-  }
   const handleListItem = () => {
     //show feedback dialog or show the survey/completed survey preview
   }
@@ -56,7 +44,6 @@ export default function PinnedSubheaderList(props) {
           )
         })}
       </ul>
-      <Feedback open={open} close={handleClose} submit={handleSubmit} />
     </List>
   );
 }

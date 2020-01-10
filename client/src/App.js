@@ -4,9 +4,6 @@ import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
-// import CompSurvList from './components/users/CompSurvList';
-import fetchSurveys from './helpers/fetchSurveys';
-
 
 class App extends Component {
 
@@ -26,33 +23,11 @@ class App extends Component {
       userType: user_type,
       user: currentUser,
       surveyOpen: false,
-      compSurvOpen: false,
       surveyList: survey_list,
       adminSurveyList: false,
-      completedSurveyList: []
     };
     this.status = "NULL";
   }
-
-  componentDidMount = () => {
-    // const user = localStorage.getItem('token');
-    // if (user) {
-    //   if (user.user_type_id === 1) {
-    //     axios.get(`admin/surveys?user_id=${user.id}`)
-    //       .then(response => response.data)
-    //       .catch(error => {
-    //         console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
-    //       })
-    //   } else {
-    //     axios.get(`/api/surveys?user_id=${user.id}`)
-    //       .then(response => {
-    //       })
-    //       .catch(error => {
-    //         console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
-    //       })
-    //   }
-    // }
-  };
 
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
@@ -62,7 +37,12 @@ class App extends Component {
   };
   login = () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    this.setState({ ...this.state, user: token.user, userType: token.user.user_type_id, surveyList: token.surveys })
+    this.setState({
+      ...this.state,
+      user: token.user,
+      userType: token.user.user_type_id,
+      surveyList: token.surveys
+    })
   }
   logout = () => {
     localStorage.clear();
