@@ -8,7 +8,8 @@
     "react-dom": "^16.12.0",
     "react-swipeable": "^5.5.0",
     "react-expand-animated": "^1.0.1",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "react-icons": "^3.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
