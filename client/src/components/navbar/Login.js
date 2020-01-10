@@ -9,7 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Error from '../status/Error'
 import axios from 'axios';
 import fetchSurveys from '../../helpers/fetchSurveys';
-
+import fetchSurveyors from '../../helpers/fetchSurveyors';
+import fetchTeams from '../../helpers/fetchTeams';
 
 export default function FormDialog(props) {
   const [state, setState] = React.useState({
@@ -31,9 +32,20 @@ export default function FormDialog(props) {
           fetchSurveys(response.data.user)
             .then((data) => {
               token['surveys'] = data;
-              localStorage.setItem('token', JSON.stringify(token));
-              props.login();
-              handleClose();
+              if(token.user.user_type_id === 1) {
+                fetchSurveyors()
+                .then( (surveyors) => {
+                  token['surveyors'] = surveyors;
+                fetchTeams()
+                .then( (teams) => {
+                  token['teams'] = teams;
+                  localStorage.setItem('token', JSON.stringify(token));
+                  props.login();
+                  handleClose();
+                })
+                })
+              }
+
             });
         }
       })
