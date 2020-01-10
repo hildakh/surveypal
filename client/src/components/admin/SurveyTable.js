@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 const useStyles = makeStyles({
   table: {
     marginTop: 15,
-    maxWidth: "50%",
+    maxWidth: "70%",
     backgroundColor: "#E2F2F9",
     position: "relative",
     overflow: "auto",
@@ -38,7 +38,7 @@ export default function SurveyTable(props) {
         <TableRow className={classes.listHead}>
           <TableCell>Survey Title </TableCell>
           <TableCell align="center">Description</TableCell>
-          <TableCell align="center">End Date</TableCell>
+          {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>
       <TableBody>
@@ -48,7 +48,7 @@ export default function SurveyTable(props) {
               {item.name}
             </TableCell>
             <TableCell align="center">{item.description}</TableCell>
-            <TableCell align="center">{item.end_date}</TableCell>
+            {/* <TableCell align="center">{item.end_date}</TableCell> */}
           </TableRow>
         ))}
       </TableBody>

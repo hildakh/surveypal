@@ -9,6 +9,7 @@ import SurveyList from './components/users/SurveyList';
 // import SurveyorList from './components/users/SurveyorList';
 import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
+import TeamTable from './components/admin/TeamTable';
 
 class App extends Component {
 
@@ -57,7 +58,7 @@ class App extends Component {
   }
   logout = () => {
     localStorage.clear();
-    this.setState({ ...this.state, userType: 0, adminSurveyList: false });
+    this.setState({ ...this.state, userType: 0, adminSurveyList: false,  surveyorListOpen: false, teamListOpen: false});
   };
   loadSurveys = () => {
     this.setState({ ...this.state, adminSurveyList: true });
@@ -101,7 +102,7 @@ class App extends Component {
           <SurveyorTable list={this.state.surveyorList} />
         )}
         {this.state.teamListOpen && (
-          <SurveyList list={this.state.teamList} />
+          <TeamTable list={this.state.teamList} />
         )}
       </div>
     );
