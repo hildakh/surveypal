@@ -5,8 +5,11 @@ import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 // import CompSurvList from './components/users/CompSurvList';
-import fetchSurveyors from '../src/helpers/fetchSurveyors';
-import SurveyorList from './components/users/SurveyorList';
+// import fetchSurveyors from '../src/helpers/fetchSurveyors';
+// import SurveyorList from './components/users/SurveyorList';
+import SurveyTable from './components/admin/SurveyTable';
+import SurveyorTable from './components/admin/SurveyorTable';
+import TeamTable from './components/admin/TeamTable';
 
 class App extends Component {
 
@@ -61,16 +64,16 @@ class App extends Component {
   }
   logout = () => {
     localStorage.clear();
-    this.setState({ ...this.state, userType: 0, adminSurveyList: false });
+    this.setState({ ...this.state, userType: 0, adminSurveyList: false,  surveyorListOpen: false, teamListOpen: false});
   };
   loadSurveys = () => {
-    this.setState({ ...this.state, adminSurveyList: true });
+    this.setState({ ...this.state, adminSurveyList: true, surveyorListOpen: false, teamListOpen: false });
   };
   loadSurveyors = () => {
-    this.setState({ ...this.state, surveyorListOpen: true});
+    this.setState({ ...this.state, surveyorListOpen: true, adminSurveyList: false, teamListOpen: false});
   };
   loadTeams = () => {
-    this.setState({ ...this.state, teamListOpen: true});
+    this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false});
   }
   render() {
     return (
@@ -99,13 +102,13 @@ class App extends Component {
           </div>
         )}
         {this.state.adminSurveyList && (
-          <SurveyList list={this.state.surveyList} />
+          <SurveyTable list={this.state.surveyList} />
         )}
         {this.state.surveyorListOpen && (
-          <SurveyorList list={this.state.surveyorList} />
+          <SurveyorTable list={this.state.surveyorList} />
         )}
         {this.state.teamListOpen && (
-          <SurveyList list={this.state.teamList} />
+          <TeamTable list={this.state.teamList} />
         )}
       </div>
     );
