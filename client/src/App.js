@@ -5,9 +5,10 @@ import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 // import CompSurvList from './components/users/CompSurvList';
-import fetchSurveyors from '../src/helpers/fetchSurveyors';
-import SurveyorList from './components/users/SurveyorList';
+// import fetchSurveyors from '../src/helpers/fetchSurveyors';
+// import SurveyorList from './components/users/SurveyorList';
 import SurveyTable from './components/admin/SurveyTable';
+import SurveyorTable from './components/admin/SurveyorTable';
 
 class App extends Component {
 
@@ -97,7 +98,7 @@ class App extends Component {
           <SurveyTable list={this.state.surveyList} />
         )}
         {this.state.surveyorListOpen && (
-          <SurveyorList list={this.state.surveyorList} />
+          <SurveyorTable list={this.state.surveyorList} />
         )}
         {this.state.teamListOpen && (
           <SurveyList list={this.state.teamList} />
