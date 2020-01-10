@@ -25,7 +25,7 @@ export default function useSurveyData() {
   // make request to get all survey data (surveys, current survey)
   useEffect(() => {  // data will already be there, access by instance variable
     Promise.all([    // so will this request be made this way, or differently?
-      Promise.resolve(axios.get("api/surveys")) 
+      Promise.resolve(axios.get("api/surveys")), 
       Promise.resolve(axios.get("api/questions")), 
       Promise.resolve(axios.get("api/question_options"))
     ]).then((all) => dispatch({ type: SET_SURVEY_DATA, value: all}))
