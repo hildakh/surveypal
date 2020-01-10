@@ -30,6 +30,4 @@ storiesOf('Back To Survey Button')
 storiesOf('Submit Button')
   .add('Submit', () =>  <SubmitButton onClick={action('Survey Submitted!')}/>)
 
-storiesOf('Survey Table')
-  .add('Table', () =>  <SurveyTable />)
 
