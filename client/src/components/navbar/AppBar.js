@@ -28,8 +28,8 @@ import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
 import fetchTeams from '../../helpers/fetchTeams';
-import fetchSurveys from '../../helpers/fetchSurveys';
-import fetchSurvoyers from '../../helpers/fetchSurveyors';
+// import fetchSurveys from '../../helpers/fetchSurveys';
+// import fetchSurvoyers from '../../helpers/fetchSurveyors';
 
 const drawerWidth = 240;
 
@@ -149,10 +149,9 @@ export default function PrimarySearchAppBar(props) {
   const handleDrawerClose = event => {
     setDrawerOpen(false);
   }
-
-  const handleFetchSurveys = () => {
-    const user = JSON.parse(localStorage.getItem('token'));
-    fetchSurveys(user)
+  const logout = event => {
+    setDrawerOpen(false);
+    props.logout();
   }
 
   const menuId = 'primary-search-account-menu';
@@ -232,7 +231,7 @@ export default function PrimarySearchAppBar(props) {
         </div>
         <Divider />
         <List>
-          <ListItem button onClick={handleFetchSurveys}>
+          <ListItem button onClick={props.loadSurveys}>
             <ListItemIcon><BallotIcon /></ListItemIcon>
             <ListItemText primary='Surveys' />
           </ListItem>
@@ -240,11 +239,11 @@ export default function PrimarySearchAppBar(props) {
             <ListItemIcon><PollIcon /></ListItemIcon>
             <ListItemText primary='Reports' />
           </ListItem>
-          <ListItem button onClick={fetchSurvoyers}>
+          <ListItem button onClick={props.loadSurveyors}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
             <ListItemText primary='Surveyors' />
           </ListItem>
-          <ListItem button onClick={fetchTeams}>
+          <ListItem button onClick={props.loadTeams}>
             <ListItemIcon><FaUsers /></ListItemIcon>
             <ListItemText primary='Teams' />
           </ListItem>
@@ -290,7 +289,7 @@ export default function PrimarySearchAppBar(props) {
                 <Typography className={classes.name} variant="h6" noWrap>
                   {props.userName}
                 </Typography>
-                <Logout logout={props.logout} />
+                <Logout logout={logout} />
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton

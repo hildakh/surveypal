@@ -12,7 +12,7 @@ const fetchSurveys = (user) => {
       return axios.get(`/api/surveys?user_id=${user.id}`)
         .then(response => response.data.survey)
         .catch(error => {
-          console.log(`Running out of funny errors. Couldn't get surveys, yo!`);
+          console.log(`Couldnt get user surveys`);
         })
     }
   }

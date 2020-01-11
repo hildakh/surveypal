@@ -26,5 +26,7 @@ storiesOf('Message Nav Buttons', module)
 storiesOf('Back To Survey Button')
   .add('Back to Survey', () =>  <BackToSurveyButton onClick={action('button-clicked')}/>)
 
-  storiesOf('Submit Button')
+storiesOf('Submit Button')
   .add('Submit', () =>  <SubmitButton onClick={action('Survey Submitted!')}/>)
+
+
