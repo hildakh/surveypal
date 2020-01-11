@@ -10,6 +10,7 @@ import SurveyList from './components/users/SurveyList';
 import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
 import TeamTable from './components/admin/TeamTable';
+import SurveyForm from './components/survey/SurveyForm';
 
 class App extends Component {
 
@@ -97,9 +98,12 @@ class App extends Component {
               <Expand open={this.state.surveyOpen}>
                 <SurveyList list={this.state.surveyList} />
               </Expand>
+            <SurveyForm />
             </React.Fragment>
           </div>
         )}
+          {/* <React.Fragment> */}
+          {/* </React.Fragment> */}
         {this.state.adminSurveyList && (
           <SurveyTable list={this.state.surveyList} />
         )}
