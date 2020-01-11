@@ -109,94 +109,6 @@ surveyor.users.create!({
   password: 'yennefer'
 })
 
-## TEAMS
-puts "Creating teams ..."
-
-Team.destroy_all
-
-teambahareh = Team.create!({
-  name: 'Team Bahareh',
-  description: 'Team created by Bahareh',
-  purpose: 'To keep track of the surveyors and update them',
-  user_id: 1,
-  survey_id: 1
-  })
-
-teamvanessa = Team.create!({
-  name: 'Team Vanessa',
-  description: 'Team created by Vanessa',
-  purpose: 'To keep track of the surveyors and update them',
-  user_id: 2,
-  survey_id: 2
-})
-
-teamhilda = Team.create!({
-  name: 'Team Hilda',
-  description: 'Team created by Hilda',
-  purpose: 'To keep track of the surveyors and update them',
-  user_id: 3,
-  survey_id: 3
-})
-
-# TEAM MEMBERS
-puts "Creating team members ..."
-
-TeamMember.destroy_all
-
-TeamMember.create!({
-  team_id: 1,
-  user_id: 4,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 1,
-  user_id: 5,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 1,
-  user_id: 6,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 2,
-  user_id: 7,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 2,
-  user_id: 8,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 2,
-  user_id: 9,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 3,
-  user_id: 10,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 3,
-  user_id: 11,
-  active: true
-})
-
-TeamMember.create!({
-  team_id: 3,
-  user_id: 12,
-  active: true
-})
-
 ## QUESTION TYPES
 puts "Creating question types ..."
 
@@ -705,7 +617,93 @@ QuestionResponse.create!({
   question_option_id: 35
 })
 
+## TEAMS
+puts "Creating teams ..."
 
+Team.destroy_all
+
+teambahareh = Team.create!({
+  name: 'Team Bahareh',
+  description: 'Team created by Bahareh',
+  purpose: 'To keep track of the surveyors and update them',
+  user_id: 1,
+  survey_id: 1
+  })
+
+teamvanessa = Team.create!({
+  name: 'Team Vanessa',
+  description: 'Team created by Vanessa',
+  purpose: 'To keep track of the surveyors and update them',
+  user_id: 2,
+  survey_id: 2
+})
+
+teamhilda = Team.create!({
+  name: 'Team Hilda',
+  description: 'Team created by Hilda',
+  purpose: 'To keep track of the surveyors and update them',
+  user_id: 3,
+  survey_id: 3
+})
+
+# TEAM MEMBERS
+puts "Creating team members ..."
+
+TeamMember.destroy_all
+
+TeamMember.create!({
+  team_id: 1,
+  user_id: 4,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 1,
+  user_id: 5,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 1,
+  user_id: 6,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 2,
+  user_id: 7,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 2,
+  user_id: 8,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 2,
+  user_id: 9,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 3,
+  user_id: 10,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 3,
+  user_id: 11,
+  active: true
+})
+
+TeamMember.create!({
+  team_id: 3,
+  user_id: 12,
+  active: true
+})
 
 
 
