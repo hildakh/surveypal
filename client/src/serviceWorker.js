@@ -46,6 +46,9 @@ export function register(config) {
           console.log(
             `This web app is being served cache-first by a service worker.`, registration
           );
+          window.self.addEventListener('fetch', event => {
+            console.log('fetch event', event)
+          })
         });
 
       } else {
@@ -139,6 +142,3 @@ export function unregister() {
   }
 }
 
-// window.self.addEventListener('fetch', event => {
-//   console.log('fetch event', event)
-// })
