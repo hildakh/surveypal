@@ -18,6 +18,7 @@ class Api::SurveysController < ApplicationController
 
     user_id = params[:user_id]
     team_member = TeamMember.where({user_id: user_id})
+    team = Team.where
     questions = team_member.team
 
 
