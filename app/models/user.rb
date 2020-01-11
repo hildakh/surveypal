@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :survey_responses
   has_many :survey_question_answers
 
+  has_one :teams, through: :team_members
+
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, presence: true
   validates :password, presence: true, length: { minimum: 6 }

@@ -16,10 +16,13 @@ class Api::SurveysController < ApplicationController
     #     # survey = {:questions => questions}
     # end
 
-    user_id = params[:user_id]
-    team_member = TeamMember.where({user_id: user_id})
-    team = Team.where
-    questions = team_member.team
+    # ***survey_id = Survey.find(1)
+    # ***questions = survey_id.questions
+
+    user_id = User.find(4)
+    # team_member = TeamMember.where({user_id: user_id})
+    questions = user_id.team
+
 
 
 
