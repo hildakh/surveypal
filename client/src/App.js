@@ -41,6 +41,8 @@ class App extends Component {
       surveyorList: surveyor_list,
       teamListOpen: false,
       teamList: team_list,
+      preview: false,
+      card: true
     };
     this.status = "NULL";
   }
@@ -64,16 +66,19 @@ class App extends Component {
   }
   logout = () => {
     localStorage.clear();
-    this.setState({ ...this.state, userType: 0, adminSurveyList: false,  surveyorListOpen: false, teamListOpen: false});
+    this.setState({ ...this.state, userType: 0, adminSurveyList: false, surveyorListOpen: false, teamListOpen: false });
   };
   loadSurveys = () => {
     this.setState({ ...this.state, adminSurveyList: true, surveyorListOpen: false, teamListOpen: false });
   };
   loadSurveyors = () => {
-    this.setState({ ...this.state, surveyorListOpen: true, adminSurveyList: false, teamListOpen: false});
+    this.setState({ ...this.state, surveyorListOpen: true, adminSurveyList: false, teamListOpen: false });
   };
   loadTeams = () => {
-    this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false});
+    this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false });
+  }
+  loadPreview = () => {
+    this.setState({ ...this.state, preview: true, card: false })
   }
   render() {
     return (
@@ -89,21 +94,19 @@ class App extends Component {
         />
         {this.state.userType === 2 && (
           <div>
-            <React.Fragment>
+            {this.state.card && <React.Fragment>
               <Card
                 message={"Surveys"}
                 counter={this.state.surveyList.length || 0}
                 onClick={this.toggleFirst}
               />
               <Expand open={this.state.surveyOpen}>
-                <SurveyList list={this.state.surveyList} />
+                <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
               </Expand>
-            <SurveyForm />
-            </React.Fragment>
+            </React.Fragment>}
+            {this.state.preview && <SurveyForm />}
           </div>
         )}
-          {/* <React.Fragment> */}
-          {/* </React.Fragment> */}
         {this.state.adminSurveyList && (
           <SurveyTable list={this.state.surveyList} />
         )}
