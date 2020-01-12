@@ -22,37 +22,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function QuestionPreview(props) {
   const classes = useStyles();
-  const options = JSON.parse(localStorage.getItem('token')).options.map( item => {
-  item.filter( option => {
-    //  console.log(option.question_id)
-    //  console.log(props.questionId)
-      option.question_id = props.questionId
-      // console.log(option)
-    })
-    // console.log('currentQ', currentQOptions);
-    // return currentQOptions;
-  });
-  console.log('Options', options);
 
   return (
     <div className={classes.root}>
-
-      <SnackbarContent
-        className={classes.snackbar}
-        message='Yes'
-        action={action}
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message={
-          "No"
-        }
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message="I don/'t know"
-        action={action}
-      />
+      {props.questionOptions.map(item => (
+        <SnackbarContent
+          className={classes.snackbar}
+          message={item.option_text}
+          action={action}
+        />
+      ))}
     </div>
   );
 }

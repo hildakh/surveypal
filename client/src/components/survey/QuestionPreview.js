@@ -15,7 +15,7 @@ const action = (
   </Button>
 );
 
-const questions = [];
+// const questions = [];
 const useStyles = makeStyles(theme => ({
   root: {
     width: "95%",
@@ -43,11 +43,11 @@ export default function QuestionPreview() {
         <Card className={classes.card}>
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-              {question.description}
+              {question.question.description}
             </Typography>
           </CardContent>
           <CardActions>
-            <QuestionOptionPreview questionId={question.id}/>
+            <QuestionOptionPreview questionOptions={question.options}/>
           </CardActions>
         </Card>
       ))}
