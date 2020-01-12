@@ -35,29 +35,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function QuestionPreview() {
   const classes = useStyles();
+  const questions = JSON.parse(localStorage.getItem('token')).questions;
+  console.log(questions);
 
   return (
     <div className={classes.root}>
-       <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Have you already answered a survey today (with someone wearing a yellow sticker)?
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <QuestionOptionPreview />
-        </CardActions>
-      </Card>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Do you currently have a place to stay where you pay monthly rent?
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <QuestionOptionPreview />
-        </CardActions>
-      </Card>
+      {questions.map(question => (
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+              {question.description}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <QuestionOptionPreview />
+          </CardActions>
+        </Card>
+      ))}
     </div>
   );
 }
