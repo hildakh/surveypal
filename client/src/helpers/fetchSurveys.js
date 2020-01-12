@@ -15,7 +15,7 @@ const fetchSurveys = (user) => {
         }
         )
         .catch(error => {
-          console.log(`Couldnt get user surveys`);
+          console.log(`Couldn't get user surveys`);
         })
     }
   }

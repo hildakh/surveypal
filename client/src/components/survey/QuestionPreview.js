@@ -48,7 +48,7 @@ export default function QuestionPreview() {
           <QuestionOptionPreview />
         </CardActions>
       </Card>
-      <Card className={classes.card}>
+      {/* <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
           Do you currently have a place to stay where you pay monthly rent?
@@ -57,7 +57,7 @@ export default function QuestionPreview() {
         <CardActions>
           <QuestionOptionPreview />
         </CardActions>
-      </Card>
+      </Card> */}
     </div>
   );
 }
