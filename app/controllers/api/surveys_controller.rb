@@ -8,7 +8,7 @@ class Api::SurveysController < ApplicationController
     questions = questionlist.map { |question| Question.find(question.question_id)}
 
     render json: {
-      survey: survey,
+      survey: surveys,
       question: questions
     }
 
