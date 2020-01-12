@@ -5,13 +5,17 @@ class Api::SurveysController < ApplicationController
     survey_id = Team.where({id: team_id}).select(:survey_id)
     surveys = Survey.where({id: survey_id})
     questionlist = surveys[0].survey_questions
-    questions = questionlist.map { |question| Question.find(question.question_id)}
-    question_options = questionlist.map { |question| QuestionOption.where({question_id: question.question_id})}
+    questions = []
+    questionlist.each { |question|
+      questionObj = {}
+      questionObj['question'] = Question.find(question.question_id)
+      questionObj['options'] = QuestionOption.where({question_id: question.question_id})
+      tempArray << questionObj}
+
 
     render json: {
-      survey: surveys,
-      question: questions,
-      option: question_options
+      surveys: surveys,
+      questions: questions,
     }
 
   end
