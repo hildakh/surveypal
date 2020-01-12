@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   belongs_to :user_type
-  has_many :teams
+  has_many :team_members
   has_many :surveys
   has_many :survey_responses
   has_many :survey_question_answers
 
-  has_one :teams, through: :team_members
+  # has_one :teams, through: :team_members
 
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, presence: true
