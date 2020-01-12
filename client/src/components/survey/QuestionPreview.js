@@ -36,7 +36,6 @@ const useStyles = makeStyles(theme => ({
 export default function QuestionPreview() {
   const classes = useStyles();
   const questions = JSON.parse(localStorage.getItem('token')).questions;
-  console.log(questions);
 
   return (
     <div className={classes.root}>
@@ -48,7 +47,7 @@ export default function QuestionPreview() {
             </Typography>
           </CardContent>
           <CardActions>
-            <QuestionOptionPreview />
+            <QuestionOptionPreview questionId={question.id}/>
           </CardActions>
         </Card>
       ))}

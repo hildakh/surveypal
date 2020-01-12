@@ -6,10 +6,12 @@ class Api::SurveysController < ApplicationController
     surveys = Survey.where({id: survey_id})
     questionlist = surveys[0].survey_questions
     questions = questionlist.map { |question| Question.find(question.question_id)}
+    question_options = questionlist.map { |question| QuestionOption.where({question_id: question.question_id})}
 
     render json: {
       survey: surveys,
-      question: questions
+      question: questions,
+      option: question_options
     }
 
   end
