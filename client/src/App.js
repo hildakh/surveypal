@@ -114,6 +114,7 @@ class App extends Component {
               </Expand>
             </React.Fragment>}
             {this.state.preview && <SurveyForm />}
+            {this.state.viewSurvey && <Index />}
             {this.state.preview && <SurveyForm closePreview={this.closePreview}/>}
           </div>
         )}
