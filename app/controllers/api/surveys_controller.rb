@@ -10,7 +10,7 @@ class Api::SurveysController < ApplicationController
       questionObj = {}
       questionObj['question'] = Question.find(question.question_id)
       questionObj['options'] = QuestionOption.where({question_id: question.question_id})
-      tempArray << questionObj}
+      questions << questionObj}
 
 
     render json: {
