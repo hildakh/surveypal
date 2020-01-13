@@ -23,7 +23,7 @@ export default function Show(props) {
 
       {props.question_text}
 
-      {props.question_options_list}
+      {/* {props.question_options_list} */}
       
     </Grid>
 
