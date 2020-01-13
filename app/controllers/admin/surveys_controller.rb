@@ -6,7 +6,7 @@ class Admin::SurveysController < ApplicationController
     surveys = Survey.where({user_id: params[:user_id]}).select(:id, :name, :description, :end_date, :city_id)
     questions = Question.where({})
     render json: {
-      survey: surveys
+      surveys: surveys
     }
   end
 

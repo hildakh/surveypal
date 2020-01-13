@@ -57,10 +57,11 @@ export default function FormDialog(props) {
               token["surveys"] = data.surveys;
               token["questions"] = data.questions;
               if (token.user.user_type_id === 1) {
-                fetchSurveyors().then(surveyors => {
-                  token["surveyors"] = surveyors;
-                  fetchTeams().then(teams => {
-                    token["teams"] = teams;
+                fetchSurveyors()
+                .then(data => {
+                  token["surveyors"] = data.surveyors;
+                  fetchTeams().then(data => {
+                    token["teams"] = data.teams;
                   });
                 });
               }

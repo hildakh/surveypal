@@ -12,8 +12,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    background: "#9a0007",
     color: "white",
+    borderColor: 'white',
+    background: "#9a0007",
     fontSize: 20,
     borderRadius: 5,
     float: 'right',
@@ -51,7 +52,7 @@ export default function Reset(props) {
   return (
     <div>
       <Button
-        variant="contained"
+        // variant="contained"
         onClick={handleClickOpen}
         className={classes.button}
         startIcon={<FaGhost />}

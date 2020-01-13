@@ -11,8 +11,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '10px',
     marginTop: '5px',
     marginBottom: '5px',
-    textTransform: "none",
-    fontFamily: 'Baskerville',
     fontSize: 20,
     borderRadius: 5,
     textTransform: "none",
