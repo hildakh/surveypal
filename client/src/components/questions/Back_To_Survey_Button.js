@@ -9,10 +9,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
       margin: theme.spacing(2),
+      textTransform: "none",
+      fontFamily: "Muli"
     },
   },
   extendedIcon: {
     marginRight: theme.spacing(2),
+    textTransform: "none",
+    fontFamily: "Muli"
   },
 }));
 

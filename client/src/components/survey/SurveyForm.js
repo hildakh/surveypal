@@ -13,27 +13,21 @@ const useStyles = makeStyles(theme => ({
     margin: "0 auto",
     padding: theme.spacing(1),
     justifyContent: 'space-between',
-    borderRadius: 15
+    borderRadius: 15,
+    textTransform: "none",
+    fontFamily: "Muli",
   },
   heading: {
-    textAlign: "center"
+    textAlign: "center",
+    textTransform: "none",
+    fontFamily: "Muli",
   }
 
 }));
 
 export default function SurveyForm(props) {
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(true);
   const title = JSON.parse(localStorage.getItem('token')).surveys[0].name;
-
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
 
   return (
     <div className={classes.surveyview}>

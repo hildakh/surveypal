@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     background: "#8e24aa",
     color: "white",
     fontSize: 15,
-    fontFamily: "Dancing Script",
+    textTransform: "none",
+    fontFamily: "Muli",
     borderRadius: 20
   }
 }));

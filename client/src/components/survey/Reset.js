@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 20,
     float: 'right',
     textTransform: "none",
-    fontFamily: "Baskerville"
+    fontFamily: "Muli"
   }
 }));
 

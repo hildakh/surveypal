@@ -13,10 +13,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "95%",
     position: "relative",
-    margin: "0 auto"
+    margin: "0 auto",
+    textTransform: "none",
+    fontFamily: "Muli",
   },
   snackbar: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    textTransform: "none",
+    fontFamily: "Muli",
   }
 }));
 

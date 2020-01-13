@@ -35,7 +35,9 @@ const useStyles = makeStyles({
   title: {
     marginTop: '45px',
     fontSize: 35,
-    color: 'white'
+    color: 'white',
+    textTransform: "none",
+    fontFamily: "Muli",
   },
   spinner: {
     marginTop: '1%',
