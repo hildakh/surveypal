@@ -4,7 +4,9 @@ class Admin::TeamsController < ApplicationController
 
   def index
     teams = Team.all.select(:id, :name, :description, :purpose, :user_id)
-    render json: teams
+    render json: {
+      teams: teams
+    }
   end
 
   def new

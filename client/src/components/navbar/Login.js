@@ -21,7 +21,7 @@ export default function FormDialog(props) {
   });
 
   const fetchData = (email, password) => {
-    const token = {};
+    let token = {}
     axios
       .post("/api/login", { email: email, password: password })
       .then(response => {
@@ -34,17 +34,25 @@ export default function FormDialog(props) {
             .then(data => {
               token["surveys"] = data.surveys;
               token["questions"] = data.questions;
-              if (token.user.user_type_id === 1) {
-                fetchSurveyors().then(surveyors => {
-                  token["surveyors"] = surveyors;
-                  fetchTeams().then(teams => {
-                    token["teams"] = teams;
+              if (token.user.user_type_id == 1) {
+                fetchSurveyors()
+                .then(data => {
+                  token["surveyors"] = data.surveyors;
+                  fetchTeams()
+                  .then(data => {
+                    token["teams"] = data.teams;
                   });
                 });
               }
-              localStorage.setItem("token", JSON.stringify(token));
-              props.login();
-              handleClose();
+              setTimeout( () => {
+                localStorage.setItem("token", JSON.stringify(token));
+              }, 100);
+              setTimeout( () => {
+                props.login();
+              }, 150)
+              setTimeout( () => {
+                handleClose();
+              }, 200)
           });
         }
       });
