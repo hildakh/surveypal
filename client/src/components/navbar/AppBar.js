@@ -27,9 +27,6 @@ import BallotIcon from '@material-ui/icons/Ballot';
 import { FaUsers } from "react-icons/fa";
 import FaceIcon from '@material-ui/icons/Face';
 import PollIcon from '@material-ui/icons/Poll';
-import fetchTeams from '../../helpers/fetchTeams';
-// import fetchSurveys from '../../helpers/fetchSurveys';
-// import fetchSurvoyers from '../../helpers/fetchSurveyors';
 
 const drawerWidth = 240;
 
@@ -45,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    fontFamily: 'Satisfy'
   },
   sectionDesktop: {
     display: 'none',
@@ -59,7 +57,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   name: {
-    margin: '10px'
+    margin: '10px',
+    fontFamily: 'Satisfy'
   },
   root: {
     display: 'flex',

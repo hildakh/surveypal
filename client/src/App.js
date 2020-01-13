@@ -85,6 +85,10 @@ class App extends Component {
   loadSurvey = () => {
     this.setState({...this.state, preview: false, viewSurvey: true})
   }
+  closePreview = () => {
+    this.setState({ ...this.state, preview: false, card: true, surveyOpen: false })
+  }
+
   render() {
     return (
       <div className="App">
@@ -99,19 +103,18 @@ class App extends Component {
         />
         {this.state.userType === 2 && (
           <div>
-            {this.state.card && 
-              <React.Fragment>
-                <Card
-                  message={"Surveys"}
-                  counter={this.state.surveyList.length || 0}
-                  onClick={this.toggleFirst}
-                />
-                <Expand open={this.state.surveyOpen}>
-                  <SurveyList list={this.state.surveyList} onClick={this.loadSurvey} />
-                </Expand>
-              </React.Fragment>}
+            {this.state.card && <React.Fragment>
+              <Card
+                message={"Surveys"}
+                counter={this.state.surveyList.length || 0}
+                onClick={this.toggleFirst}
+              />
+              <Expand open={this.state.surveyOpen}>
+                <SurveyList list={this.state.surveyList} onClick={this.loadSurvey} />
+              </Expand>
+            </React.Fragment>}
             {this.state.preview && <SurveyForm />}
-            {this.state.viewSurvey && <Index />}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview}/>}
           </div>
         )}
         {this.state.adminSurveyList && (

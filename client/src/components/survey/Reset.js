@@ -15,9 +15,10 @@ const useStyles = makeStyles(theme => ({
     background: "#9a0007",
     color: "white",
     fontSize: 15,
-    fontFamily: "Dancing Script",
     borderRadius: 20,
-    float: 'right'
+    float: 'right',
+    textTransform: "none",
+    fontFamily: "Baskerville"
   }
 }));
 
