@@ -15,6 +15,7 @@ export default function useSurveyData() {
   const initialState = {
     current_survey: {},
     current_question: {},
+    current_options: [],
     question_responses: {},
     current_question_responses: []
   };
@@ -35,15 +36,14 @@ export default function useSurveyData() {
 
   // const setSurvey = survey => dispatch({ type: SET_SURVEY, value: survey});
 
-  const findNextQuestion = function(index, nav){ 
+  const findNextQuestion = function(index, direction){ 
     let next_question = {}
-    if (nav < 0) {
-       next_question = state.current_survey.questions.find(question => (question.id === (state.current_question.id - 1)))
+    if (direction < 0) {
+       next_question = state.current_survey.questions.find(item => (item.question.id === (index - 1)))
     }
-    if (nav > 0) {
-      next_question = state.current_survey.questions.find(question => (question.id === (state.current_question.id + 1)))
+    if (direction > 0) {
+      next_question = state.current_survey.questions.find(item => (item.question.id === (index + 1)))
     }
-    console.log(next_question)
     return next_question
   }
 
