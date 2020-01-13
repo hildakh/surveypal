@@ -122,8 +122,8 @@ export default function FormDialog(props) {
           />
           <TextField
             className={classes.dialogue}
-            margin="dense"
-            id="name"
+            margin="none"
+            id="dense"
             label="Password"
             type="password"
             fullWidth
