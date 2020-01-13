@@ -8,28 +8,34 @@ import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles( theme => ({
   table: {
-    marginTop: 15,
+    marginTop: 30,
     maxWidth: "50%",
-    backgroundColor: "#E2F2F9",
     position: "relative",
     overflow: "auto",
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    color: "#08648C",
-    fontFamily: 'Muli'
+    borderRadius: '5px',
+    color: "#d4e157",
+    fontFamily: 'Muli',
+    border: '2px solid #677b00'
+
+    // borderWidth: 0.5,
+    // borderColor: "#afb42b"
   },
   listHead: {
-    backgroundColor: "#7c4dff",
+    backgroundColor: "#d4e157",
     padding: 0,
     fontFamily: 'Muli'
   },
   ul: {
     padding: 0,
-    fontFamily: 'Muli'
+    fontFamily: 'Muli',
+    // borderColor: "#afb42b",
   },
   tableCell: {
     fontFamily: 'Muli',
+    // borderColor: "#afb42b"
   }
 }));
 
@@ -46,7 +52,7 @@ export default function SurveyorTable(props) {
           {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>
-      <TableBody>
+      <TableBody className={classes.ul} >
         {props.list.map(item => (
           <TableRow key={item.first_name}>
             <TableCell component="th" scope="row" className={classes.tableCell}>
