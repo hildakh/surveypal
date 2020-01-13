@@ -21,23 +21,25 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function SurveyForm() {
+export default function SurveyForm(props) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  // const [open, setOpen] = React.useState(true);
+  const title = JSON.parse(localStorage.getItem('token')).surveys[0].name;
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+
 
   return (
     <div className={classes.surveyview}>
-      <Back onClick={handleClose} />
-      <Reset onClick={handleClose} />
-      <h4 className={classes.heading}>Vancouver 2019 Sheltered Survey</h4>
+      <Back onClick={props.closePreview} />
+      <Reset />
+      <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
       <Resume />
       <Start />

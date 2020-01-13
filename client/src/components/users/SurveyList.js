@@ -28,20 +28,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function PinnedSubheaderList(props) {
   const classes = useStyles();
-
-  const handleListItem = () => {
-    //show feedback dialog or show the survey/completed survey preview
-  }
   return (
     <List className={classes.root} subheader={<li />}>
-        {props.list.map(item => {
-          return (
-            <SurveyListItem
-              title={item.name}
-              onClick={handleListItem}>
-            </SurveyListItem>
-          )
-        })}
+      {props.list.map(item => {
+        return (
+          <SurveyListItem
+            title={item.name}
+            onClick={props.onClick}>
+          </SurveyListItem>
+        )
+      })}
     </List>
   );
 }

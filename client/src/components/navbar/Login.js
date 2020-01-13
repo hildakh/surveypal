@@ -30,19 +30,21 @@ export default function FormDialog(props) {
           setState({ ...state, status: "ERROR" });
         } else {
           token["user"] = response.data.user;
-          fetchSurveys(response.data.user).then(data => {
-            token["surveys"] = data;
-            if (token.user.user_type_id === 1) {
-              fetchSurveyors().then(surveyors => {
-                token["surveyors"] = surveyors;
-                fetchTeams().then(teams => {
-                  token["teams"] = teams;
+          fetchSurveys(response.data.user)
+            .then(data => {
+              token["surveys"] = data.surveys;
+              token["questions"] = data.questions;
+              if (token.user.user_type_id === 1) {
+                fetchSurveyors().then(surveyors => {
+                  token["surveyors"] = surveyors;
+                  fetchTeams().then(teams => {
+                    token["teams"] = teams;
+                  });
                 });
-              });
-            }
-            localStorage.setItem("token", JSON.stringify(token));
-            props.login();
-            handleClose();
+              }
+              localStorage.setItem("token", JSON.stringify(token));
+              props.login();
+              handleClose();
           });
         }
       });
