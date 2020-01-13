@@ -11,6 +11,17 @@ import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
 import TeamTable from './components/admin/TeamTable';
 import SurveyForm from './components/survey/SurveyForm';
+import {
+  Chart,
+  ArgumentAxis,
+  ValueAxis,
+  BarSeries,
+  LineSeries,
+  Legend,
+} from '@devexpress/dx-react-chart-material-ui';
+import { ValueScale, Animation } from '@devexpress/dx-react-chart';
+
+
 
 class App extends Component {
 
@@ -81,6 +92,7 @@ class App extends Component {
     this.setState({ ...this.state, preview: true, card: false })
   }
   render() {
+
     return (
       <div className="App">
         <AppBar
@@ -106,6 +118,30 @@ class App extends Component {
             </React.Fragment>}
             {this.state.preview && <SurveyForm />}
           </div>
+        )}
+        {this.state.userType === 0 && (
+          <div>
+            <Chart
+              data={[
+                { argument: 1, value: 10 },
+                { argument: 2, value: 50 },
+                { argument: 3, value: 30 },
+                { argument: 4, value: 70 },
+                { argument: 5, value: 20 },
+                { argument: 6, value: 60 },
+                { argument: 7, value: 90 },
+                { argument: 8, value: 40 },
+                { argument: 9, value: 80 }
+              ]}
+            >
+              <ArgumentAxis />
+              <ValueAxis />
+              <LineSeries valueField="value" argumentField="argument" />
+              <Animation />
+              <Legend />
+            </Chart>
+          </div>
+
         )}
         {this.state.adminSurveyList && (
           <SurveyTable list={this.state.surveyList} />
