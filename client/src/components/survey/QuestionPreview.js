@@ -15,7 +15,7 @@ const action = (
   </Button>
 );
 
-const questions = [];
+// const questions = [];
 const useStyles = makeStyles(theme => ({
   root: {
     width: "95%",
@@ -36,7 +36,6 @@ const useStyles = makeStyles(theme => ({
 export default function QuestionPreview() {
   const classes = useStyles();
   const questions = JSON.parse(localStorage.getItem('token')).questions;
-  console.log(questions);
 
   return (
     <div className={classes.root}>
@@ -44,11 +43,11 @@ export default function QuestionPreview() {
         <Card className={classes.card}>
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-              {question.description}
+              {question.question.description}
             </Typography>
           </CardContent>
           <CardActions>
-            <QuestionOptionPreview />
+            <QuestionOptionPreview questionOptions={question.options}/>
           </CardActions>
         </Card>
       ))}

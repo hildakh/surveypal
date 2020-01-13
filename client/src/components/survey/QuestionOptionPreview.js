@@ -20,27 +20,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function QuestionPreview() {
+export default function QuestionPreview(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <SnackbarContent
-        className={classes.snackbar}
-        message="Yes"
-        action={action}
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message={
-          "No"
-        }
-      />
-      <SnackbarContent
-        className={classes.snackbar}
-        message="I don/'t know"
-        action={action}
-      />
+      {props.questionOptions.map(item => (
+        <SnackbarContent
+          className={classes.snackbar}
+          message={item.option_text}
+          action={action}
+        />
+      ))}
     </div>
   );
 }
