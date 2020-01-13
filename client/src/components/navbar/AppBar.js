@@ -35,6 +35,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     fontFamily: 'Muli'
   },
+  // menu: {
+  //   background: `linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)`,
+  //   fontFamily: 'Muli'
+  // },
   menuButton: {
     marginRight: theme.spacing(2),
     fontFamily: 'Muli'
@@ -68,22 +72,22 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     fontFamily: 'Muli'
   },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    fontFamily: 'Muli'
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    fontFamily: 'Muli'
-  },
+  // appBar: {
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.leavingScreen,
+  //   }),
+  //   fontFamily: 'Muli'
+  // },
+  // appBarShift: {
+  //   width: `calc(100% - ${drawerWidth}px)`,
+  //   marginLeft: drawerWidth,
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.easeOut,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  //   fontFamily: 'Muli'
+  // },
   hide: {
     display: 'none',
   },
