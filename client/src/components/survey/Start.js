@@ -8,9 +8,10 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     background: "#64dd17",
     color: "white",
-    fontSize: 15,
-    fontFamily: "Dancing Script",
-    borderRadius: 20
+    fontSize: 20,
+    textTransform: 'none',
+    fontFamily: 'Muli',
+    borderRadius: 5
   }
 }));
 
