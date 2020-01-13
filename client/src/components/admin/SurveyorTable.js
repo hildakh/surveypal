@@ -5,8 +5,9 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Divider from "@material-ui/core/Divider";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( theme => ({
   table: {
     marginTop: 15,
     maxWidth: "50%",
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    color: "#08648C"
+    color: "#08648C",
   },
   listHead: {
     backgroundColor: "#7c4dff",
@@ -25,8 +26,8 @@ const useStyles = makeStyles({
   ul: {
     backgroundColor: "#7c4dff",
     padding: 0
-  }
-});
+  },
+}));
 
 export default function SurveyorTable(props) {
   const classes = useStyles();

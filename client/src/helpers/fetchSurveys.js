@@ -10,7 +10,6 @@ const fetchSurveys = (user) => {
     } else {
       return axios.get(`/api/surveys?user_id=${user.id}`)
         .then(response => {
-          console.log(response.data)
           return response.data;
         }
         )
