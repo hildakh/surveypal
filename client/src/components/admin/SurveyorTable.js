@@ -15,27 +15,25 @@ const useStyles = makeStyles( theme => ({
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    borderRadius: '5px',
-    color: "#d4e157",
     fontFamily: 'Muli',
-    border: '2px solid #677b00'
-
-    // borderWidth: 0.5,
-    // borderColor: "#afb42b"
+    boxShadow: '3px 3px 10px #686868'
   },
   listHead: {
+    typography: {
+      input: 'white'
+    },
     backgroundColor: "#d4e157",
     padding: 0,
-    fontFamily: 'Muli'
+    fontFamily: 'Muli',
   },
   ul: {
     padding: 0,
     fontFamily: 'Muli',
-    // borderColor: "#afb42b",
+    backgroundColor: 'white'
   },
   tableCell: {
     fontFamily: 'Muli',
-    // borderColor: "#afb42b"
+    backgroundColor: 'white',
   }
 }));
 
@@ -43,12 +41,12 @@ export default function SurveyorTable(props) {
   const classes = useStyles();
 
   return (
-    <Table className={classes.table} aria-label="caption table">
+    <Table className={classes.table} aria-label="caption table" elevation={4}>
       {/* <caption></caption> */}
       <TableHead>
         <TableRow className={classes.listHead}>
-          <TableCell className={classes.tableCell}>Surveyor</TableCell>
-          <TableCell align="center" className={classes.tableCell}>Email Address</TableCell>
+          <TableCell>Surveyor</TableCell>
+          <TableCell align="center">Email Address</TableCell>
           {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>

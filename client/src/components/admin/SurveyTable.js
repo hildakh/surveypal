@@ -8,24 +8,24 @@ import TableRow from "@material-ui/core/TableRow";
 
 const useStyles = makeStyles({
   table: {
-    marginTop: 15,
+    marginTop: 30,
     maxWidth: "70%",
-    backgroundColor: "#E2F2F9",
     position: "relative",
     overflow: "auto",
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
     color: "#08648C",
-    fontFamily: 'Muli'
+    fontFamily: 'Muli',
+    border: '2px solid #677b00'
   },
   listHead: {
-    backgroundColor: "#7c4dff",
+    backgroundColor: "#d4e157",
     padding: 0,
     fontFamily: 'Muli'
   },
   ul: {
-    backgroundColor: "#7c4dff",
+    // backgroundColor: "#7c4dff",
     padding: 0,
     fontFamily: 'Muli'
   },
