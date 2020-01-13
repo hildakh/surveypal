@@ -56,9 +56,9 @@ export default function Index(props) {
             <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
           </Grid>
 
-          <Show 
-            question_text={<QuestionText description={state.current_question.description}/>}
-            question_options_list={<QuestionOptionsList questionOptions={state.current_question.options}/>} 
+          <Show
+            question_description={<QuestionText description={state.current_question.description}/>}
+            question_options_list={<QuestionOptionsList questionOptions={state.current_options}/>} 
           />
         
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
