@@ -33,9 +33,11 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
+    fontFamily: 'Muli'
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    fontFamily: 'Muli'
   },
   title: {
     display: 'none',
@@ -49,12 +51,14 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
+    fontFamily: 'Muli'
   },
   sectionMobile: {
     display: 'flex',
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+    fontFamily: 'Muli'
   },
   name: {
     margin: '10px',
@@ -62,12 +66,14 @@ const useStyles = makeStyles(theme => ({
   },
   root: {
     display: 'flex',
+    fontFamily: 'Muli'
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    fontFamily: 'Muli'
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -76,6 +82,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    fontFamily: 'Muli'
   },
   hide: {
     display: 'none',
@@ -83,9 +90,11 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    fontFamily: 'Muli'
   },
   drawerPaper: {
     width: drawerWidth,
+    fontFamily: 'Muli'
   },
   drawerHeader: {
     display: 'flex',
@@ -93,6 +102,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    fontFamily: 'Muli'
   },
   content: {
     flexGrow: 1,
@@ -102,6 +112,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    fontFamily: 'Muli'
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -109,7 +120,11 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+    fontFamily: 'Muli'
   },
+  sideDrawer: {
+    fontFamily: 'Muli'
+  }
 
 }));
 
@@ -163,9 +178,10 @@ export default function PrimarySearchAppBar(props) {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      className={classes.sideDrawer}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>My account</MenuItem>
 
     </Menu>
   );
@@ -230,21 +246,21 @@ export default function PrimarySearchAppBar(props) {
         </div>
         <Divider />
         <List>
-          <ListItem button onClick={props.loadSurveys}>
+          <ListItem button onClick={props.loadSurveys} className={classes.sideDrawer}>
             <ListItemIcon><BallotIcon /></ListItemIcon>
-            <ListItemText primary='Surveys' />
+            <ListItemText primary='Surveys' className={classes.sideDrawer} />
           </ListItem>
-          <ListItem button>
+          <ListItem button className={classes.sideDrawer}>
             <ListItemIcon><PollIcon /></ListItemIcon>
-            <ListItemText primary='Reports' />
+            <ListItemText primary='Reports' className={classes.sideDrawer} />
           </ListItem>
-          <ListItem button onClick={props.loadSurveyors}>
+          <ListItem button onClick={props.loadSurveyors} className={classes.sideDrawer}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
-            <ListItemText primary='Surveyors' />
+            <ListItemText primary='Surveyors' className={classes.sideDrawer}/>
           </ListItem>
-          <ListItem button onClick={props.loadTeams}>
+          <ListItem button onClick={props.loadTeams} className={classes.sideDrawer}>
             <ListItemIcon><FaUsers /></ListItemIcon>
-            <ListItemText primary='Teams' />
+            <ListItemText primary='Teams' className={classes.sideDrawer} />
           </ListItem>
         </List>
       </Drawer>)}

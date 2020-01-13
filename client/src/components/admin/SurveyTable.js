@@ -16,15 +16,21 @@ const useStyles = makeStyles({
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    color: "#08648C"
+    color: "#08648C",
+    fontFamily: 'Muli'
   },
   listHead: {
     backgroundColor: "#7c4dff",
-    padding: 0
+    padding: 0,
+    fontFamily: 'Muli'
   },
   ul: {
     backgroundColor: "#7c4dff",
-    padding: 0
+    padding: 0,
+    fontFamily: 'Muli'
+  },
+  tableCell: {
+    fontFamily: 'Muli',
   }
 });
 
@@ -36,18 +42,18 @@ export default function SurveyTable(props) {
       {/* <caption></caption> */}
       <TableHead>
         <TableRow className={classes.listHead}>
-          <TableCell>Survey Title </TableCell>
-          <TableCell align="center">Description</TableCell>
+          <TableCell className={classes.tableCell}>Survey Title </TableCell>
+          <TableCell align="center" className={classes.tableCell}>Description</TableCell>
           {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>
       <TableBody>
         {props.list.map(item => (
           <TableRow key={item.name}>
-            <TableCell component="th" scope="row">
+            <TableCell component="th" scope="row" className={classes.tableCell}>
               {item.name}
             </TableCell>
-            <TableCell align="center">{item.description}</TableCell>
+            <TableCell align="center" className={classes.tableCell}>{item.description}</TableCell>
             {/* <TableCell align="center">{item.end_date}</TableCell> */}
           </TableRow>
         ))}

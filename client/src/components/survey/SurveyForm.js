@@ -13,10 +13,12 @@ const useStyles = makeStyles(theme => ({
     margin: "0 auto",
     padding: theme.spacing(1),
     justifyContent: 'space-between',
-    borderRadius: 15
+    borderRadius: 15,
+    fontFamily: 'Muli',
   },
   heading: {
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: 'Muli',
   }
 
 }));
