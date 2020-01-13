@@ -15,7 +15,6 @@ export default function reducer(state, action) {
   // from app => index => useSurveyData
   if (action.type === SET_SURVEY) {
     
-    console.log(action.value)
     const first_question = action.value.questions.find(question => question.id === 1)
     return ({
       ...state,
