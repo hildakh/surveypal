@@ -15,18 +15,20 @@ export default function reducer(state, action) {
   // from app => index => useSurveyData
   if (action.type === SET_SURVEY) {
     
-    const first_question = action.value.questions.find(question => question.id === 1)
+    const first_question = action.value.questions[0].question
+    const first_question_options = action.value.questions[0].options
     return ({
       ...state,
       current_survey: action.value,
-      current_question: first_question
+      current_question: first_question,
+      current_options: first_question_options
     });
   };
-
   if (action.type === SET_NEXT_QUESTION) {
     return({
       ...state,
-      current_question: action.value
+      current_question: action.value.question,
+      current_options: action.value.options
     })
   };
 
