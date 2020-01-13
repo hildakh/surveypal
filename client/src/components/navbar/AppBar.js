@@ -48,7 +48,10 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
-    fontFamily: 'Satisfy'
+    fontFamily: 'Satisfy',
+    input: {
+      color: "#757575"
+    }
   },
   sectionDesktop: {
     display: 'none',
@@ -66,11 +69,18 @@ const useStyles = makeStyles(theme => ({
   },
   name: {
     margin: '10px',
-    fontFamily: 'Satisfy'
+    fontFamily: 'Satisfy',
+    color: '#757575',
+    input: {
+      color: "#757575"
+    }
   },
   root: {
     display: 'flex',
-    fontFamily: 'Muli'
+    fontFamily: 'Muli',
+    input: {
+      color: "#757575"
+    }
   },
   // appBar: {
   //   transition: theme.transitions.create(['margin', 'width'], {
@@ -268,7 +278,7 @@ export default function PrimarySearchAppBar(props) {
           </ListItem>
         </List>
       </Drawer>)}
-      <AppBar position="static" inputfield={props.inputfield} session={props.session}>
+      <AppBar position="static" inputfield={props.inputfield} session={props.session} style={{ background: '#afb42b' }}>
         <Toolbar>
           {userType === 1 && (<IconButton
             edge="start"

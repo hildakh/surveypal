@@ -78,7 +78,7 @@ export default function FormDialog(props) {
           marginTop: "5px",
           color: "white",
           borderColor: "white",
-          textTransform: 'none',
+          borderWidth: 2,
           fontFamily: "Muli"
         }}
         onClick={handleClickOpen}
