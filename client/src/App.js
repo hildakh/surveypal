@@ -11,6 +11,7 @@ import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
 import TeamTable from './components/admin/TeamTable';
 import SurveyForm from './components/survey/SurveyForm';
+import Index from './components/questions/Index';
 
 class App extends Component {
 
@@ -42,7 +43,8 @@ class App extends Component {
       teamListOpen: false,
       teamList: team_list,
       preview: false,
-      card: true
+      card: true,
+      viewSurvey: false
     };
     this.status = "NULL";
   }
@@ -80,6 +82,9 @@ class App extends Component {
   loadPreview = () => {
     this.setState({ ...this.state, preview: true, card: false })
   }
+  loadSurvey = () => {
+    this.setState({...this.state, preview: false, viewSurvey: true})
+  }
   render() {
     return (
       <div className="App">
@@ -94,17 +99,19 @@ class App extends Component {
         />
         {this.state.userType === 2 && (
           <div>
-            {this.state.card && <React.Fragment>
-              <Card
-                message={"Surveys"}
-                counter={this.state.surveyList.length || 0}
-                onClick={this.toggleFirst}
-              />
-              <Expand open={this.state.surveyOpen}>
-                <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
-              </Expand>
-            </React.Fragment>}
+            {this.state.card && 
+              <React.Fragment>
+                <Card
+                  message={"Surveys"}
+                  counter={this.state.surveyList.length || 0}
+                  onClick={this.toggleFirst}
+                />
+                <Expand open={this.state.surveyOpen}>
+                  <SurveyList list={this.state.surveyList} onClick={this.loadSurvey} />
+                </Expand>
+              </React.Fragment>}
             {this.state.preview && <SurveyForm />}
+            {this.state.viewSurvey && <Index />}
           </div>
         )}
         {this.state.adminSurveyList && (
