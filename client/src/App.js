@@ -80,6 +80,10 @@ class App extends Component {
   loadPreview = () => {
     this.setState({ ...this.state, preview: true, card: false })
   }
+  closePreview = () => {
+    this.setState({ ...this.state, preview: false, card: true, surveyOpen: false })
+  }
+
   render() {
     return (
       <div className="App">
@@ -104,7 +108,7 @@ class App extends Component {
                 <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
               </Expand>
             </React.Fragment>}
-            {this.state.preview && <SurveyForm />}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview}/>}
           </div>
         )}
         {this.state.adminSurveyList && (
