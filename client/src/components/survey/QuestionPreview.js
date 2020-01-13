@@ -20,16 +20,19 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "95%",
     position: "relative",
-    margin: "0 auto"
+    margin: "0 auto",
+    fontFamily: 'Muli',
   },
   card: {
     margin: theme.spacing(3),
     borderRadius: 10,
     backgroundColor: '#424242',
-    color: 'white'
+    color: 'white',
+    fontFamily: 'Muli',
   },
   title: {
-    color: 'white'
+    color: 'white',
+    fontFamily: 'Muli',
   }
 }));
 

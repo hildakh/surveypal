@@ -14,7 +14,8 @@ const useStyles = makeStyles({
     backgroundColor: '#56B4FD',
     '&:hover': {
       background: "#0B8BCC",
-    }
+    },
+    fontFamily: 'Muli'
   },
   badge: {
     display: 'block',
@@ -23,19 +24,20 @@ const useStyles = makeStyles({
     lineHeight: '16px',
     height: '16px',
     padding: '10px 12px',
-    fontFamily: 'Arial, sans- serif',
+    fontFamily: 'Muli',
     color: 'white',
     borderRadius: '50%',
     boxShadow: 'inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.08)',
     marginTop: '-1%',
     marginRight: '23.5%',
     backgroundColor: '#05B11F',
-    color: 'white'
+    color: 'white',
   },
   title: {
     marginTop: '45px',
     fontSize: 35,
-    color: 'white'
+    color: 'white',
+    fontFamily: 'Muli'
   },
   spinner: {
     marginTop: '1%',

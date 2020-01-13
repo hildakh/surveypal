@@ -33,59 +33,79 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
+    fontFamily: 'Muli'
   },
+  // menu: {
+  //   background: `linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)`,
+  //   fontFamily: 'Muli'
+  // },
   menuButton: {
     marginRight: theme.spacing(2),
+    fontFamily: 'Muli'
   },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
-    fontFamily: 'Satisfy'
+    fontFamily: 'Satisfy',
+    input: {
+      color: "white"
+    }
   },
   sectionDesktop: {
     display: 'none',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
+    fontFamily: 'Muli'
   },
   sectionMobile: {
     display: 'flex',
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+    fontFamily: 'Muli'
   },
   name: {
     margin: '10px',
-    fontFamily: 'Satisfy'
+    fontFamily: 'Satisfy',
+    color: 'white',
   },
   root: {
     display: 'flex',
+    fontFamily: 'Muli',
+    input: {
+      color: "white"
+    }
   },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
+  // appBar: {
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.leavingScreen,
+  //   }),
+  //   fontFamily: 'Muli'
+  // },
+  // appBarShift: {
+  //   width: `calc(100% - ${drawerWidth}px)`,
+  //   marginLeft: drawerWidth,
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.easeOut,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  //   fontFamily: 'Muli'
+  // },
   hide: {
     display: 'none',
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    fontFamily: 'Muli'
   },
   drawerPaper: {
     width: drawerWidth,
+    fontFamily: 'Muli'
   },
   drawerHeader: {
     display: 'flex',
@@ -93,6 +113,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    fontFamily: 'Muli'
   },
   content: {
     flexGrow: 1,
@@ -102,6 +123,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    fontFamily: 'Muli'
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -109,8 +131,8 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+    fontFamily: 'Muli'
   },
-
 }));
 
 export default function PrimarySearchAppBar(props) {
@@ -163,9 +185,10 @@ export default function PrimarySearchAppBar(props) {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      className={classes.sideDrawer}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>My account</MenuItem>
 
     </Menu>
   );
@@ -230,25 +253,25 @@ export default function PrimarySearchAppBar(props) {
         </div>
         <Divider />
         <List>
-          <ListItem button onClick={props.loadSurveys}>
+          <ListItem button onClick={props.loadSurveys} className={classes.sideDrawer}>
             <ListItemIcon><BallotIcon /></ListItemIcon>
-            <ListItemText primary='Surveys' />
+            <ListItemText primary='Surveys' className={classes.sideDrawer} />
           </ListItem>
-          <ListItem button>
+          <ListItem button className={classes.sideDrawer}>
             <ListItemIcon><PollIcon /></ListItemIcon>
-            <ListItemText primary='Reports' />
+            <ListItemText primary='Reports' className={classes.sideDrawer} />
           </ListItem>
-          <ListItem button onClick={props.loadSurveyors}>
+          <ListItem button onClick={props.loadSurveyors} className={classes.sideDrawer}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
-            <ListItemText primary='Surveyors' />
+            <ListItemText primary='Surveyors' className={classes.sideDrawer}/>
           </ListItem>
-          <ListItem button onClick={props.loadTeams}>
+          <ListItem button onClick={props.loadTeams} className={classes.sideDrawer}>
             <ListItemIcon><FaUsers /></ListItemIcon>
-            <ListItemText primary='Teams' />
+            <ListItemText primary='Teams' className={classes.sideDrawer} />
           </ListItem>
         </List>
       </Drawer>)}
-      <AppBar position="static" inputfield={props.inputfield} session={props.session}>
+      <AppBar position="static" inputfield={props.inputfield} session={props.session} style={{ background: '#677b00' }}>
         <Toolbar>
           {userType === 1 && (<IconButton
             edge="start"
