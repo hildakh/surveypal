@@ -19,8 +19,8 @@ const useStyles = makeStyles( theme => ({
     boxShadow: '3px 3px 10px #686868'
   },
   listHead: {
-    typography: {
-      input: 'white'
+    input: {
+      color: "white"
     },
     backgroundColor: "#d4e157",
     padding: 0,
