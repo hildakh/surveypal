@@ -25,10 +25,15 @@ export default function reducer(state, action) {
     });
   };
   if (action.type === SET_NEXT_QUESTION) {
+
+
+
+
     return({
       ...state,
       current_question: action.value.question,
-      current_options: action.value.options
+      current_options: action.value.options,
+      current_question_responses: 
     })
   };
 

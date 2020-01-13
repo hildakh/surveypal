@@ -16,7 +16,6 @@ export default function useSurveyData() {
     current_survey: {},
     current_question: {},
     current_options: [],
-    question_responses: {},
     current_question_responses: []
   };
 
