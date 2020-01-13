@@ -1,4 +1,5 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -12,7 +13,28 @@ import fetchSurveys from "../../helpers/fetchSurveys";
 import fetchSurveyors from "../../helpers/fetchSurveyors";
 import fetchTeams from "../../helpers/fetchTeams";
 
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    color: 'white',
+    borderColor: 'white',
+    marginLeft: '10px',
+    marginTop: '5px',
+    marginBottom: '5px',
+    fontSize: 20,
+    borderRadius: 5,
+    textTransform: "none",
+    fontFamily: "Muli"
+  },
+  dialogue: {
+    textTransform: "none",
+    fontFamily: "Muli",
+  }
+}));
+
 export default function FormDialog(props) {
+  const classes = useStyles();
+
   const [state, setState] = React.useState({
     email: "",
     password: "",
@@ -65,12 +87,7 @@ export default function FormDialog(props) {
       <Button
         variant="outlined"
         color="default"
-        style={{
-          marginLeft: "10px",
-          marginTop: "5px",
-          color: "white",
-          borderColor: "white"
-        }}
+        className={classes.button}
         onClick={handleClickOpen}
       >
         Login
@@ -79,18 +96,20 @@ export default function FormDialog(props) {
         open={state.open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+
       >
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        <DialogTitle id="form-dialog-title" className={classes.dialogue}>Login</DialogTitle>
         {state.status === "ERROR" && (
           <div>
             <Error message="Email or password is incorrect!" />
           </div>
         )}
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText className={classes.dialogue}>
             Please Enter your Email and Password.
           </DialogContentText>
           <TextField
+            className={classes.dialogue}
             autoFocus
             margin="dense"
             id="name"
@@ -102,6 +121,7 @@ export default function FormDialog(props) {
             }
           />
           <TextField
+            className={classes.dialogue}
             margin="dense"
             id="name"
             label="Password"
@@ -113,10 +133,10 @@ export default function FormDialog(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" className={classes.dialogue}>
             Cancel
           </Button>
-          <Button onClick={validate} color="primary">
+          <Button onClick={validate} color="primary" className={classes.dialogue}>
             Login
           </Button>
         </DialogActions>

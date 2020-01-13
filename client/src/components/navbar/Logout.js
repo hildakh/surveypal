@@ -31,6 +31,7 @@ export default function Logout(props) {
   const logout = () => {
     fetchData();
   }
+
   return (
     <Button onClick={logout} variant="outlined" color="default" className={classes.button}>
       Logout

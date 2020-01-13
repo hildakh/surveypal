@@ -16,15 +16,21 @@ const useStyles = makeStyles({
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    color: "#08648C"
+    color: "#08648C",
+    textTransform: "none",
+    fontFamily: "Muli"
   },
   listHead: {
     backgroundColor: "#7c4dff",
-    padding: 0
+    padding: 0,
+    textTransform: "none",
+    fontFamily: "Muli"
   },
   ul: {
     backgroundColor: "#7c4dff",
-    padding: 0
+    padding: 0,
+    textTransform: "none",
+    fontFamily: "Muli"
   }
 });
 

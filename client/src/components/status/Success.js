@@ -19,6 +19,8 @@ const useStyles1 = makeStyles(theme => ({
   },
   icon: {
     fontSize: 20,
+    textTransform: "none",
+    fontFamily: 'Baskerville',
   },
   iconVariant: {
     opacity: 0.9,
@@ -27,6 +29,8 @@ const useStyles1 = makeStyles(theme => ({
   message: {
     display: 'flex',
     alignItems: 'center',
+    textTransform: "none",
+    fontFamily: 'Baskerville'
   },
 }));
 

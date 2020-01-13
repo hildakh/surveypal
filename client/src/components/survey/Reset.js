@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     background: "#9a0007",
     color: "white",
-    fontSize: 15,
-    borderRadius: 20,
+    fontSize: 20,
+    borderRadius: 5,
     float: 'right',
     textTransform: "none",
     fontFamily: "Muli"
@@ -43,7 +43,7 @@ export default function Reset(props) {
   const closeMessage = () => {
     setStatus('BASIC');
   }
-  //handle success
+  // //handle success
   const openSuccess = () => {
     setStatus('SUCCESS')
   }
