@@ -39,12 +39,10 @@ export default function Index(props) {
 
   const {
     state,
-    setSurvey,
+    // setSurvey,
     navigateQuestions,
     recordQuestionResponse
   } = useSurveyData();
-
-  // setSurvey(props.current_survey)
 
   return (
 
@@ -55,16 +53,16 @@ export default function Index(props) {
         <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
         
           <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
-            <BeforeButton onClick={() => navigateQuestions(state.current_question.serial_order, -1)} />
+            <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
           </Grid>
 
           <Show 
             question_text={<QuestionText description={state.current_question.description}/>}
-            question_options_list={<QuestionOptionsList questionOptions={state.current_question.question_options}/>} 
+            question_options_list={<QuestionOptionsList questionOptions={state.current_question.options}/>} 
           />
         
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
-            <NextButton onClick={() => navigateQuestions(state.current_question.serial_order, 1)}  />
+            <NextButton onClick={() => navigateQuestions(state.current_question.id, 1)}  />
           </Grid>
         
         </Grid>     
