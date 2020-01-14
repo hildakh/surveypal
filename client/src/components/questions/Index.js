@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import Show from './Show';
@@ -39,12 +39,19 @@ export default function Index(props) {
   const styleClasses = useStyles();
 
   const {
-    state,
+    store,
+    StateProvider,
+    dispatch,
     navigateQuestions,
+    updateChecked,
     recordQuestionResponse
   } = useSurveyData();
 
   return (
+    // with StateProvider, the store context component can be accessed from any component
+    // in this component tree. To  do this, import useContext hook from react and
+    // store from useSurveyData
+    <StateProvider>
     <Container maxWidth="sm" height="100%" disableGutters={true} >
 
       <BackToSurveyButton 
@@ -75,6 +82,7 @@ export default function Index(props) {
       </Grid>
 
     </Container>
+    </StateProvider>
 
   );
 }
