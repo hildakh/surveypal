@@ -87,11 +87,11 @@ class App extends Component {
   loadPreview = () => {
     this.setState({ ...this.state, preview: true, card: false })
   }
-  loadSurvey = () => {
-    this.setState({...this.state, preview: false, viewSurvey: true})
-  }
   closePreview = () => {
     this.setState({ ...this.state, preview: false, card: true, surveyOpen: false })
+  }
+  startSurvey = () => {
+    this.setState({...this.state, preview: false, viewSurvey: true})
   }
 
   render() {
@@ -116,13 +116,11 @@ class App extends Component {
                 onClick={this.toggleFirst}
               />
               <Expand open={this.state.surveyOpen}>
-                <SurveyList list={this.state.surveyList} onClick={this.loadSurvey} />
+                <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
               </Expand>
             </React.Fragment>}
-            {this.state.preview && <SurveyForm />}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview} startSurvey={this.startSurvey} />}
             {this.state.viewSurvey && <Index />}
-            {this.state.preview && <SurveyForm closePreview={this.closePreview}/>}
-            {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
           </div>
         )}
         <MainPicture />
