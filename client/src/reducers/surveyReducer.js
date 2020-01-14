@@ -1,13 +1,13 @@
 const SET_SURVEY = "SET_SURVEY";
 const SET_NEXT_QUESTION = "SET_NEXT_QUESTION";
+const SET_CHECKED = "SET_CHECKED";
 const SET_QUESTION_RESPONSE = "SET_QUESTION_RESPONSE";
-const SET_QUESTION_RESPONSES = "SET_QUESTION_RESPONSES";
 
 export { 
   SET_SURVEY,
   SET_NEXT_QUESTION,
-  SET_QUESTION_RESPONSE,
-  SET_QUESTION_RESPONSES
+  SET_CHECKED,
+  SET_QUESTION_RESPONSE
 };
 
 export default function reducer(state, action) {
@@ -24,16 +24,23 @@ export default function reducer(state, action) {
       current_options: first_question_options
     });
   };
+
+  if (action.type === SET_CHECKED) {
+    return ({
+      ...state,
+      checked: action.value
+    })
+  }
+
   if (action.type === SET_NEXT_QUESTION) {
-
-
-
-
+    // update token with question options list items where checked=true
+    // const update
     return({
       ...state,
       current_question: action.value.question,
       current_options: action.value.options,
-      current_question_responses: 
+      checked: [0]
+      // current_question_responses: 
     })
   };
 
