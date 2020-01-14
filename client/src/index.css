@@ -8,7 +8,7 @@ body {
 }
 
 code {
-  font-family: 'Muli', source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: "Muli", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-    color: 'white'
+  color: "white";
 }
