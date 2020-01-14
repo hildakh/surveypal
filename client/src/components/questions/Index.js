@@ -49,7 +49,7 @@ export default function Index(props) {
   } = useSurveyData();
 
   const surveyState = useContext(SurveyContext);
-  console.log("SHOW me the surveyState, y'all", surveyState);
+  // console.log("SHOW me the surveyState, y'all", surveyState);
 
 
   return (
