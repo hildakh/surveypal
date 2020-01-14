@@ -1,6 +1,6 @@
 /* eslint no-restricted-globals:0 */
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme, createMuiTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Drawer from "@material-ui/core/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -31,14 +31,20 @@ import PollIcon from "@material-ui/icons/Poll";
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
+  typography: {
+    fontFamily: 'Muli',
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': "Muli",
+      },
+    },
+  },
   grow: {
     flexGrow: 1,
     fontFamily: "Muli"
   },
-  // menu: {
-  //   background: `linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)`,
-  //   fontFamily: 'Muli'
-  // },
   menuButton: {
     marginRight: theme.spacing(2),
     fontFamily: "Muli"
@@ -67,7 +73,6 @@ const useStyles = makeStyles(theme => ({
       display: "none"
     },
     fontFamily: "Muli"
-    // fontSize: 50,
   },
   name: {
     margin: "10px",
@@ -79,33 +84,19 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     fontFamily: "Muli"
   },
-  // appBar: {
-  //   transition: theme.transitions.create(['margin', 'width'], {
-  //     easing: theme.transitions.easing.sharp,
-  //     duration: theme.transitions.duration.leavingScreen,
-  //   }),
-  //   fontFamily: 'Muli'
-  // },
-  // appBarShift: {
-  //   width: `calc(100% - ${drawerWidth}px)`,
-  //   marginLeft: drawerWidth,
-  //   transition: theme.transitions.create(['margin', 'width'], {
-  //     easing: theme.transitions.easing.easeOut,
-  //     duration: theme.transitions.duration.enteringScreen,
-  //   }),
-  //   fontFamily: 'Muli'
-  // },
   hide: {
     display: "none"
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    fontFamily: "Muli",
   },
   drawerPaper: {
     width: drawerWidth,
-    fontFamily: "Muli"
+    background: "#f9fbe7",
+    typography: {
+      fontFamily: 'Muli',
+    },
   },
   drawerHeader: {
     display: "flex",
@@ -125,7 +116,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen
     }),
     marginLeft: -drawerWidth,
-    fontFamily: "Muli"
+    fontFamily: "Muli",
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
@@ -250,7 +241,6 @@ export default function PrimarySearchAppBar(props) {
           classes={{
             paper: classes.drawerPaper
           }}
-          style={{ backgroundColor: "#677b00" }}
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
@@ -266,41 +256,50 @@ export default function PrimarySearchAppBar(props) {
             <ListItem
               button
               onClick={props.loadSurveys}
-              className={classes.sideDrawer}
             >
               <ListItemIcon>
                 <BallotIcon />
               </ListItemIcon>
-              <ListItemText primary="Surveys" className={classes.sideDrawer} />
+              <ListItemText >
+                <Typography style={{fontFamily: 'Muli'}}>
+                Surveys
+                </Typography>
+              </ListItemText>
             </ListItem>
-            <ListItem button className={classes.sideDrawer}>
+            <ListItem button>
               <ListItemIcon>
                 <PollIcon />
               </ListItemIcon>
-              <ListItemText primary="Reports" className={classes.sideDrawer} />
+              <ListItemText>
+              <Typography style={{fontFamily: 'Muli'}}>
+                Reports
+                </Typography>
+                </ListItemText>
             </ListItem>
-            <ListItem
-              button
-              onClick={props.loadSurveyors}
-              className={classes.sideDrawer}
-            >
+
+            <ListItem button onClick={props.loadSurveyors}>
               <ListItemIcon>
                 <FaceIcon />
               </ListItemIcon>
-              <ListItemText
-                primary="Surveyors"
-                className={classes.sideDrawer}
-              />
+              <ListItemText>
+              <Typography style={{fontFamily: 'Muli'}}>
+                Surveyors
+                </Typography>
+              </ListItemText>
             </ListItem>
+
             <ListItem
               button
               onClick={props.loadTeams}
-              className={classes.sideDrawer}
             >
               <ListItemIcon>
                 <FaUsers />
               </ListItemIcon>
-              <ListItemText primary="Teams" className={classes.sideDrawer} />
+              <ListItemText>
+              <Typography style={{fontFamily: 'Muli'}}>
+                Teams
+                </Typography>
+              </ListItemText>
             </ListItem>
           </List>
         </Drawer>
