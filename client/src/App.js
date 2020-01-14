@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
+import "animate.css/animate.min.css";
 import AppBar from './components/navbar/AppBar';
 import Card from './components/users/Card';
 import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
-// import CompSurvList from './components/users/CompSurvList';
-// import fetchSurveyors from '../src/helpers/fetchSurveyors';
-// import SurveyorList from './components/users/SurveyorList';
 import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
 import TeamTable from './components/admin/TeamTable';
 import SurveyForm from './components/survey/SurveyForm';
 import Index from './components/questions/Index';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import MainPicture from './components/home/MainPicture';
+import Article from './components/home/Article';
+import Graph from './components/home/Graph';
+
+AOS.init();
 
 class App extends Component {
 
@@ -90,6 +95,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <AppBar
@@ -116,18 +122,19 @@ class App extends Component {
             {this.state.preview && <SurveyForm />}
             {this.state.viewSurvey && <Index />}
             {this.state.preview && <SurveyForm closePreview={this.closePreview}/>}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
           </div>
         )}
+        <MainPicture />
+        <Article />
+        <Graph />
         {this.state.adminSurveyList && (
-          <SurveyTable list={this.state.surveyList} />
-        )}
+          <SurveyTable list={this.state.surveyList} />)}
         {this.state.surveyorListOpen && (
-          <SurveyorTable list={this.state.surveyorList} />
-        )}
+          <SurveyorTable list={this.state.surveyorList} />)}
         {this.state.teamListOpen && (
-          <TeamTable list={this.state.teamList} />
-        )}
-      </div>
+          <TeamTable list={this.state.teamList} />)}
+      </div >
     );
   }
 }
