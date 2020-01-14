@@ -109,7 +109,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "flex-end",
     fontFamily: "Muli",
     backgroundColor: "#677b00",
-    height: '8.5%'
+    height: '8.4%'
   },
   content: {
     flexGrow: 1,
