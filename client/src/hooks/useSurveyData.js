@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import React, { createContext, useReducer, useEffect, useContext } from "react";
 import reducer, {
   SET_SURVEY,
   SET_QUESTION_RESPONSE,
@@ -20,7 +20,20 @@ export default function useSurveyData() {
     current_question_responses: []
   };
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // use the Provider component and useContext hook when you need to access survey state
+  // when you need to manipulate survey state, call the dispatch method
+  // wrap root survey component (questions > Index.js) in StateProvider
+  const store = createContext(initialState);
+  const { Provider } = store;
+
+  const StateProvider = ( { children } ) => {
+    const [state, dispatch] = useReducer(reducer, initialState)
+    return <Provider value={{state, dispatch}}>{children}</Provider>;
+  };
+
+  const surveyState = useContext(store)
+  const { dispatch } = surveyState;
 
   const surveyPromise = new Promise((resolve, reject) => {
     const survey = JSON.parse(localStorage.getItem('token')).surveys[0];
@@ -63,14 +76,16 @@ export default function useSurveyData() {
   const recordQuestionResponse = questionResponse => dispatch({ type: SET_QUESTION_RESPONSE, value: questionResponse})
 
   return {
-    state,
+    // use the Provider (StateProvider) component and useContext hook when we need to access survey state
+    store,
+    StateProvider,
+    // state,  <<<<< NEW now use the useContext Hook when we need to access the survey state 
+    dispatch,
     navigateQuestions,
     recordQuestionResponse,
     updateChecked
   }
 };
-
-
 
 
  
