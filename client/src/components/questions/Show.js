@@ -29,7 +29,6 @@ export default function Show(props) {
 
       <QuestionOptionsList
         questionOptions={props.question_options_list}
-        state={props.state}
       />
       
     </Grid>
