@@ -124,7 +124,6 @@ class App extends Component {
             <Graph />
           </div>
         )}
-
         {this.state.adminSurveyList && (
           <SurveyTable list={this.state.surveyList} />)}
         {this.state.surveyorListOpen && (
