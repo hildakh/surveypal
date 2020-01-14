@@ -11,17 +11,9 @@ import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
 import TeamTable from './components/admin/TeamTable';
 import SurveyForm from './components/survey/SurveyForm';
-import {
-  Chart,
-  ArgumentAxis,
-  ValueAxis,
-  BarSeries,
-  LineSeries,
-  Legend,
-} from '@devexpress/dx-react-chart-material-ui';
-import { ValueScale, Animation } from '@devexpress/dx-react-chart';
-
-
+import { motion } from "framer-motion";
+import Typist from 'react-typist';
+import { Chart } from "react-google-charts";
 
 class App extends Component {
 
@@ -53,7 +45,7 @@ class App extends Component {
       teamListOpen: false,
       teamList: team_list,
       preview: false,
-      card: true
+      card: true,
     };
     this.status = "NULL";
   }
@@ -120,43 +112,174 @@ class App extends Component {
                 <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
               </Expand>
             </React.Fragment>}
-            {this.state.preview && <SurveyForm closePreview={this.closePreview}/>}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
           </div>
         )}
-        {this.state.userType === 0 && (
-          <div>
+
+        <div>
+          <div style={{ float: 'left', marginTop: '5%', marginLeft: '3%' }}>
+            <Typist >
+              <h1 style={{ fontSize: '40px', marginTop: '7%' }}>   Get answers with surveys!  </h1>
+              <br />
+              <p style={{ fontSize: '20px', marginTop: '5%' }}> Be the person with great ideas.</p>
+              <br />
+              <p style={{ fontSize: '20px', marginTop: '1%' }}>Surveys give you actionable insights and</p>
+              <br />
+              <p style={{ fontSize: '20px', marginTop: '1%' }}>fresh perspectives.</p>
+            </Typist>
+          </div>
+          <div style={{ width: '50%', height: '30%', marginTop: '1%', float: 'right' }}>
+            <motion.div animate={{ x: -100 }} transition={{ duration: 1.2 }}>
+
+              <img src={'https://survey-pal.s3.ca-central-1.amazonaws.com/Asset+5.png'} style={{ width: '100%', height: '60%', float: 'right' }} />
+
+            </motion.div>
+          </div>
+        </div>
+        <div style={{ width: '100%', height: '100%', backgroundColor: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+          <div style={{ width: '30%', height: '100%', backgroundColor: 'f9fbe7', border: '1px solid black', borderRadius: '5%', margin: '3%' }}>
             <Chart
+              width={'100%'}
+              height={'100%'}
+              chartType="BarChart"
+              loader={<div>Loading Chart</div>}
               data={[
-                { argument: 1, value: 10 },
-                { argument: 2, value: 50 },
-                { argument: 3, value: 30 },
-                { argument: 4, value: 70 },
-                { argument: 5, value: 20 },
-                { argument: 6, value: 60 },
-                { argument: 7, value: 90 },
-                { argument: 8, value: 40 },
-                { argument: 9, value: 80 }
+                [
+                  'Element',
+                  'Density',
+                  { role: 'style' },
+                  {
+                    sourceColumn: 0,
+                    role: 'annotation',
+                    type: 'string',
+                    calc: 'stringify',
+                  },
+                ],
+                ['Copper', 8.94, '#b87333', null],
+                ['Silver', 10.49, 'silver', null],
+                ['Gold', 19.3, 'gold', null],
+                ['Platinum', 21.45, 'color: #e5e4e2', null],
               ]}
-            >
-              <ArgumentAxis />
-              <ValueAxis />
-              <LineSeries valueField="value" argumentField="argument" />
-              <Animation />
-              <Legend />
-            </Chart>
+              options={{
+                bar: { groupWidth: '95%' },
+                legend: { position: 'none' },
+                animation: {
+                  startup: true,
+                  easing: 'linear',
+                  duration: 1500,
+                },
+                enableInteractivity: false,
+              }}
+              chartEvents={[
+                {
+                  eventName: 'animationfinish',
+                  callback: () => {
+                    // console.log('Animation Finished')
+                  },
+                },
+              ]}
+              // For tests
+              rootProps={{ 'data-testid': '6' }}
+            />
+          </div>
+          <div style={{ width: '30%', height: '100%', backgroundColor: 'f9fbe7', border: '1px solid black', borderRadius: '5%', margin: '3%' }}>
+            <Chart
+              width={'100%'}
+              height={'100%'}
+              chartType="PieChart"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['Task', 'Hours per Day'],
+                ['Work', 11],
+                ['Eat', 2],
+                ['Commute', 2],
+                ['Watch TV', 2],
+                ['Sleep', 7],
+              ]}
+              options={{
+                title: 'My Daily Activities',
+                animation: {
+                  startup: true,
+                  easing: 'linear',
+                  duration: 1500,
+                },
+                enableInteractivity: false,
+              }}
+              chartEvents={[
+                {
+                  eventName: 'animationfinish',
+                  callback: () => {
+                    console.log('Animation Finished')
+                  },
+                },
+              ]}
+              rootProps={{ 'data-testid': '1' }}
+            />
+          </div>
+          <div style={{ width: '30%', height: '100%', backgroundColor: 'f9fbe7', border: '1px solid black', borderRadius: '5%', margin: '3%' }}>
+            <Chart
+              width={'100%'}
+              height={'100%'}
+              chartType="LineChart"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['x', 'dogs'],
+                [0, 0],
+                [1, 10],
+                [2, 23],
+                [3, 17],
+                [4, 18],
+                [5, 9],
+                [6, 11],
+                [7, 27],
+                [8, 33],
+                [9, 40],
+                [10, 32],
+                [11, 35],
+              ]}
+              options={{
+                hAxis: {
+                  title: 'Time',
+                },
+                vAxis: {
+                  title: 'Popularity',
+                },
+                animation: {
+                  startup: true,
+                  easing: 'linear',
+                  duration: 1500,
+                },
+                enableInteractivity: false,
+              }}
+              chartEvents={[
+                {
+                  eventName: 'animationfinish',
+                  callback: () => {
+                    // console.log('Animation Finished')
+                  },
+                },
+              ]}
+              rootProps={{ 'data-testid': '1' }}
+            />
           </div>
 
-        )}
-        {this.state.adminSurveyList && (
-          <SurveyTable list={this.state.surveyList} />
-        )}
-        {this.state.surveyorListOpen && (
-          <SurveyorTable list={this.state.surveyorList} />
-        )}
-        {this.state.teamListOpen && (
-          <TeamTable list={this.state.teamList} />
-        )}
-      </div>
+        </div>
+        {
+          this.state.adminSurveyList && (
+            <SurveyTable list={this.state.surveyList} />
+          )
+        }
+        {
+          this.state.surveyorListOpen && (
+            <SurveyorTable list={this.state.surveyorList} />
+          )
+        }
+        {
+          this.state.teamListOpen && (
+            <TeamTable list={this.state.teamList} />
+          )
+        }
+      </div >
     );
   }
 }
