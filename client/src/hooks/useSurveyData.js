@@ -2,8 +2,8 @@ import { useReducer, useEffect } from "react";
 import reducer, {
   SET_SURVEY,
   SET_QUESTION_RESPONSE,
-  SET_NEXT_QUESTION
-
+  SET_NEXT_QUESTION,
+  SET_CHECKED
 } from "../reducers/surveyReducer";
 
 // dispatched actions will be handled by the reducer
@@ -16,6 +16,7 @@ export default function useSurveyData() {
     current_survey: {},
     current_question: {},
     current_options: [],
+    checked: [0],
     current_question_responses: []
   };
 
@@ -29,7 +30,7 @@ export default function useSurveyData() {
 
   useEffect(() => {
     surveyPromise.then((survey) => dispatch({ type: SET_SURVEY, value: survey}))
-    .catch((err) => `useEffect survey promise error ${err}`)
+    .catch((err) => `SET_SURVEY useEffect survey promise error: ${err}`)
   }, [])
 
 
@@ -52,14 +53,20 @@ export default function useSurveyData() {
       dispatch({ type: SET_NEXT_QUESTION, value: next_question })
     )
   }
-  
+
+  const updateChecked = function(checkedList){
+    return (
+      dispatch({ type: SET_CHECKED, value: checkedList })
+    )
+  }
+
   const recordQuestionResponse = questionResponse => dispatch({ type: SET_QUESTION_RESPONSE, value: questionResponse})
 
   return {
     state,
-    // setSurvey,
     navigateQuestions,
     recordQuestionResponse,
+    updateChecked
   }
 };
 
