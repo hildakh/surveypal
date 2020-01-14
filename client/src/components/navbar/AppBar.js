@@ -58,7 +58,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.5rem",
     input: {
       color: "white"
-    }
+    },
+    overflow: 'visible',
   },
   sectionDesktop: {
     display: "none",
