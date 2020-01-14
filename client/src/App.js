@@ -11,8 +11,12 @@ import TeamTable from './components/admin/TeamTable';
 import SurveyForm from './components/survey/SurveyForm';
 import { motion } from "framer-motion";
 import { Chart } from "react-google-charts";
-import ScrollAnimation from 'react-animate-on-scroll';
 import Typing from 'react-typing-animation';
+import Box from '@material-ui/core/Box';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 class App extends Component {
 
@@ -115,7 +119,7 @@ class App extends Component {
           </div>
         )}
 
-        <div style={{ height: '50rem' }}>
+        <div style={{ height: '45rem' }}>
           <div style={{ float: 'left', marginTop: '5%', marginLeft: '7%' }}>
             <div>
               <Typing >
@@ -160,136 +164,86 @@ class App extends Component {
             </motion.div>
           </div>
         </div>
-        <ScrollAnimation animateIn="fadeIn" delay="2s" duration='10s'>
-          <div style={{ width: '100%', height: '100%', backgroundColor: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-            <div style={{ width: '30%', height: '100%', backgroundColor: 'f9fbe7', border: '1px solid black', borderRadius: '5%', margin: '3%' }}>
-              <Chart
-                width={'100%'}
-                height={'100%'}
-                chartType="BarChart"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  [
-                    'Element',
-                    'Density',
-                    { role: 'style' },
-                    {
-                      sourceColumn: 0,
-                      role: 'annotation',
-                      type: 'string',
-                      calc: 'stringify',
-                    },
-                  ],
-                  ['Copper', 8.94, '#b87333', null],
-                  ['Silver', 10.49, 'silver', null],
-                  ['Gold', 19.3, 'gold', null],
-                  ['Platinum', 21.45, 'color: #e5e4e2', null],
-                ]}
-                options={{
-                  bar: { groupWidth: '95%' },
-                  legend: { position: 'none' },
-                  animation: {
-                    startup: true,
-                    easing: 'linear',
-                    duration: 1500,
-                  },
-                  enableInteractivity: false,
-                }}
-                chartEvents={[
-                  {
-                    eventName: 'animationfinish',
-                    callback: () => {
-                      // console.log('Animation Finished')
-                    },
-                  },
-                ]}
-                // For tests
-                rootProps={{ 'data-testid': '6' }}
-              />
-            </div>
-            <div style={{ width: '30%', height: '100%', backgroundColor: 'f9fbe7', border: '1px solid black', borderRadius: '5%', margin: '3%' }}>
-              <Chart
-                width={'100%'}
-                height={'100%'}
-                chartType="PieChart"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  ['Task', 'Hours per Day'],
-                  ['Work', 11],
-                  ['Eat', 2],
-                  ['Commute', 2],
-                  ['Watch TV', 2],
-                  ['Sleep', 7],
-                ]}
-                options={{
-                  title: 'My Daily Activities',
-                  animation: {
-                    startup: true,
-                    easing: 'linear',
-                    duration: 1500,
-                  },
-                  enableInteractivity: false,
-                }}
-                chartEvents={[
-                  {
-                    eventName: 'animationfinish',
-                    callback: () => {
-                      console.log('Animation Finished')
-                    },
-                  },
-                ]}
-                rootProps={{ 'data-testid': '1' }}
-              />
-            </div>
-            <div style={{ width: '30%', height: '100%', backgroundColor: 'f9fbe7', border: '1px solid black', borderRadius: '5%', margin: '3%' }}>
-              <Chart
-                width={'100%'}
-                height={'100%'}
-                chartType="LineChart"
-                loader={<div>Loading Chart</div>}
-                data={[
-                  ['x', 'dogs'],
-                  [0, 0],
-                  [1, 10],
-                  [2, 23],
-                  [3, 17],
-                  [4, 18],
-                  [5, 9],
-                  [6, 11],
-                  [7, 27],
-                  [8, 33],
-                  [9, 40],
-                  [10, 32],
-                  [11, 35],
-                ]}
-                options={{
-                  hAxis: {
-                    title: 'Time',
-                  },
-                  vAxis: {
-                    title: 'Popularity',
-                  },
-                  animation: {
-                    startup: true,
-                    easing: 'linear',
-                    duration: 1500,
-                  },
-                  enableInteractivity: false,
-                }}
-                chartEvents={[
-                  {
-                    eventName: 'animationfinish',
-                    callback: () => {
-                      // console.log('Animation Finished')
-                    },
-                  },
-                ]}
-                rootProps={{ 'data-testid': '1' }}
-              />
-            </div>
-
+        <div style={{ width: '100%', height: '35em', display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white' }}>
+          <div data-aos="fade-up" style={{ width: '50%', height: '70%', float: 'left', marginTop: '7%' }}>
+            <img style={{ width: '70%', height: '80%' }} src={'https://survey-pal.s3.ca-central-1.amazonaws.com/8690978_web1_170927-SUL-homelesscount.jpg'} />
           </div>
-        </ScrollAnimation>
+          <div data-aos="fade-down" style={{ float: 'right', marginTop: '7%', display: 'flex', flexDirection: 'column' }}>
+            <h1 style={{ margin: '0 auto', marginTop: '8%' }}>
+              More than 100 seniors living <br />on Surrey streets: homeless count
+            </h1>
+            <a style={{ marginTop: '9%', color: 'blue', cursor: 'pointer' }}>Read More</a>
+          </div>
+        </div>
+        <div style={{ width: '100%', height: '40em', backgroundColor: 'f9fbe7', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+
+          <Box boxShadow={3} data-aos="fade-right" style={{ backgroundColor: 'white', width: '40%', height: '70%', margin: '3%', borderRadius: '3%' }}>
+            <Chart
+              style={{ margin: '0 auto', marginTop: '7%' }}
+              width={'90%'}
+              height={'90%'}
+              chartType="Bar"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['Year', 'Total', 'Sheltered', 'Unsheltered'],
+                ['2011', 1581, '1,427', '154'],
+                ['2012', 1602, '1,296', '306'],
+                ['2013', 1600, '1,327', '273'],
+                ['2014', 1803, '1,267', '536'],
+                ['2015', 1746, '1,258', '488'],
+                ['2016', 1847, '1,308', '539'],
+                ['2017', 2138, '1,601', '537'],
+                ['2018', 2181, '1,522', '659'],
+                ['2019', 2223, '1,609', '614'],
+              ]}
+              options={{
+                chart: {
+                  title: 'Vancouver Homeless Population Trends 2011 to 2019',
+                },
+              }}
+            />
+          </Box>
+          <Box boxShadow={3} data-aos="fade-right" style={{ backgroundColor: 'white', width: '40%', height: '70%', margin: '3%', borderRadius: '3%' }}>
+            <Chart
+              style={{ margin: '0 auto', marginTop: '7%' }}
+              width={'90%'}
+              height={'90%'}
+              chartType="PieChart"
+              loader={<div>Loading Chart</div>}
+              data={[
+                ['Addiction', 'Counts'],
+                ['No Addictions', 31],
+                ['Cigarettes', 38],
+                ['Opioids', 33],
+                ['Methamphetamine', 29],
+                ['Alcohol', 22],
+                ['Marijuana', 21],
+                ['Cocaine', 14],
+                ['Other', 5],
+
+              ]}
+              options={{
+                title: 'Types of Addictions Issues 2019',
+                animation: {
+                  startup: true,
+                  easing: 'linear',
+                  duration: 1500,
+                },
+                enableInteractivity: false,
+              }}
+              chartEvents={[
+                {
+                  eventName: 'animationfinish',
+                  callback: () => {
+                    console.log('Animation Finished')
+                  },
+                },
+              ]}
+              rootProps={{ 'data-testid': '1' }}
+            />
+          </Box>
+        </div>
+
         {
           this.state.adminSurveyList && (
             <SurveyTable list={this.state.surveyList} />
