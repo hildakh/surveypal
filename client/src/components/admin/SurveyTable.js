@@ -10,7 +10,6 @@ import { Typography } from "@material-ui/core";
 const useStyles = makeStyles({
   table: {
     marginTop: "10%",
-    // marginLeft: ""
     maxWidth: "70%",
     position: "relative",
     overflow: "auto",
