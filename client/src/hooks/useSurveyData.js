@@ -26,7 +26,7 @@ export default function useSurveyData() {
   // wrap root survey component (questions > Index.js) in StateProvider
   const [state, dispatch] = useReducer(reducer, initialState)
   
-  const SurveyContext = createContext(initialState);
+  const SurveyContext = createContext(state);
   const { Provider } = SurveyContext;
 
   const StateProvider = ( { children } ) => {
@@ -36,7 +36,7 @@ export default function useSurveyData() {
   };
 
   // use the useContext Hook to access the survey state 
-  // const surveyState = useContext(SurveyContext)
+  const surveyState = useContext(SurveyContext)
 
 
   const surveyPromise = new Promise((resolve, reject) => {
