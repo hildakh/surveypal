@@ -9,6 +9,7 @@ import BackToSurveyButton from './Back_To_Survey_Button.js';
 import QuestionOptionsList from './Question_Options_List';
 import useSurveyData from '../../hooks/useSurveyData';
 
+
 let classNames = require("classnames");
 
 const useStyles = makeStyles(theme => ({
@@ -39,35 +40,41 @@ export default function Index(props) {
 
   const {
     state,
-    // setSurvey,
     navigateQuestions,
     recordQuestionResponse
   } = useSurveyData();
 
   return (
+    <Container maxWidth="sm" height="100%" disableGutters={true} >
 
-      <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
-        
-        <BackToSurveyButton onClick="{action('button-clicked')}" className={styleClasses.navButton} justify="flex-end"/>
+      <BackToSurveyButton 
+        onClick={() => navigateQuestions(state.current_question.id, -1)}
+        className={styleClasses.navButton} justify="flex-end"
+      />
 
-        <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
-        
-          <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
-            <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
-          </Grid>
+      <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
 
-          <Show
-            question_description={<QuestionText description={state.current_question.description}/>}
-            question_options_list={<QuestionOptionsList questionOptions={state.current_options}/>} 
+        <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
+          <BeforeButton 
+            onClick={() => navigateQuestions(state.current_question.id, -1)}
           />
-        
-          <Grid container item xs className={styleClasses.navButton} justify="flex-end">
-            <NextButton onClick={() => navigateQuestions(state.current_question.id, 1)}  />
-          </Grid>
-        
-        </Grid>     
+        </Grid>
 
-      </Container>
+        <Show
+          question_description={state.current_question.description}
+          question_options_list={state.current_options}
+          state={state}
+        />
+
+        <Grid container item xs className={styleClasses.navButton} justify="flex-end">
+          <NextButton 
+            onClick={() => navigateQuestions(state.current_question.id, 1)}
+          />
+        </Grid>
+
+      </Grid>
+
+    </Container>
 
   );
 }
