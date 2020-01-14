@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 }));
 export default function QuestionOptionsList(props) {
 
+  const styleClasses = useStyles();
   const [checked, setChecked] = React.useState([0]);
 
 
@@ -28,6 +29,7 @@ export default function QuestionOptionsList(props) {
     } else {
       newChecked.splice(currentIndex, 1);
     }
+
     setChecked(newChecked);
   };
 
