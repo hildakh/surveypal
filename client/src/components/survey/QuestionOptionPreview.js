@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Checkbox, Typography } from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
+import TextField from '@material-ui/core/TextField';
 
 
 // const action = (
@@ -60,6 +61,11 @@ export default function QuestionPreview(props) {
               name="radio-button-demo"
               inputProps={{ 'aria-label': 'A' }}
             />
+          )}
+
+          {props.question.question.question_type_id === 5 && (
+              <TextField id="standard-basic" style={{marginBottom: "3%"}}
+              />
           )}
 
           {item.option_text}
