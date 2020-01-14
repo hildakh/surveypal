@@ -123,16 +123,37 @@ class App extends Component {
               </Typing>
             </div>
             <div >
-              <motion.div animate={{ y: 90 }} transition={{ duration: 1.2 }}>
-                <p style={{ fontSize: '20px', marginTop: '10%' }}> Be the person with great ideas.</p>
-
-                <p style={{ fontSize: '20px' }}>Surveys give you actionable insights and</p>
-                <p style={{ fontSize: '20px' }}>fresh perspectives.</p>
+              <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
+                y: 120,
+                float: 'left'
+              }} transition={{ duration: 1.2 }}>
+                <span>
+                  Be the person with great ideas.
+                </span>
               </motion.div>
+              <br />
+              <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
+                y: 120,
+                float: 'left'
+              }} transition={{ duration: 1.2 }}>
+                <span>
+                  Surveys give you actionable insights and
+                </span>
+              </motion.div>
+              <br />
+              <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
+                y: 120,
+                float: 'left'
+              }} transition={{ duration: 1.2 }}>
+                <span>
+                  fresh perspectives.
+                </span>
+              </motion.div>
+
             </div>
           </div>
           <div style={{ width: '50%', height: '30%', marginTop: '1%', float: 'right' }}>
-            <motion.div animate={{ x: -100 }} transition={{ duration: 1.2 }} style={{ marginRight: '0px' }}>
+            <motion.div initial={{ x: 0 }} animate={{ x: -100 }} transition={{ duration: 1.2 }} style={{ marginRight: '0px' }}>
 
               <img src={'https://survey-pal.s3.ca-central-1.amazonaws.com/Asset+5.png'} style={{ width: '100%', height: '60%', float: 'right' }} />
 
