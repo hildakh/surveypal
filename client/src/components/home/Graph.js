@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 
 export default function Graph() {
   return (
-    <div style={{ width: '100%', height: '40em', backgroundColor: 'f9fbe7', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+    <div style={{ width: '100%', height: '40em', backgroundColor: '#f9fbe7', display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
 
       <Box boxShadow={3} data-aos="fade-right" style={{ backgroundColor: 'white', width: '40%', height: '70%', margin: '3%', borderRadius: '3%' }}>
         <Chart

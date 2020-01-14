@@ -123,9 +123,13 @@ class App extends Component {
             {this.state.viewSurvey && <Index />}
           </div>
         )}
-        <MainPicture />
-        <Article />
-        <Graph />
+        {this.state.userType === 0 && (
+          <div>
+            <MainPicture />
+            <Article />
+            <Graph />
+          </div>
+        )}
         {this.state.adminSurveyList && (
           <SurveyTable list={this.state.surveyList} />)}
         {this.state.surveyorListOpen && (
