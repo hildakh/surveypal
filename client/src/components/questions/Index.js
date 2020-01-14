@@ -49,6 +49,7 @@ export default function Index(props) {
   } = useSurveyData();
 
   const surveyState = useContext(SurveyContext);
+  console.log("SHOW me the surveyState, y'all", surveyState);
 
 
   return (
@@ -59,7 +60,7 @@ export default function Index(props) {
     <Container maxWidth="sm" height="100%" disableGutters={true} >
 
       <BackToSurveyButton 
-        onClick={() => navigateQuestions(state.current_question.id, -1)}
+        onClick={() => navigateQuestions(surveyState.current_question.id, -1)}
         className={styleClasses.navButton} justify="flex-end"
       />
 
@@ -67,18 +68,19 @@ export default function Index(props) {
 
         <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
           <BeforeButton 
-            onClick={() => navigateQuestions(state.current_question.id, -1)}
+            onClick={() => navigateQuestions(surveyState.current_question.id, -1)}
           />
         </Grid>
 
         <Show
+          // mania={surveyState}
           question_description={surveyState.current_question.description}
           question_options_list={surveyState.current_options}
         />
 
         <Grid container item xs className={styleClasses.navButton} justify="flex-end">
           <NextButton 
-            onClick={() => navigateQuestions(state.current_question.id, 1)}
+            onClick={() => navigateQuestions(surveyState.current_question.id, 1)}
           />
         </Grid>
 
