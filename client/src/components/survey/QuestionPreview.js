@@ -50,7 +50,7 @@ export default function QuestionPreview() {
             </Typography>
           </CardContent>
           <CardActions>
-            <QuestionOptionPreview questionOptions={question.options}/>
+            <QuestionOptionPreview question={question}/>
           </CardActions>
         </Card>
       ))}

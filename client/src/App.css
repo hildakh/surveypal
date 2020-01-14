@@ -18,13 +18,15 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: 'Muli';
 }
 
 /* .App-link {
   color: #61dafb;
 } */
 
-.mdc-components {
+
+/* .mdc-components {
   box-sizing: border-box;
   display: flex;
   font-family: Roboto;
@@ -735,29 +737,4 @@
   color: #ffffff;
 }
 
-.mdc-component__toolbar .material-image .material-image__background {
-  fill: #494949;
-}
-
-.mdc-component__toolbar .material-image .material-image--shape-circle,
-.mdc-component__toolbar .material-image .material-image--shape-triangle {
-  fill: #a4a4a4;
-}
-
-.mdc-component__toolbar .material-image .material-image--shape-intersection {
-  fill: #494949;
-}
-
-.mdc-component__toolbar .mdc-icon-toggle::before,
-.mdc-component__toolbar .mdc-icon-toggle::after {
-  background-color: rgba(0, 0, 0, 0.06);
-}
-
-.mdc-component__toolbar .mdc-fab.mdc--theme-primary.mdc-ripple-upgraded::after {
-  background-color: rgba(0, 0, 0, 0.16);
-}
-
-.mdc-component__toolbar
-  .mdc-fab.mdc--theme-secondary.mdc-ripple-upgraded::after {
-  background-color: rgba(255, 255, 255, 0.16);
-}
+ */
