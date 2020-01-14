@@ -93,7 +93,9 @@ class App extends Component {
   startSurvey = () => {
     this.setState({...this.state, preview: false, viewSurvey: true})
   }
-
+  loadCard = () => {
+    this.setState({...this.state, preview: false, viewSurvey: false, card: true})
+  }
   render() {
 
     return (
@@ -106,6 +108,7 @@ class App extends Component {
           loadSurveys={this.loadSurveys}
           loadSurveyors={this.loadSurveyors}
           loadTeams={this.loadTeams}
+          loadCard={this.loadCard}
         />
         {this.state.userType === 2 && (
           <div>

@@ -60,6 +60,7 @@ const useStyles = makeStyles(theme => ({
       color: "white"
     },
     overflow: 'visible',
+    cursor: 'pointer',
   },
   sectionDesktop: {
     display: "none",
@@ -317,7 +318,7 @@ export default function PrimarySearchAppBar(props) {
             </IconButton>
           )}
 
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h6" noWrap onClick={props.loadCard}>
             SurveyPal
           </Typography>
           <div className={classes.grow} />
