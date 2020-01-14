@@ -26,10 +26,10 @@ export default function Show(props) {
       <QuestionText
         description={props.question_description}
       />
-
+{/* 
       <QuestionOptionsList
         questionOptions={props.question_options_list}
-      />
+      /> */}
       
     </Grid>
 
