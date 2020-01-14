@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    fontSize: '1.5rem',
     fontFamily: 'Satisfy',
     input: {
       color: "white"
@@ -263,7 +264,7 @@ export default function PrimarySearchAppBar(props) {
           </ListItem>
           <ListItem button onClick={props.loadSurveyors} className={classes.sideDrawer}>
             <ListItemIcon><FaceIcon /></ListItemIcon>
-            <ListItemText primary='Surveyors' className={classes.sideDrawer}/>
+            <ListItemText primary='Surveyors' className={classes.sideDrawer} />
           </ListItem>
           <ListItem button onClick={props.loadTeams} className={classes.sideDrawer}>
             <ListItemIcon><FaUsers /></ListItemIcon>
