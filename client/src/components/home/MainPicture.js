@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Typing from 'react-typing-animation';
 import { motion } from "framer-motion";
