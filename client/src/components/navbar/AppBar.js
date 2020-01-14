@@ -101,7 +101,7 @@ const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    fontFamily: "Muli"
+    fontFamily: "Muli",
   },
   drawerPaper: {
     width: drawerWidth,
@@ -113,7 +113,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: "flex-end",
-    fontFamily: "Muli"
+    fontFamily: "Muli",
+    backgroundColor: "#677b00",
+    height: '8.5%'
   },
   content: {
     flexGrow: 1,
@@ -248,13 +250,14 @@ export default function PrimarySearchAppBar(props) {
           classes={{
             paper: classes.drawerPaper
           }}
+          style={{ backgroundColor: "#677b00" }}
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === "ltr" ? (
-                <ChevronLeftIcon />
+                <ChevronLeftIcon style={{ color: 'white' }}/>
               ) : (
-                <ChevronRightIcon />
+                <ChevronRightIcon style={{ color: 'white' }}/>
               )}
             </IconButton>
           </div>

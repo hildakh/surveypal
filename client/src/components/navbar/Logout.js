@@ -13,7 +13,18 @@ export default function Logout(props) {
     fetchData();
   }
   return (
-    <Button onClick={logout} variant="outlined" color="default" style={{ marginLeft: '10px', marginTop: '5px',marginBottom: '5px', color: 'white', borderColor: 'white', fontFamily: 'Muli' }}>
+    <Button
+    onClick={logout}
+    variant="outlined"
+    color="default"
+    style={{
+      marginLeft: "10px",
+      marginTop: "5px",
+      color: "white",
+      borderColor: "white",
+      borderWidth: 2,
+      fontFamily: "Muli"
+      }}>
       Logout
     </Button>)
 }

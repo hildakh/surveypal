@@ -71,6 +71,7 @@ export default function FormDialog(props) {
   return (
     <div>
       <Button
+        onClick={handleClickOpen}
         variant="outlined"
         color="default"
         style={{
@@ -81,7 +82,6 @@ export default function FormDialog(props) {
           borderWidth: 2,
           fontFamily: "Muli"
         }}
-        onClick={handleClickOpen}
       >
         Login
       </Button>
@@ -90,7 +90,7 @@ export default function FormDialog(props) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        <DialogTitle id="form-dialog-title" style={{fontFamily: 'Muli'}}>Login</DialogTitle>
         {state.status === "ERROR" && (
           <div>
             <Error message="Email or password is incorrect!" />
@@ -123,10 +123,10 @@ export default function FormDialog(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} style={{fontFamily: 'Muli', color: "#677b00"}}>
             Cancel
           </Button>
-          <Button onClick={validate} color="primary">
+          <Button onClick={validate} style={{fontFamily: 'Muli', color: "#677b00"}}>
             Login
           </Button>
         </DialogActions>
