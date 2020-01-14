@@ -1,8 +1,7 @@
 import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Paper, List } from '@material-ui/core';
-
+import { List } from '@material-ui/core';
 import QuestionOptionsListItem from './Question_Options_List_Item';
+import useSurveyData from '../../hooks/useSurveyData';
 
 const useStyles = makeStyles(theme => ({
   item: {
@@ -15,11 +14,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#ff795f'
   }
 }));
-
-
 export default function QuestionOptionsList(props) {
 
-  const styleClasses = useStyles();
   const [checked, setChecked] = React.useState([0]);
 
 
@@ -32,7 +28,6 @@ export default function QuestionOptionsList(props) {
     } else {
       newChecked.splice(currentIndex, 1);
     }
-
     setChecked(newChecked);
   };
 
@@ -46,13 +41,13 @@ export default function QuestionOptionsList(props) {
         return (
           <QuestionOptionsListItem
             onClick={handleToggle(value)}
-            // value == QuestionOptionsListItem, ListItem key
+            key={value}
             value={value}
             checked={checked.indexOf(value) !== -1}
             //labelID connects ListItemIcon and ListItemText in Question_Options_List_Item
             labelID={labelID}
             option_text={option.option_text}
-            inputProps={{ 'aria-laballedby': labelID}}
+            inputProps={{ 'aria-labelledby': labelID}}
           />
         )
       })}
