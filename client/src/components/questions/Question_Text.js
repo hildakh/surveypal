@@ -19,7 +19,7 @@ export default function QuestionText(props) {
   const styleClasses = useStyles();
 
   return (
-    <Grid item sx className={styleClasses.item} mx={0}>
+    <Grid item xs className={styleClasses.item} mx={0}>
     <Paper className={styleClasses.question}>
       {props.description}
     </Paper>
