@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import Show from './Show';
@@ -39,18 +39,22 @@ export default function Index(props) {
   const styleClasses = useStyles();
 
   const {
-    store,
+    //surveyState is the useContext hook with the store context from useSurveyData
+    // use 
+    SurveyContext,
     StateProvider,
-    dispatch,
     navigateQuestions,
     updateChecked,
     recordQuestionResponse
   } = useSurveyData();
 
+  const surveyState = useContext(SurveyContext);
+
+
   return (
-    // with StateProvider, the store context component can be accessed from any component
+    // with StateProvider, the SurveyContext context component can be accessed from any component
     // in this component tree. To  do this, import useContext hook from react and
-    // store from useSurveyData
+    // SurveyContext from useSurveyData
     <StateProvider>
     <Container maxWidth="sm" height="100%" disableGutters={true} >
 
@@ -68,9 +72,8 @@ export default function Index(props) {
         </Grid>
 
         <Show
-          question_description={state.current_question.description}
-          question_options_list={state.current_options}
-          state={state}
+          question_description={surveyState.current_question.description}
+          question_options_list={surveyState.current_options}
         />
 
         <Grid container item xs className={styleClasses.navButton} justify="flex-end">
