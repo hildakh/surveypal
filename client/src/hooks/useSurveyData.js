@@ -24,16 +24,20 @@ export default function useSurveyData() {
   // use the Provider component and useContext hook when you need to access survey state
   // when you need to manipulate survey state, call the dispatch method
   // wrap root survey component (questions > Index.js) in StateProvider
-  const store = createContext(initialState);
-  const { Provider } = store;
+  const [state, dispatch] = useReducer(reducer, initialState)
+  
+  const SurveyContext = createContext(initialState);
+  const { Provider } = SurveyContext;
 
   const StateProvider = ( { children } ) => {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    // does this Provider need to have the state and dispatch value props when 
+    // we only use dispatch here in useSurveyData?
     return <Provider value={{state, dispatch}}>{children}</Provider>;
   };
 
-  const surveyState = useContext(store)
-  const { dispatch } = surveyState;
+  // use the useContext Hook to access the survey state 
+  // const surveyState = useContext(SurveyContext)
+
 
   const surveyPromise = new Promise((resolve, reject) => {
     const survey = JSON.parse(localStorage.getItem('token')).surveys[0];
@@ -52,10 +56,10 @@ export default function useSurveyData() {
   const findNextQuestion = function(index, direction){ 
     let next_question = {}
     if (direction < 0) {
-       next_question = state.current_survey.questions.find(item => (item.question.id === (index - 1)))
+       next_question = surveyState.current_survey.questions.find(item => (item.question.id === (index - 1)))
     }
     if (direction > 0) {
-      next_question = state.current_survey.questions.find(item => (item.question.id === (index + 1)))
+      next_question = surveyState.current_survey.questions.find(item => (item.question.id === (index + 1)))
     }
     return next_question
   }
@@ -77,10 +81,8 @@ export default function useSurveyData() {
 
   return {
     // use the Provider (StateProvider) component and useContext hook when we need to access survey state
-    store,
+    SurveyContext,
     StateProvider,
-    // state,  <<<<< NEW now use the useContext Hook when we need to access the survey state 
-    dispatch,
     navigateQuestions,
     recordQuestionResponse,
     updateChecked
