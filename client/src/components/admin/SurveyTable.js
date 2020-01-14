@@ -15,22 +15,19 @@ const useStyles = makeStyles({
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    color: "#08648C",
     fontFamily: 'Muli',
-    border: '2px solid #677b00'
+    boxShadow: "3px 3px 10px #686868",
   },
   listHead: {
     backgroundColor: "#d4e157",
     padding: 0,
-    fontFamily: 'Muli'
-  },
-  ul: {
-    // backgroundColor: "#7c4dff",
-    padding: 0,
-    fontFamily: 'Muli'
+    typography:{
+      fontFamily: 'Muli',
+    },
   },
   tableCell: {
-    fontFamily: 'Muli',
+    fontFamily: "Muli",
+    backgroundColor: "white",
   }
 });
 
@@ -42,8 +39,8 @@ export default function SurveyTable(props) {
       {/* <caption></caption> */}
       <TableHead>
         <TableRow className={classes.listHead}>
-          <TableCell className={classes.tableCell}>Survey Title </TableCell>
-          <TableCell align="center" className={classes.tableCell}>Description</TableCell>
+          <TableCell>Survey Title </TableCell>
+          <TableCell align="center">Description</TableCell>
           {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>
@@ -54,7 +51,6 @@ export default function SurveyTable(props) {
               {item.name}
             </TableCell>
             <TableCell align="center" className={classes.tableCell}>{item.description}</TableCell>
-            {/* <TableCell align="center">{item.end_date}</TableCell> */}
           </TableRow>
         ))}
       </TableBody>

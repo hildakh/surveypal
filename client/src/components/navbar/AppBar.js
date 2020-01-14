@@ -1,39 +1,39 @@
 /* eslint no-restricted-globals:0 */
-import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Drawer from '@material-ui/core/Drawer';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import Login from '../navbar/Login';
-import Logout from '../navbar/Logout'
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import BallotIcon from '@material-ui/icons/Ballot';
+import React from "react";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Drawer from "@material-ui/core/Drawer";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import Badge from "@material-ui/core/Badge";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import MenuIcon from "@material-ui/icons/Menu";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import MailIcon from "@material-ui/icons/Mail";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import MoreIcon from "@material-ui/icons/MoreVert";
+import Login from "../navbar/Login";
+import Logout from "../navbar/Logout";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import BallotIcon from "@material-ui/icons/Ballot";
 import { FaUsers } from "react-icons/fa";
-import FaceIcon from '@material-ui/icons/Face';
-import PollIcon from '@material-ui/icons/Poll';
+import FaceIcon from "@material-ui/icons/Face";
+import PollIcon from "@material-ui/icons/Poll";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
   },
   // menu: {
   //   background: `linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%)`,
@@ -41,43 +41,43 @@ const useStyles = makeStyles(theme => ({
   // },
   menuButton: {
     marginRight: theme.spacing(2),
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
   },
   title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block"
     },
-    fontFamily: 'Satisfy',
+    fontFamily: "Satisfy",
+    fontSize: "1.5rem",
     input: {
       color: "white"
     }
   },
   sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex"
     },
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
   },
   sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none"
     },
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
+    // fontSize: 50,
   },
   name: {
-    margin: '10px',
-    fontFamily: 'Satisfy',
-    color: 'white',
+    margin: "10px",
+    fontFamily: "Satisfy",
+    color: "white",
+    fontSize: "1.5rem"
   },
   root: {
-    display: 'flex',
-    fontFamily: 'Muli',
-    input: {
-      color: "white"
-    }
+    display: "flex",
+    fontFamily: "Muli"
   },
   // appBar: {
   //   transition: theme.transitions.create(['margin', 'width'], {
@@ -96,43 +96,43 @@ const useStyles = makeStyles(theme => ({
   //   fontFamily: 'Muli'
   // },
   hide: {
-    display: 'none',
+    display: "none"
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
   },
   drawerPaper: {
     width: drawerWidth,
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-    fontFamily: 'Muli'
+    justifyContent: "flex-end",
+    fontFamily: "Muli"
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
+      duration: theme.transitions.duration.leavingScreen
     }),
     marginLeft: -drawerWidth,
-    fontFamily: 'Muli'
+    fontFamily: "Muli"
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
+      duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0,
-    fontFamily: 'Muli'
-  },
+    fontFamily: "Muli"
+  }
 }));
 
 export default function PrimarySearchAppBar(props) {
@@ -165,42 +165,45 @@ export default function PrimarySearchAppBar(props) {
 
   const handleDrawerOpen = event => {
     setDrawerOpen(true);
-  }
+  };
 
   const handleDrawerClose = event => {
     setDrawerOpen(false);
-  }
+  };
   const logout = event => {
     setDrawerOpen(false);
     props.logout();
-  }
+  };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
       className={classes.sideDrawer}
     >
-      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>My account</MenuItem>
-
+      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>
+        Profile
+      </MenuItem>
+      <MenuItem onClick={handleMenuClose} className={classes.sideDrawer}>
+        My account
+      </MenuItem>
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
@@ -236,51 +239,87 @@ export default function PrimarySearchAppBar(props) {
 
   return (
     <div className={classes.grow}>
-
-      {drawerOpen && (<Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={drawerOpen}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
+      {drawerOpen && (
+        <Drawer
+          className={classes.drawer}
+          variant="persistent"
+          anchor="left"
+          open={drawerOpen}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            <ListItem
+              button
+              onClick={props.loadSurveys}
+              className={classes.sideDrawer}
+            >
+              <ListItemIcon>
+                <BallotIcon />
+              </ListItemIcon>
+              <ListItemText primary="Surveys" className={classes.sideDrawer} />
+            </ListItem>
+            <ListItem button className={classes.sideDrawer}>
+              <ListItemIcon>
+                <PollIcon />
+              </ListItemIcon>
+              <ListItemText primary="Reports" className={classes.sideDrawer} />
+            </ListItem>
+            <ListItem
+              button
+              onClick={props.loadSurveyors}
+              className={classes.sideDrawer}
+            >
+              <ListItemIcon>
+                <FaceIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Surveyors"
+                className={classes.sideDrawer}
+              />
+            </ListItem>
+            <ListItem
+              button
+              onClick={props.loadTeams}
+              className={classes.sideDrawer}
+            >
+              <ListItemIcon>
+                <FaUsers />
+              </ListItemIcon>
+              <ListItemText primary="Teams" className={classes.sideDrawer} />
+            </ListItem>
+          </List>
+        </Drawer>
+      )}
+      <AppBar
+        position="static"
+        inputfield={props.inputfield}
+        session={props.session}
+        style={{ background: "#677b00" }}
       >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <ListItem button onClick={props.loadSurveys} className={classes.sideDrawer}>
-            <ListItemIcon><BallotIcon /></ListItemIcon>
-            <ListItemText primary='Surveys' className={classes.sideDrawer} />
-          </ListItem>
-          <ListItem button className={classes.sideDrawer}>
-            <ListItemIcon><PollIcon /></ListItemIcon>
-            <ListItemText primary='Reports' className={classes.sideDrawer} />
-          </ListItem>
-          <ListItem button onClick={props.loadSurveyors} className={classes.sideDrawer}>
-            <ListItemIcon><FaceIcon /></ListItemIcon>
-            <ListItemText primary='Surveyors' className={classes.sideDrawer}/>
-          </ListItem>
-          <ListItem button onClick={props.loadTeams} className={classes.sideDrawer}>
-            <ListItemIcon><FaUsers /></ListItemIcon>
-            <ListItemText primary='Teams' className={classes.sideDrawer} />
-          </ListItem>
-        </List>
-      </Drawer>)}
-      <AppBar position="static" inputfield={props.inputfield} session={props.session} style={{ background: '#677b00' }}>
         <Toolbar>
-          {userType === 1 && (<IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}>
-            <MenuIcon />
-          </IconButton>)}
+          {userType === 1 && (
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
 
           <Typography className={classes.title} variant="h6" noWrap>
             SurveyPal
@@ -294,7 +333,10 @@ export default function PrimarySearchAppBar(props) {
                     <MailIcon />
                   </Badge>
                 </IconButton>
-                <IconButton aria-label="show 17 new notifications" color="inherit">
+                <IconButton
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                >
                   <Badge badgeContent={4} color="secondary">
                     <NotificationsIcon />
                   </Badge>
@@ -305,7 +347,8 @@ export default function PrimarySearchAppBar(props) {
                   aria-controls={menuId}
                   aria-haspopup="true"
                   onClick={handleProfileMenuOpen}
-                  color="inherit">
+                  color="inherit"
+                >
                   <AccountCircle />
                 </IconButton>
                 <Typography className={classes.name} variant="h6" noWrap>
@@ -319,12 +362,14 @@ export default function PrimarySearchAppBar(props) {
                   aria-controls={mobileMenuId}
                   aria-haspopup="true"
                   onClick={handleMobileMenuOpen}
-                  color="inherit">
+                  color="inherit"
+                >
                   <MoreIcon />
                 </IconButton>
               </div>
-            </div>)}
-          {userType === 0 && (<Login login={props.login} />)}
+            </div>
+          )}
+          {userType === 0 && <Login login={props.login} />}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

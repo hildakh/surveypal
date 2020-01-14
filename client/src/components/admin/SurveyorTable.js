@@ -6,7 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
-const useStyles = makeStyles( theme => ({
+const useStyles = makeStyles(theme => ({
   table: {
     marginTop: 30,
     maxWidth: "50%",
@@ -15,26 +15,18 @@ const useStyles = makeStyles( theme => ({
     maxHeight: 200,
     margin: "0 auto",
     padding: 0,
-    fontFamily: 'Muli',
-    boxShadow: '3px 3px 10px #686868'
+    fontFamily: "Muli",
+    boxShadow: "3px 3px 10px #686868",
   },
   listHead: {
-    input: {
-      color: "white"
-    },
     backgroundColor: "#d4e157",
     padding: 0,
-    fontFamily: 'Muli',
-  },
-  ul: {
-    padding: 0,
-    fontFamily: 'Muli',
-    backgroundColor: 'white'
+    fontFamily: "Muli",
   },
   tableCell: {
-    fontFamily: 'Muli',
-    backgroundColor: 'white',
-  }
+    fontFamily: "Muli",
+    backgroundColor: "white",
+  },
 }));
 
 export default function SurveyorTable(props) {
@@ -47,17 +39,17 @@ export default function SurveyorTable(props) {
         <TableRow className={classes.listHead}>
           <TableCell>Surveyor</TableCell>
           <TableCell align="center">Email Address</TableCell>
-          {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>
-      <TableBody className={classes.ul} >
+      <TableBody>
         {props.list.map(item => (
           <TableRow key={item.first_name}>
             <TableCell component="th" scope="row" className={classes.tableCell}>
               {`${item.first_name} ${item.last_name}`}
             </TableCell>
-            <TableCell align="center" className={classes.tableCell}>{item.email}</TableCell>
-            {/* <TableCell align="center">{item.end_date}</TableCell> */}
+            <TableCell align="center" className={classes.tableCell}>
+              {item.email}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
