@@ -1,4 +1,5 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -11,8 +12,39 @@ import axios from "axios";
 import fetchSurveys from "../../helpers/fetchSurveys";
 import fetchSurveyors from "../../helpers/fetchSurveyors";
 import fetchTeams from "../../helpers/fetchTeams";
+import { Typography } from "@material-ui/core";
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    background: "#677b00",
+    borderColor: "white",
+    color: "white",
+    fontSize: 20,
+    fontSize: '0.8rem',
+    borderRadius: 5,
+    fontFamily: "Muli",
+    padding:'10px 15px',
+  },
+  dialogue: {
+    textTransform: "none",
+    fontFamily: "Muli"
+  },
+  formlogin: {
+    margin: theme.spacing(1),
+    background: "#677b00",
+    borderColor: "white",
+    color: "white",
+    fontSize: 20,
+    fontSize: '0.8rem',
+    borderRadius: 5,
+    fontFamily: "Muli",
+    padding:'10px 15px',
+  }
+}));
 
 export default function FormDialog(props) {
+  const classes = useStyles();
   const [state, setState] = React.useState({
     email: "",
     password: "",
@@ -71,46 +103,52 @@ export default function FormDialog(props) {
   return (
     <div>
       <Button
-        variant="outlined"
-        color="default"
-        style={{
-          marginLeft: "10px",
-          marginTop: "5px",
-          color: "white",
-          borderColor: "white",
-          borderWidth: 2,
-          fontFamily: "Muli"
-        }}
         onClick={handleClickOpen}
+        className={classes.button}
+        variant="outlined"
       >
         Login
       </Button>
       <Dialog
         open={state.open}
         onClose={handleClose}
-        aria-labelledby="form-dialog-title"
+        style={{fontFamily: 'Muli'}}
       >
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        <DialogTitle>
+          <Typography style={{fontFamily: 'Muli'}}>
+          Login
+          </Typography>
+        </DialogTitle>
         {state.status === "ERROR" && (
           <div>
             <Error message="Email or password is incorrect!" />
           </div>
         )}
-        <DialogContent>
-          <DialogContentText>
+        <DialogContent style={{fontFamily: 'Muli'}}>
+          <DialogContentText style={{fontFamily: 'Muli'}}>
+            <Typography style={{fontFamily: 'Muli'}}>
             Please Enter your Email and Password.
+            </Typography>
           </DialogContentText>
           <TextField
+            inputProps={{
+              style: {fontFamily: 'Muli'}
+            }}
+            // variant="outlined"
             autoFocus
             margin="dense"
-            id="name"
+            // id="name"
             label="Email Address"
             type="email"
             fullWidth
             onChange={event =>
               setState({ ...state, email: event.target.value })
             }
-          />
+          >
+            {/* <Typography>
+            Email Address
+            </Typography> */}
+            </TextField>
           <TextField
             margin="dense"
             id="name"
@@ -123,10 +161,10 @@ export default function FormDialog(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} style={{fontFamily: 'Muli', color: "#677b00", fontSize: '0.8rem'}}>
             Cancel
           </Button>
-          <Button onClick={validate} color="primary">
+          <Button onClick={validate} className={classes.formlogin}>
             Login
           </Button>
         </DialogActions>
