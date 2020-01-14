@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import { List } from '@material-ui/core';
 import QuestionOptionsListItem from './Question_Options_List_Item';
 import useSurveyData from '../../hooks/useSurveyData';
@@ -17,8 +18,15 @@ const useStyles = makeStyles(theme => ({
 export default function QuestionOptionsList(props) {
 
   const styleClasses = useStyles();
-  const [checked, setChecked] = React.useState([0]);
 
+  const {
+    SurveyContext,
+    updateChecked,
+    recordQuestionResponse
+  } = useSurveyData();
+
+  const surveyState = useContext(SurveyContext);
+  const checked = surveyState.checked;
 
   const handleToggle = value => () => {
     const currentIndex = checked.indexOf(value);
