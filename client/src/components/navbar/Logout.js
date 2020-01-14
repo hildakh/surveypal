@@ -15,15 +15,21 @@ export default function Logout(props) {
   return (
     <Button
     onClick={logout}
-    variant="outlined"
-    color="default"
+    // variant="contained"
+    // color="#677b00"
     style={{
-      marginLeft: "10px",
-      marginTop: "5px",
-      color: "white",
+      marginLeft: "0.5%",
+      marginTop: "2%",
+      marginBottom: "2%",
+      marginRight: '0.5%',
+      backgroundColor: 'trasparent',
+      // color: "white",
       borderColor: "white",
       borderWidth: 2,
-      fontFamily: "Muli"
+      fontFamily: "Muli",
+      fontSize: '0.8rem',
+      // paddingLeft: '5%',
+      // paddingRight: '5%',
       }}>
       Logout
     </Button>)

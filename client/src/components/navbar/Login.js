@@ -76,11 +76,15 @@ export default function FormDialog(props) {
         color="default"
         style={{
           marginLeft: "10px",
-          marginTop: "5px",
+          marginTop: "10px",
+          marginBottom: "10px",
           color: "white",
           borderColor: "white",
           borderWidth: 2,
-          fontFamily: "Muli"
+          fontFamily: "Muli",
+          fontSize: '0.8rem',
+          paddingLeft: '10%',
+          paddingRight: '10%',
         }}
       >
         Login

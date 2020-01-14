@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Muli"
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
     fontFamily: "Muli"
   },
   title: {
@@ -75,10 +75,11 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Muli"
   },
   name: {
-    margin: "10px",
+    margin: "3%",
     fontFamily: "Satisfy",
     color: "white",
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
+    overflow: 'visible'
   },
   root: {
     display: "flex",
@@ -201,14 +202,6 @@ export default function PrimarySearchAppBar(props) {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={2} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <NotificationsIcon />
@@ -330,11 +323,6 @@ export default function PrimarySearchAppBar(props) {
           {userType !== 0 && (
             <div>
               <div className={classes.sectionDesktop}>
-                <IconButton aria-label="show 4 new mails" color="inherit">
-                  <Badge badgeContent={2} color="secondary">
-                    <MailIcon />
-                  </Badge>
-                </IconButton>
                 <IconButton
                   aria-label="show 17 new notifications"
                   color="inherit"
