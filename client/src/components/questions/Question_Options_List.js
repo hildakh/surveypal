@@ -21,7 +21,7 @@ export default function QuestionOptionsList(props) {
 
   const {
     SurveyContext,
-    updateChecked,
+    setChecked,
     recordQuestionResponse
   } = useSurveyData();
 

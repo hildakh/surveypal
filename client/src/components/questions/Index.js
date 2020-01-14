@@ -44,7 +44,6 @@ export default function Index(props) {
     SurveyContext,
     StateProvider,
     navigateQuestions,
-    updateChecked,
     recordQuestionResponse
   } = useSurveyData();
 

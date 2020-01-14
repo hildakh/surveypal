@@ -71,7 +71,7 @@ export default function useSurveyData() {
     )
   }
 
-  const updateChecked = function(checkedList){
+  const setChecked = function(checkedList){
     return (
       dispatch({ type: SET_CHECKED, value: checkedList })
     )
@@ -85,7 +85,7 @@ export default function useSurveyData() {
     StateProvider,
     navigateQuestions,
     recordQuestionResponse,
-    updateChecked
+    setChecked
   }
 };
 
