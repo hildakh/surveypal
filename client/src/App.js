@@ -15,6 +15,7 @@ import Typing from 'react-typing-animation';
 import Box from '@material-ui/core/Box';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import MainPicture from './components/home/main-picture'
 
 AOS.init();
 
@@ -118,52 +119,7 @@ class App extends Component {
             {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
           </div>
         )}
-
-        <div style={{ height: '45rem' }}>
-          <div style={{ float: 'left', marginTop: '5%', marginLeft: '7%' }}>
-            <div>
-              <Typing >
-                <h2 style={{ fontSize: '1.8em', marginTop: '7%' }}>   Get answers with surveys!  </h2>
-              </Typing>
-            </div>
-            <div >
-              <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
-                y: 120,
-                float: 'left'
-              }} transition={{ duration: 1.2 }}>
-                <span>
-                  Be the person with great ideas.
-                </span>
-              </motion.div>
-              <br />
-              <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
-                y: 120,
-                float: 'left'
-              }} transition={{ duration: 1.2 }}>
-                <span>
-                  Surveys give you actionable insights and
-                </span>
-              </motion.div>
-              <br />
-              <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
-                y: 120,
-                float: 'left'
-              }} transition={{ duration: 1.2 }}>
-                <span>
-                  fresh perspectives.
-                </span>
-              </motion.div>
-
-            </div>
-          </div>
-          <div style={{ width: '50%', height: '30%', marginTop: '1%', float: 'right' }}>
-            <motion.div initial={{ x: 0 }} animate={{ x: -100 }} transition={{ duration: 1.2 }} style={{ marginRight: '0px' }}>
-
-              <img src={'https://survey-pal.s3.ca-central-1.amazonaws.com/Asset+5.png'} style={{ width: '100%', height: '60%', float: 'right' }} />
-
-            </motion.div>
-          </div>
-        </div>
+        <MainPicture />
         <div style={{ width: '100%', height: '35em', display: 'flex', flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white' }}>
           <div data-aos="fade-up" style={{ width: '50%', height: '70%', float: 'left', marginTop: '7%' }}>
             <img style={{ width: '70%', height: '80%' }} src={'https://survey-pal.s3.ca-central-1.amazonaws.com/8690978_web1_170927-SUL-homelesscount.jpg'} />
