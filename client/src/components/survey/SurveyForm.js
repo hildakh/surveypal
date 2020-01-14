@@ -44,7 +44,7 @@ export default function SurveyForm(props) {
       <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
       <Resume />
-      <Start />
+      <Start onClick={props.startSurvey}/>
     </div>
   );
 }

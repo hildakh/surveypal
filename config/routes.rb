@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     resources :surveys, except: [:destroy]
     resources :teams, only: [:index, :show]
+    resources :questions
   end
 
   namespace :admin do
