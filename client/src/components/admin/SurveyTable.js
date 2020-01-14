@@ -5,10 +5,12 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   table: {
-    marginTop: 30,
+    marginTop: "10%",
+    // marginLeft: ""
     maxWidth: "70%",
     position: "relative",
     overflow: "auto",
@@ -21,9 +23,6 @@ const useStyles = makeStyles({
   listHead: {
     backgroundColor: "#d4e157",
     padding: 0,
-    typography:{
-      fontFamily: 'Muli',
-    },
   },
   tableCell: {
     fontFamily: "Muli",
@@ -39,15 +38,23 @@ export default function SurveyTable(props) {
       {/* <caption></caption> */}
       <TableHead>
         <TableRow className={classes.listHead}>
-          <TableCell>Survey Title </TableCell>
-          <TableCell align="center">Description</TableCell>
+          <TableCell align="center">
+            <Typography style={{fontFamily: 'Muli'}}>
+            Survey Title
+            </Typography>
+          </TableCell>
+          <TableCell align="center">
+            <Typography style={{fontFamily: 'Muli'}}>
+            Description
+            </Typography>
+            </TableCell>
           {/* <TableCell align="center">End Date</TableCell> */}
         </TableRow>
       </TableHead>
       <TableBody>
         {props.list.map(item => (
           <TableRow key={item.name}>
-            <TableCell component="th" scope="row" className={classes.tableCell}>
+            <TableCell align="center" component="th" scope="row" className={classes.tableCell}>
               {item.name}
             </TableCell>
             <TableCell align="center" className={classes.tableCell}>{item.description}</TableCell>

@@ -5,10 +5,11 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   table: {
-    marginTop: 30,
+    marginTop: "10%",
     maxWidth: "50%",
     position: "relative",
     overflow: "auto",
@@ -33,12 +34,20 @@ export default function SurveyorTable(props) {
   const classes = useStyles();
 
   return (
-    <Table className={classes.table} aria-label="caption table" elevation={4}>
+    <Table className={classes.table} aria-label="caption table">
       {/* <caption></caption> */}
       <TableHead>
         <TableRow className={classes.listHead}>
-          <TableCell>Surveyor</TableCell>
-          <TableCell align="center">Email Address</TableCell>
+          <TableCell>
+            <Typography style={{fontFamily: 'Muli'}}>
+              Surveyor
+            </Typography>
+          </TableCell>
+          <TableCell align="center">
+            <Typography style={{fontFamily: 'Muli'}}>
+              Email Address
+            </Typography>
+          </TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
