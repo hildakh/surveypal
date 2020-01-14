@@ -13,7 +13,7 @@ export default function NextButton(props) {
 
   return (
     <React.Fragment>
-      <IconButton class={nextButtonClass} id="next-question-button" label="go to next question" onClick={props.onClick}>
+      <IconButton className={nextButtonClass} id="next-question-button" label="go to next question" onClick={props.onClick}>
         <NavigateNextIcon />
       </IconButton>
     </React.Fragment>

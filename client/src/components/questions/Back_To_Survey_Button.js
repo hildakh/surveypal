@@ -23,7 +23,7 @@ export default function BackToSurveyButton(props) {
 
   return (
     <div className={styleClasses.root}>
-      <Fab class={backToSurveyButtonClass} variant="extended" id="back-to-survey-button" label="go back to view the full survey" onClick={props.onClick} size="large">
+      <Fab className={backToSurveyButtonClass} variant="extended" id="back-to-survey-button" label="go back to view the full survey" onClick={props.onClick} size="large">
         View Survey
         <ListAltIcon className={styleClasses.extendedIcon} />
       </Fab>
