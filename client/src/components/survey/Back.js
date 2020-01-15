@@ -4,15 +4,18 @@ import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles(theme => ({
+
   button: {
     margin: theme.spacing(1),
-    background: "#f57c00",
+    background: "#849e00",
+    borderColor: "white",
     color: "white",
     fontSize: 20,
-    textTransform: 'none',
-    fontFamily: 'Muli',
+    fontSize: '1rem',
     borderRadius: 5,
-    float: 'left'
+    fontFamily: "Muli",
+    float: 'left',
+    textTransform: 'none',
   }
 }));
 
@@ -23,7 +26,7 @@ export default function Back(props) {
     <div>
       <Button
         onClick={props.onClick}
-        variant="contained"
+        variant="outlined"
         className={classes.button}
         startIcon={<ArrowBackIcon />}
       >
