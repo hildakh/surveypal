@@ -166,6 +166,7 @@ export default function PrimarySearchAppBar(props) {
   const handleDrawerClose = event => {
     setDrawerOpen(false);
   };
+
   const logout = event => {
     setDrawerOpen(false);
     props.logout();
