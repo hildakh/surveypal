@@ -14,6 +14,9 @@ let classNames = require("classnames");
 const useStyles = makeStyles(theme => ({
   item: {
     margin: theme.spacing(.5)
+  },
+  optionText: {
+    fontFamily: "Muli"
   }
 }));
 
@@ -49,7 +52,7 @@ export default function QuestionOptionsListItem(props) {
             disableRipple
           />
         </ListItemIcon>
-        <ListItemText id={props.labelId} primary={props.option_text}/>
+        <ListItemText className={classNames(styleClasses.optionText)} id={props.labelId} primary={props.option_text}/>
       </ListItem>
     </Grid>
       )

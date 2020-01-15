@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     borderRadius:"10px",
-    backgroundColor: '#e6af3a'
+    backgroundColor: '#e6af3a',
+    fontFamily: "Muli"
   }
 }));
 
