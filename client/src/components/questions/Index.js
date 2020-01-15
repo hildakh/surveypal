@@ -43,7 +43,7 @@ export default function Index(props) {
     navigateQuestions,
     recordQuestionResponse
   } = useSurveyData();
-
+  // console.log(state.current_question)
 
   return (
 
@@ -59,7 +59,7 @@ export default function Index(props) {
         )}
         <Show
           question_description={<QuestionText description={state.current_question.description} />}
-          question_options_list={<QuestionOptionsList questionOptions={state.current_options} />}
+          question_options_list={<QuestionOptionsList questionType={state.current_question.question_type_id} questionOptions={state.current_options} />}
         />
         {state.current_question.id < 8 && (
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
