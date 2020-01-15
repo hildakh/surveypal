@@ -80,7 +80,7 @@ class App extends Component {
     this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false });
   }
   loadPreview = () => {
-    this.setState({ ...this.state, preview: true, surveyOpen: false })
+    this.setState({ ...this.state, preview: true, viewSurvey: false, surveyOpen: false })
   }
   closePreview = () => {
     this.setState({ ...this.state, preview: false, surveyOpen: true })
