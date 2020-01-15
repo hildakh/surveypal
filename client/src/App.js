@@ -13,11 +13,8 @@ import 'aos/dist/aos.css';
 import MainPicture from './components/home/MainPicture';
 import Article from './components/home/Article';
 import Graph from './components/home/Graph';
-
 AOS.init();
-
 class App extends Component {
-
   constructor(props) {
     super(props);
     const token = JSON.parse(localStorage.getItem("token"));
@@ -33,7 +30,6 @@ class App extends Component {
       surveyor_list = token.surveyors;
       team_list = token.teams;
     }
-
     this.state = {
       session: null,
       userType: user_type,
@@ -50,7 +46,6 @@ class App extends Component {
     };
     this.status = "NULL";
   }
-
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   };
@@ -93,9 +88,7 @@ class App extends Component {
   startSurvey = () => {
     this.setState({ ...this.state, preview: false, viewSurvey: true })
   }
-
   render() {
-
     return (
       <div className="App">
         <AppBar
@@ -110,7 +103,8 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             {this.state.surveyOpen && <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />}
-            {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview} startSurvey={this.startSurvey}/>}
+            {this.state.viewSurvey && <Index />}
           </div>
         )}
         {this.state.userType === 0 && (

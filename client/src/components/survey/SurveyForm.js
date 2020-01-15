@@ -1,15 +1,17 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Back from "./Back";
-import Reset from "./Reset";
+// import Reset from "./Reset";
 import Start from "./Start";
-import Resume from "./Resume";
+// import Resume from "./Resume";
 import QuestionPreview from "./QuestionPreview";
 
 const useStyles = makeStyles(theme => ({
   surveyview: {
-    width: "97%",
-    backgroundColor: "#e6ceff",
+    marginTop: '3%',
+    marginBottom: '3%',
+    width: "90%",
+    backgroundColor: "#849e00",
     margin: "0 auto",
     padding: theme.spacing(1),
     justifyContent: 'space-between',
@@ -19,6 +21,8 @@ const useStyles = makeStyles(theme => ({
   heading: {
     textAlign: "center",
     fontFamily: 'Muli',
+    color: 'white',
+    marginRight: '12%'
   }
 
 }));
@@ -40,11 +44,11 @@ export default function SurveyForm(props) {
   return (
     <div className={classes.surveyview}>
       <Back onClick={props.closePreview} />
-      <Reset />
+      {/* <Reset /> */}
       <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
-      <Resume />
-      <Start onClick={props.startSurvey}/>
+      {/* <Resume /> */}
+      <Start onClick={props.startSurvey} />
     </div>
   );
 }
