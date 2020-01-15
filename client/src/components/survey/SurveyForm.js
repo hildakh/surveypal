@@ -8,8 +8,10 @@ import QuestionPreview from "./QuestionPreview";
 
 const useStyles = makeStyles(theme => ({
   surveyview: {
-    width: "97%",
-    backgroundColor: "#e6ceff",
+    marginTop: '3%',
+    marginBottom: '3%',
+    width: "90%",
+    backgroundColor: "#849e00",
     margin: "0 auto",
     padding: theme.spacing(1),
     justifyContent: 'space-between',
@@ -19,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   heading: {
     textAlign: "center",
     fontFamily: 'Muli',
+    color: 'white',
   }
 
 }));

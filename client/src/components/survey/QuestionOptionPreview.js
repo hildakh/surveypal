@@ -43,7 +43,7 @@ export default function QuestionPreview(props) {
   return (
     <div className={classes.root}>
       {props.question.options.map(item => (
-        <Typography>
+        <Typography align="left">
           {props.question.question.question_type_id === 1 && (
             <Checkbox
               checked={checked}
