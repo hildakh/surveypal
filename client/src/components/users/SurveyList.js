@@ -5,7 +5,7 @@ import SurveyListItem from '../users/SurveyListItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: '9%'
+    marginTop: '5%',
   },
 }));
 
