@@ -1,12 +1,10 @@
-import React, { useReducer, useContext } from "react";
+import React, { useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import Show from './Show';
-import QuestionText from './Question_Text';
 import NextButton from './Button_Next.js';
 import BeforeButton from './Button_Before.js';
 import BackToSurveyButton from './Back_To_Survey_Button.js';
-import QuestionOptionsList from './Question_Options_List';
 import useSurveyData from '../../hooks/useSurveyData';
 
 
@@ -43,12 +41,10 @@ export default function Index(props) {
     // use 
     SurveyContext,
     StateProvider,
-    navigateQuestions,
-    recordQuestionResponse
+    navigateQuestions
   } = useSurveyData();
 
   const surveyState = useContext(SurveyContext);
-  // console.log("SHOW me the surveyState, y'all", surveyState);
 
 
   return (
