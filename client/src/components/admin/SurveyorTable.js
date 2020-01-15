@@ -13,8 +13,8 @@ import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles(theme => ({
   table: {
-    marginTop: "5%",
-    marginBottom: '5%',
+    marginTop: "2%",
+    marginBottom: '3%',
     maxWidth: "50%",
     position: "relative",
     overflow: "auto",
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Muli",
     textTransform: 'none',
     cursor: 'pointer',
-    marginTop: '5%',
+    marginTop: '2%',
   }
 }));
 
