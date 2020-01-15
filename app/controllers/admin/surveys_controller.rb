@@ -3,6 +3,11 @@ class Admin::SurveysController < ApplicationController
   # http_basic_authenticate_with name: ENV["WEBSITE_USERNAME"], password: ENV["WEBSITE_PASSWORD"]
 
   def index
+    surveys = Survey.where({user_id: params[:user_id]}).select(:id, :name, :description, :end_date, :city_id)
+
+    render json: {
+      surveys: surveys
+    }
   end
 
   def new

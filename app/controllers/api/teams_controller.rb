@@ -1,9 +1,12 @@
 class Api::TeamsController < ApplicationController
 
   def index
-  end
+    # teams = Team.all.select(:name)
+    # render json: teams
+   end
 
   def show
-  end
+   end
+
 
 end

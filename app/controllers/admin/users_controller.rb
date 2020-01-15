@@ -1,8 +1,12 @@
 class Admin::UsersController < ApplicationController
 
   def index
+    surveyors = User.where(user_type_id: 2).select(:id, :first_name, :last_name, :email)
+    render json: {
+      surveyors: surveyors
+    }
   end
-  
+
   def new
   end
 
@@ -22,7 +26,7 @@ class Admin::UsersController < ApplicationController
 
   def edit
   end
-  
+
   def update
   end
 

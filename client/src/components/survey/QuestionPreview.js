@@ -15,49 +15,45 @@ const action = (
   </Button>
 );
 
-const questions = [];
+// const questions = [];
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "95%",
+    width: "90%",
     position: "relative",
-    margin: "0 auto"
+    margin: "0 auto",
+    fontFamily: 'Muli',
   },
   card: {
     margin: theme.spacing(3),
     borderRadius: 10,
-    backgroundColor: '#424242',
-    color: 'white'
+    backgroundColor: '#EEEEEE',
+    color: 'black',
+    fontFamily: 'Muli',
   },
   title: {
-    color: 'white'
+    color: 'black',
+    fontFamily: 'Muli',
   }
 }));
 
 export default function QuestionPreview() {
   const classes = useStyles();
+  const questions = JSON.parse(localStorage.getItem('token')).questions;
 
   return (
     <div className={classes.root}>
-       <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-            Have you already answered a survey today (with someone wearing a yellow sticker)?
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <QuestionOptionPreview />
-        </CardActions>
-      </Card>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Do you currently have a place to stay where you pay monthly rent?
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <QuestionOptionPreview />
-        </CardActions>
-      </Card>
+      {questions.map(question => (
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography className={classes.title} color="textSecondary" gutterBottom align="left">
+              {question.question.description}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <QuestionOptionPreview question={question}/>
+          </CardActions>
+        </Card>
+      ))}
     </div>
   );
 }
