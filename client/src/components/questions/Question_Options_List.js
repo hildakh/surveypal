@@ -20,32 +20,20 @@ export default function QuestionOptionsList(props) {
   const styleClasses = useStyles();
 
   const {
-    SurveyContext,
-    setChecked,
-    recordQuestionResponse
+    handleToggle,
+    surveyState
   } = useSurveyData();
 
-  const surveyState = useContext(SurveyContext);
+
   const checked = surveyState.checked;
-
-  const handleToggle = value => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
+  console.log(surveyState)
+  
 
   return (
     <List >
       {props.questionOptions.map(option => {
         
-        const value = `${option.serial_order}`
+        const value = `${option.id}`
         const labelID = `question-options-list-label-${value}`
         
         return (
