@@ -44,30 +44,31 @@ export default function Index(props) {
     recordQuestionResponse
   } = useSurveyData();
 
+
   return (
 
-      <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
-        
-        <BackToSurveyButton onClick="{action('button-clicked')}" className={styleClasses.navButton} justify="flex-end"/>
+    <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
 
-        <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
-        
+      {/* <BackToSurveyButton className={styleClasses.navButton} justify="flex-end" /> */}
+
+      <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
+        {state.current_question.id > 1 && (
           <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
             <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
           </Grid>
-
-          <Show
-            question_description={<QuestionText description={state.current_question.description}/>}
-            question_options_list={<QuestionOptionsList questionOptions={state.current_options}/>} 
-          />
-        
+        )}
+        <Show
+          question_description={<QuestionText description={state.current_question.description} />}
+          question_options_list={<QuestionOptionsList questionOptions={state.current_options} />}
+        />
+        {state.current_question.id < 8 && (
           <Grid container item xs className={styleClasses.navButton} justify="flex-end">
-            <NextButton onClick={() => navigateQuestions(state.current_question.id, 1)}  />
+            <NextButton onClick={() => navigateQuestions(state.current_question.id, 1)} />
           </Grid>
-        
-        </Grid>     
+        )}
+      </Grid>
 
-      </Container>
+    </Container>
 
   );
 }
