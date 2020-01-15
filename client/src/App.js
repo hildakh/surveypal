@@ -9,6 +9,7 @@ import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
 import TeamTable from './components/admin/TeamTable';
 import SurveyForm from './components/survey/SurveyForm';
+import Index from './components/questions/Index';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import MainPicture from './components/home/MainPicture';
@@ -48,6 +49,7 @@ class App extends Component {
       teamList: team_list,
       preview: false,
       card: true,
+      viewSurvey: false
     };
     this.status = "NULL";
   }
@@ -88,6 +90,9 @@ class App extends Component {
   closePreview = () => {
     this.setState({ ...this.state, preview: false, card: true, surveyOpen: false })
   }
+  startSurvey = () => {
+    this.setState({ ...this.state, preview: false, viewSurvey: true })
+  }
 
   render() {
 
@@ -117,7 +122,6 @@ class App extends Component {
             <Graph />
           </div>
         )}
-
         {this.state.adminSurveyList && (
           <SurveyTable list={this.state.surveyList} />)}
         {this.state.surveyorListOpen && (

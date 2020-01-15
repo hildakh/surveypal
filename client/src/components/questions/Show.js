@@ -21,7 +21,7 @@ export default function Show(props) {
   return (
     <Grid container item xs={9} className={styleClasses.grid} alignItems="flex-start" justify="center">
 
-      {props.question_text}
+      {props.question_description}
 
       {props.question_options_list}
       
