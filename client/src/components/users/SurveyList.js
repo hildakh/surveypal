@@ -5,19 +5,8 @@ import SurveyListItem from '../users/SurveyListItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: '100%',
-    backgroundColor: '#E2F2F9',
-    position: 'relative',
-    overflow: 'auto',
-    maxHeight: '100%',
-    margin: '0 auto',
-    padding: 0,
-    color: '#08648C',
-    marginTop: '10%'
+    marginTop: '9%'
   },
-  color: {
-    color: 'white'
-  }
 }));
 
 export default function SurveyList(props) {
@@ -37,7 +26,7 @@ export default function SurveyList(props) {
   }, 500);
 
   return (
-    <div>
+    <div className={classes.root}>
       {props.list.map(item => {
         return (
           <SurveyListItem
@@ -47,7 +36,7 @@ export default function SurveyList(props) {
         )
       })}
       {item2 && (
-        <SurveyListItem style={{ marginTop: '5%' }}
+        <SurveyListItem
           title={'Vancouver Homeless Health Survey'}
           onClick={props.onClick}>
         </SurveyListItem>

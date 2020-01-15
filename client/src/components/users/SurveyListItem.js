@@ -9,16 +9,14 @@ const useStyle = makeStyles(theme => ({
     textAlign: 'center',
     cursor: 'pointer',
     fontSize: '1.25rem',
-    // paddingTop: '4%'
   },
-
   container: {
     width: '50%',
     height: '5rem',
     backgroundColor: '#e6af3a',
     margin: '0 auto',
     borderRadius: 10,
-    marginTop: '1%',
+    marginTop: '2%',
     boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
     '&:hover': {
       boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)'
