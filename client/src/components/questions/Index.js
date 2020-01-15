@@ -47,9 +47,9 @@ export default function Index(props) {
 
   return (
 
-    <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
-
-      {/* <BackToSurveyButton className={styleClasses.navButton} justify="flex-end" /> */}
+      <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
+        
+        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end"/>
 
       <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
         {state.current_question.id > 1 && (

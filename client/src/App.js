@@ -80,7 +80,7 @@ class App extends Component {
     this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false });
   }
   loadPreview = () => {
-    this.setState({ ...this.state, preview: true, surveyOpen: false })
+    this.setState({ ...this.state, preview: true, viewSurvey: false, surveyOpen: false })
   }
   closePreview = () => {
     this.setState({ ...this.state, preview: false, surveyOpen: true })
@@ -104,7 +104,7 @@ class App extends Component {
           <div>
             {this.state.surveyOpen && <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />}
             {this.state.preview && <SurveyForm closePreview={this.closePreview} startSurvey={this.startSurvey}/>}
-            {this.state.viewSurvey && <Index />}
+            {this.state.viewSurvey && <Index backToPreview={this.loadPreview}/>}
           </div>
         )}
         {this.state.userType === 0 && (

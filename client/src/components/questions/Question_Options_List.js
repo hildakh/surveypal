@@ -38,7 +38,7 @@ export default function QuestionOptionsList(props) {
 
     setChecked(newChecked);
   };
-  const [checked, setChecked] = React.useState(false)
+  // const [checked, setChecked] = React.useState(false)
   const handleChange = () => {
     setChecked(true);
   }
