@@ -24,10 +24,7 @@ export default function QuestionOptionsList(props) {
     surveyState
   } = useSurveyData();
 
-
   const checked = surveyState.checked;
-  console.log(surveyState)
-  
 
   return (
     <List >

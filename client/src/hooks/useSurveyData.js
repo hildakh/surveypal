@@ -79,7 +79,6 @@ export default function useSurveyData() {
     existing.questions.forEach(item => {
         item.options.forEach(option => {
           if (option.id === parseInt(optionId)) {
-            console.log(`option.id from localStorage: ${option.id} <<<>>> optionId passed in from survey option: ${parseInt(optionId)}`)
             if ("isSelected" in option) {
               option.isSelected =
                !option.isSelected
