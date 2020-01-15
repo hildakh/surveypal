@@ -18,11 +18,6 @@ const useStyles = makeStyles(theme => ({
     margin: "0 auto",
     fontFamily: "Muli"
   },
-  snackbar: {
-    margin: theme.spacing(1),
-    textTransform: "none",
-    fontFamily: "Muli"
-  }
 }));
 
 export default function QuestionPreview(props) {
@@ -43,7 +38,7 @@ export default function QuestionPreview(props) {
   return (
     <div className={classes.root}>
       {props.question.options.map(item => (
-        <Typography align="left">
+        <Typography align="left" style={{fontFamily: 'Muli'}}>
           {props.question.question.question_type_id === 1 && (
             <Checkbox
               checked={checked}

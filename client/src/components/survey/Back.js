@@ -11,22 +11,12 @@ const useStyles = makeStyles(theme => ({
     borderColor: "white",
     color: "white",
     fontSize: 20,
-    fontSize: '0.8rem',
+    fontSize: '1rem',
     borderRadius: 5,
     fontFamily: "Muli",
     float: 'left',
     textTransform: 'none',
   }
-  // button: {
-  //   margin: theme.spacing(1),
-  //   background: "#f57c00",
-  //   color: "white",
-  //   fontSize: 20,
-  //   textTransform: 'none',
-  //   fontFamily: 'Muli',
-  //   borderRadius: 5,
-  //   float: 'left'
-  // }
 }));
 
 export default function Back(props) {
