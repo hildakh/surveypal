@@ -104,16 +104,9 @@ class App extends Component {
         />
         {this.state.userType === 2 && (
           <div>
-            {this.state.card && <React.Fragment>
-              <Card
-                message={"Surveys"}
-                counter={this.state.surveyList.length || 0}
-                onClick={this.toggleFirst}
-              />
-              <Expand open={this.state.surveyOpen}>
-                <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
-              </Expand>
-            </React.Fragment>}
+            {this.state.card &&
+              <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
+            }
             {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
           </div>
         )}
