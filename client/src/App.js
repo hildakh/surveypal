@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import "animate.css/animate.min.css";
 import AppBar from './components/navbar/AppBar';
-import Card from './components/users/Card';
-import Expand from 'react-expand-animated';
 import SurveyList from './components/users/SurveyList';
 import SurveyTable from './components/admin/SurveyTable';
 import SurveyorTable from './components/admin/SurveyorTable';
@@ -15,11 +13,8 @@ import 'aos/dist/aos.css';
 import MainPicture from './components/home/MainPicture';
 import Article from './components/home/Article';
 import Graph from './components/home/Graph';
-
 AOS.init();
-
 class App extends Component {
-
   constructor(props) {
     super(props);
     const token = JSON.parse(localStorage.getItem("token"));
@@ -35,12 +30,11 @@ class App extends Component {
       surveyor_list = token.surveyors;
       team_list = token.teams;
     }
-
     this.state = {
       session: null,
       userType: user_type,
       user: currentUser,
-      surveyOpen: false,
+      surveyOpen: true,
       surveyList: survey_list,
       adminSurveyList: false,
       surveyorListOpen: false,
@@ -48,12 +42,10 @@ class App extends Component {
       teamListOpen: false,
       teamList: team_list,
       preview: false,
-      card: true,
       viewSurvey: false
     };
     this.status = "NULL";
   }
-
   toggleFirst = () => {
     this.setState(prevState => ({ surveyOpen: !prevState.surveyOpen }));
   };
@@ -68,12 +60,15 @@ class App extends Component {
       userType: token.user.user_type_id,
       surveyList: token.surveys,
       surveyorList: token.surveyors,
-      teamList: token.teams
+      teamList: token.teams,
+      preview: false,
+      viewSurvey: false,
+      surveyOpen: true
     })
   }
   logout = () => {
     localStorage.clear();
-    this.setState({ ...this.state, userType: 0, adminSurveyList: false, surveyorListOpen: false, teamListOpen: false });
+    this.setState({ ...this.state, userType: 0, adminSurveyList: false, surveyorListOpen: false, teamListOpen: false, surveyOpen: false });
   };
   loadSurveys = () => {
     this.setState({ ...this.state, adminSurveyList: true, surveyorListOpen: false, teamListOpen: false });
@@ -85,19 +80,15 @@ class App extends Component {
     this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false });
   }
   loadPreview = () => {
-    this.setState({ ...this.state, preview: true, card: false })
+    this.setState({ ...this.state, preview: true, surveyOpen: false })
   }
   closePreview = () => {
-    this.setState({ ...this.state, preview: false, card: true, surveyOpen: false })
+    this.setState({ ...this.state, preview: false, surveyOpen: true })
   }
   startSurvey = () => {
     this.setState({ ...this.state, preview: false, viewSurvey: true })
   }
-  loadCard = () => {
-    this.setState({...this.state, preview: false, viewSurvey: false, card: true})
-  }
   render() {
-
     return (
       <div className="App">
         <AppBar
@@ -108,14 +99,12 @@ class App extends Component {
           loadSurveys={this.loadSurveys}
           loadSurveyors={this.loadSurveyors}
           loadTeams={this.loadTeams}
-          loadCard={this.loadCard}
         />
         {this.state.userType === 2 && (
           <div>
-            {this.state.card &&
-              <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />
-            }
-            {this.state.preview && <SurveyForm closePreview={this.closePreview} />}
+            {this.state.surveyOpen && <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview} startSurvey={this.startSurvey}/>}
+            {this.state.viewSurvey && <Index />}
           </div>
         )}
         {this.state.userType === 0 && (
