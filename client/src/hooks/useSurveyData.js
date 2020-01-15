@@ -71,9 +71,9 @@ export default function useSurveyData() {
     )
   }
 
-  const setChecked = function(checkedList){
+  const setChecked = function(newChecked){
     return (
-      dispatch({ type: SET_CHECKED, value: checkedList })
+      dispatch({ type: SET_CHECKED, value: newChecked })
     )
   }
 
