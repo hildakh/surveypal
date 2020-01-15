@@ -16,26 +16,23 @@ export default function useSurveyData() {
     current_survey: {},
     current_question: {},
     current_options: [],
-    checked: [0],
-    current_question_responses: []
+    checked: []
   };
 
-
-  // use the Provider component and useContext hook when you need to access survey state
-  // when you need to manipulate survey state, call the dispatch method
-  // wrap root survey component (questions > Index.js) in StateProvider
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  // use the Provider component and useContext hook to access survey state
+  // to manipulate survey state, call the dispatch method
+  // wrap root survey component (questions > Index.js) in StateProvider
   
   const SurveyContext = createContext(state);
   const { Provider } = SurveyContext;
 
   const StateProvider = ( { children } ) => {
-    // does this Provider need to have the state and dispatch value props when 
-    // we only use dispatch here in useSurveyData?
     return <Provider value={{state, dispatch}}>{children}</Provider>;
   };
 
-  // use the useContext Hook to access the survey state 
+  // survey state accessed using the context Hook
   const surveyState = useContext(SurveyContext)
 
 
@@ -71,21 +68,57 @@ export default function useSurveyData() {
     )
   }
 
+  const recordQuestionResponse = function(optionId) {
+    let existing = JSON.parse(localStorage.getItem("token"))
+    console.log(`current question id: ${state.current_question.id}`)
+    
+    // let optionIndex = parseInt(optionId) - 1
+    // go through list of questions in local storage
+    // look for the checked option ID in its list of options
+    // if it is, set or toggle isSelected value in that option (T/F)
+    existing.questions.forEach(item => {
+        item.options.forEach(option => {
+          if (option.id === parseInt(optionId)) {
+            console.log(`option.id from localStorage: ${option.id} <<<>>> optionId passed in from survey option: ${parseInt(optionId)}`)
+            if ("isSelected" in option) {
+              option.isSelected =
+               !option.isSelected
+            } else {
+              option.isSelected = true
+            }
+          }
+        })
+      }
+    )
+    localStorage.setItem("token", JSON.stringify(existing))
+  }
+
   const setChecked = function(newChecked){
     return (
       dispatch({ type: SET_CHECKED, value: newChecked })
     )
   }
 
-  const recordQuestionResponse = questionResponse => dispatch({ type: SET_QUESTION_RESPONSE, value: questionResponse})
+  const handleToggle = value => () => {
+    const currentIndex = state.checked.indexOf(value);
+    const newChecked = [...state.checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    recordQuestionResponse(value);
+    setChecked(newChecked);
+  };
 
   return {
     // use the Provider (StateProvider) component and useContext hook when we need to access survey state
     SurveyContext,
     StateProvider,
     navigateQuestions,
-    recordQuestionResponse,
-    setChecked
+    handleToggle,
+    surveyState
   }
 };
 
