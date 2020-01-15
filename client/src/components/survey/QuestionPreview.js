@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   card: {
     margin: theme.spacing(3),
     borderRadius: 10,
-    backgroundColor: '#EEEEEE',
+    backgroundColor: 'white',
     color: 'black',
     fontFamily: 'Muli',
   },

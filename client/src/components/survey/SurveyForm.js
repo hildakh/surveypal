@@ -5,13 +5,14 @@ import Back from "./Back";
 import Start from "./Start";
 // import Resume from "./Resume";
 import QuestionPreview from "./QuestionPreview";
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
   surveyview: {
     marginTop: '3%',
     marginBottom: '3%',
     width: "90%",
-    backgroundColor: "#849e00",
+    backgroundColor: '#e6af3a',
     margin: "0 auto",
     padding: theme.spacing(1),
     justifyContent: 'space-between',
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   heading: {
     textAlign: "center",
     fontFamily: 'Muli',
-    color: 'white',
+    color: 'black',
     marginRight: '12%'
   }
 
@@ -42,13 +43,13 @@ export default function SurveyForm(props) {
 
 
   return (
-    <div className={classes.surveyview}>
+    <Box boxShadow={5} className={classes.surveyview}>
       <Back onClick={props.closePreview} />
       {/* <Reset /> */}
       <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
       {/* <Resume /> */}
       <Start onClick={props.startSurvey} />
-    </div>
+    </Box>
   );
 }

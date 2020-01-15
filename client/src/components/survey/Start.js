@@ -6,9 +6,9 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 const useStyles = makeStyles(theme => ({
   button: {
   margin: theme.spacing(1),
-  background: "#849e00",
-  borderColor: "white",
-  color: "white",
+  background: "#e6af3a",
+  borderColor: "black",
+  color: "black",
   fontSize: 20,
   fontSize: '1rem',
   borderRadius: 5,

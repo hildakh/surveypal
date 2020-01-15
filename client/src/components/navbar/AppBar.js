@@ -303,7 +303,7 @@ export default function PrimarySearchAppBar(props) {
         position="static"
         inputfield={props.inputfield}
         session={props.session}
-        style={{ background: "#677b00" }}
+        style={{ background: 'linear-gradient(45deg, #e0aa34 25%, #7a9100 50%, #677b00 100%)' }}
       >
         <Toolbar>
           {userType === 1 && (
