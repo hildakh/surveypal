@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
 
 import SurveyListItem from '../users/SurveyListItem'
 
@@ -15,7 +14,9 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     color: '#08648C',
     marginTop: '10%'
-
+  },
+  color: {
+    color: 'white'
   }
 }));
 
@@ -54,6 +55,7 @@ export default function SurveyList(props) {
 
       {item3 && (
         <SurveyListItem
+          className={classes.col}
           title={'Vancouver Homeless Youth Survey'}
           onClick={props.onClick}>
         </SurveyListItem>
