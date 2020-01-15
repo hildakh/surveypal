@@ -51,8 +51,6 @@ export default function Index(props) {
         
         <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end"/>
 
-      {/* <BackToSurveyButton className={styleClasses.navButton} justify="flex-end" /> */}
-
       <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
         {state.current_question.id > 1 && (
           <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
