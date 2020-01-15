@@ -6,10 +6,12 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { Typography } from "@material-ui/core";
-
+import Button from "@material-ui/core/Button";
+import AddIcon from '@material-ui/icons/Add';
 const useStyles = makeStyles(theme => ({
   table: {
-    marginTop: "10%",
+    marginTop: "2%",
+    marginBottom: '3%',
     maxWidth: "50%",
     position: "relative",
     overflow: "auto",
@@ -20,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: "3px 3px 10px #686868",
   },
   listHead: {
-    backgroundColor: "#d4e157",
+    backgroundColor: "#e0aa34",
     padding: 0,
     fontFamily: "Muli",
   },
@@ -28,40 +30,60 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Muli",
     backgroundColor: "white",
   },
+  button: {
+    margin: theme.spacing(1),
+    background: "#e0aa34",
+    borderColor: "white",
+    color: "black",
+    fontSize: 20,
+    fontSize: '1rem',
+    borderRadius: 5,
+    fontFamily: "Muli",
+    textTransform: 'none',
+    cursor: 'pointer',
+    marginTop: '2%',
+  }
 }));
-
 export default function SurveyorTable(props) {
   const classes = useStyles();
-
   return (
-    <Table className={classes.table} aria-label="caption table">
-      {/* <caption></caption> */}
-      <TableHead>
-        <TableRow className={classes.listHead}>
-          <TableCell>
-            <Typography style={{fontFamily: 'Muli'}}>
-              Surveyor
+    <div>
+      <Button
+        variant="outlined"
+        className={classes.button}
+        startIcon={<AddIcon />}
+      >
+        New User
+      </Button>
+      <Table className={classes.table} aria-label="caption table">
+        {/* <caption></caption> */}
+        <TableHead>
+          <TableRow className={classes.listHead}>
+            <TableCell>
+              <Typography style={{ fontFamily: 'Muli' }}>
+                Surveyor
             </Typography>
-          </TableCell>
-          <TableCell align="center">
-            <Typography style={{fontFamily: 'Muli'}}>
-              Email Address
-            </Typography>
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {props.list.map(item => (
-          <TableRow key={item.first_name}>
-            <TableCell component="th" scope="row" className={classes.tableCell}>
-              {`${item.first_name} ${item.last_name}`}
             </TableCell>
-            <TableCell align="center" className={classes.tableCell}>
-              {item.email}
+            <TableCell align="center">
+              <Typography style={{ fontFamily: 'Muli' }}>
+                Email Address
+            </Typography>
             </TableCell>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {props.list.map(item => (
+            <TableRow key={item.first_name}>
+              <TableCell component="th" scope="row" className={classes.tableCell}>
+                {`${item.first_name} ${item.last_name}`}
+              </TableCell>
+              <TableCell align="center" className={classes.tableCell}>
+                {item.email}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 }
