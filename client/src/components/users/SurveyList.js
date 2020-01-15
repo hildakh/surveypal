@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import Slide from 'react-reveal/Slide';
 
 import SurveyListItem from '../users/SurveyListItem'
 
@@ -22,8 +21,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function SurveyList(props) {
   const classes = useStyles();
+  const [item2, setItem2] = React.useState(false);
+  const [item3, setItem3] = React.useState(false);
+  const [item4, setItem4] = React.useState(false);
+
+  setTimeout(() => {
+    setItem2(true);
+  }, 100);
+  setTimeout(() => {
+    setItem3(true);
+  }, 300);
+  setTimeout(() => {
+    setItem4(true);
+  }, 500);
+
   return (
-    <Slide left cascade>
+    <div>
       {props.list.map(item => {
         return (
           <SurveyListItem
@@ -32,18 +45,26 @@ export default function SurveyList(props) {
           </SurveyListItem>
         )
       })}
-      <SurveyListItem style={{ marginTop: '5%' }}
-        title={'Vancouver Homeless Health Survey'}
-        onClick={props.onClick}>
-      </SurveyListItem>
-      <SurveyListItem
-        title={'Vancouver Homeless Youth Survey'}
-        onClick={props.onClick}>
-      </SurveyListItem>
-      <SurveyListItem
-        title={'Vancouver Homeless Aboriginal Survey'}
-        onClick={props.onClick}>
-      </SurveyListItem>
-    </Slide>
+      {item2 && (
+        <SurveyListItem style={{ marginTop: '5%' }}
+          title={'Vancouver Homeless Health Survey'}
+          onClick={props.onClick}>
+        </SurveyListItem>
+      )}
+
+      {item3 && (
+        <SurveyListItem
+          title={'Vancouver Homeless Youth Survey'}
+          onClick={props.onClick}>
+        </SurveyListItem>
+      )}
+      {item4 && (
+        <SurveyListItem
+          title={'Vancouver Homeless Aboriginal Survey'}
+          onClick={props.onClick}>
+        </SurveyListItem>
+      )}
+
+    </div>
   );
 }
