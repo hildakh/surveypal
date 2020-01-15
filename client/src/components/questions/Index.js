@@ -48,7 +48,7 @@ export default function Index(props) {
 
       <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
         
-        <BackToSurveyButton onClick="{action('button-clicked')}" className={styleClasses.navButton} justify="flex-end"/>
+        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end"/>
 
         <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
         
