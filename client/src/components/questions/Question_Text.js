@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
   question: {
     padding: theme.spacing(1),
     textAlign: 'center',
-    backgroundColor: '#95b6c9'
+    borderRadius:"10px",
+    backgroundColor: '#e6af3a'
   }
 }));
 
