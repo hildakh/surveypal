@@ -1,9 +1,7 @@
 import React from "react";
-// import { makeStyles } from '@material-ui/core/styles';
 
 import { IconButton } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-// import { useSwipeable, Swipeable } from 'react-swipeable';
 
 let classNames = require("classnames");
 

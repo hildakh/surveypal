@@ -18,18 +18,21 @@ const action = (
 // const questions = [];
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "95%",
+    width: "90%",
     position: "relative",
-    margin: "0 auto"
+    margin: "0 auto",
+    fontFamily: 'Muli',
   },
   card: {
     margin: theme.spacing(3),
     borderRadius: 10,
-    backgroundColor: '#424242',
-    color: 'white'
+    backgroundColor: '#EEEEEE',
+    color: 'black',
+    fontFamily: 'Muli',
   },
   title: {
-    color: 'white'
+    color: 'black',
+    fontFamily: 'Muli',
   }
 }));
 
@@ -42,12 +45,12 @@ export default function QuestionPreview() {
       {questions.map(question => (
         <Card className={classes.card}>
           <CardContent>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
+            <Typography className={classes.title} color="textSecondary" gutterBottom align="left">
               {question.question.description}
             </Typography>
           </CardContent>
           <CardActions>
-            <QuestionOptionPreview questionOptions={question.options}/>
+            <QuestionOptionPreview question={question}/>
           </CardActions>
         </Card>
       ))}

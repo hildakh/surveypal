@@ -5,12 +5,15 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
-    background: "#64dd17",
-    color: "white",
-    fontSize: 15,
-    fontFamily: "Dancing Script",
-    borderRadius: 20
+  margin: theme.spacing(1),
+  background: "#849e00",
+  borderColor: "white",
+  color: "white",
+  fontSize: 20,
+  fontSize: '1rem',
+  borderRadius: 5,
+  fontFamily: "Muli",
+  textTransform: 'none',
   }
 }));
 
@@ -20,7 +23,7 @@ export default function Start(props) {
   return (
     <div>
       <Button
-        variant="contained"
+        variant="outlined"
         onClick={props.onClick}
         className={classes.button}
         startIcon={<PlayCircleFilledIcon />}
