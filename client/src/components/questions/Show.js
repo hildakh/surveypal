@@ -30,7 +30,7 @@ export default function Show(props) {
       <QuestionOptionsList
         questionOptions={props.question_options_list}
       />
-      
+
     </Grid>
 
   );

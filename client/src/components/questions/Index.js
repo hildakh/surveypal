@@ -6,6 +6,7 @@ import NextButton from './Button_Next.js';
 import BeforeButton from './Button_Before.js';
 import BackToSurveyButton from './Back_To_Survey_Button.js';
 import useSurveyData from '../../hooks/useSurveyData';
+import Button from '@material-ui/core/Button';
 
 
 let classNames = require("classnames");
@@ -29,6 +30,17 @@ const useStyles = makeStyles(theme => ({
   },
   item: {
     margin: theme.spacing(.5)
+  },
+  button: {
+    margin: theme.spacing(1),
+    background: "#e6af3a",
+    borderColor: "black",
+    color: "black",
+    fontSize: 20,
+    fontSize: '1rem',
+    borderRadius: 5,
+    fontFamily: "Muli",
+    textTransform: 'none',
   }
 }));
 
@@ -43,7 +55,7 @@ export default function Index(props) {
     StateProvider,
     navigateQuestions
   } = useSurveyData();
-  // console.log(state.current_question)
+
 
   const surveyState = useContext(SurveyContext);
 
@@ -53,30 +65,38 @@ export default function Index(props) {
     // in this component tree. To  do this, import useContext hook from react and
     // SurveyContext from useSurveyData
     <StateProvider>
-    <Container maxWidth="sm" height="100%" disableGutters={true} >
-      
-      <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end"/>
+      <Container maxWidth="sm" height="100%" disableGutters={true} >
 
-      <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
-        {surveyState.current_question.id > 1 && (
-          <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
-            <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
-          </Grid>
-        )}
+        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end" />
 
-        <Show
-          question_description={surveyState.current_question.description}
-          question_options_list={surveyState.current_options}
-        />
+        <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
+          {surveyState.current_question.id > 1 && (
+            <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
+              <BeforeButton onClick={() => navigateQuestions(surveyState.current_question.id, -1)} />
+            </Grid>
+          )}
 
-        {surveyState.current_question.id < 8 && (
-          <Grid container item xs className={styleClasses.navButton} justify="flex-end">
-            <NextButton onClick={() => navigateQuestions(surveyState.current_question.id, 1)} />
-          </Grid>
-        )}
-      </Grid>
+          <Show
+            question_description={surveyState.current_question.description}
+            question_options_list={surveyState.current_options}
+            question={surveyState.current_question}
+          />
 
-    </Container>
+          {surveyState.current_question.id < 8 && (
+            <Grid container item xs className={styleClasses.navButton} justify="flex-end">
+              <NextButton onClick={() => navigateQuestions(surveyState.current_question.id, 1)} />
+            </Grid>
+          )}
+          {surveyState.current_question.id === 8 && (
+            <Grid container item xs className={styleClasses.navButton} justify="flex-end">
+              <Button onClick={props.backToSurveys} className={styleClasses.buttons}>
+                Submit
+                </Button>
+            </Grid>
+          )}
+        </Grid>
+
+      </Container>
     </StateProvider>
 
   );

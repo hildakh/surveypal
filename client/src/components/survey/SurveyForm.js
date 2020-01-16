@@ -57,7 +57,7 @@ export default function SurveyForm(props) {
 
 
   return (
-    <div className={classes.surveyview}>
+    <div className={classes.surveyview} >
       <Back onClick={props.closePreview} />
       {/* <Reset /> */}
       <h4 className={classes.heading}>{title}</h4>

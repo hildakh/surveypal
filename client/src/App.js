@@ -88,6 +88,9 @@ class App extends Component {
   startSurvey = () => {
     this.setState({ ...this.state, preview: false, viewSurvey: true })
   }
+  backToSurveys = () => {
+    this.setState({ ...this.state, surveyOpen: true, viewSurvey: false })
+  }
   render() {
     return (
       <div className="App">
@@ -103,8 +106,8 @@ class App extends Component {
         {this.state.userType === 2 && (
           <div>
             {this.state.surveyOpen && <SurveyList list={this.state.surveyList} onClick={this.loadPreview} />}
-            {this.state.preview && <SurveyForm closePreview={this.closePreview} startSurvey={this.startSurvey}/>}
-            {this.state.viewSurvey && <Index backToPreview={this.loadPreview}/>}
+            {this.state.preview && <SurveyForm closePreview={this.closePreview} startSurvey={this.startSurvey} />}
+            {this.state.viewSurvey && <Index backToPreview={this.loadPreview} backToSurveys={this.backToSurveys} />}
           </div>
         )}
         {this.state.userType === 0 && (
