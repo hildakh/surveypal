@@ -13,6 +13,7 @@ import 'aos/dist/aos.css';
 import MainPicture from './components/home/MainPicture';
 import Article from './components/home/Article';
 import Graph from './components/home/Graph';
+import ReportTable from './components/admin/ReportTable';
 AOS.init();
 class App extends Component {
   constructor(props) {
@@ -42,7 +43,8 @@ class App extends Component {
       teamListOpen: false,
       teamList: team_list,
       preview: false,
-      viewSurvey: false
+      viewSurvey: false,
+      reportList: true
     };
     this.status = "NULL";
   }
@@ -71,13 +73,13 @@ class App extends Component {
     this.setState({ ...this.state, userType: 0, adminSurveyList: false, surveyorListOpen: false, teamListOpen: false, surveyOpen: false });
   };
   loadSurveys = () => {
-    this.setState({ ...this.state, adminSurveyList: true, surveyorListOpen: false, teamListOpen: false });
+    this.setState({ ...this.state, adminSurveyList: true, surveyorListOpen: false, teamListOpen: false, reportList: false });
   };
   loadSurveyors = () => {
-    this.setState({ ...this.state, surveyorListOpen: true, adminSurveyList: false, teamListOpen: false });
+    this.setState({ ...this.state, surveyorListOpen: true, adminSurveyList: false, teamListOpen: false, reportList: false });
   };
   loadTeams = () => {
-    this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false });
+    this.setState({ ...this.state, teamListOpen: true, adminSurveyList: false, surveyorListOpen: false, reportList: false });
   }
   loadPreview = () => {
     this.setState({ ...this.state, preview: true, viewSurvey: false, surveyOpen: false })
@@ -88,8 +90,11 @@ class App extends Component {
   startSurvey = () => {
     this.setState({ ...this.state, preview: false, viewSurvey: true })
   }
+  loadReports = () => {
+    this.setState({ ...this.state, teamListOpen: false, adminSurveyList: false, surveyorListOpen: false, reportList: true})
+  }
   backToSurveys = () => {
-    this.setState({ ...this.state, surveyOpen: true, viewSurvey: false })
+    this.setState({ ...this.state, surveyOpen: true, viewSurvey: false})
   }
   render() {
     return (
@@ -102,6 +107,7 @@ class App extends Component {
           loadSurveys={this.loadSurveys}
           loadSurveyors={this.loadSurveyors}
           loadTeams={this.loadTeams}
+          loadReports ={this.loadReports}
         />
         {this.state.userType === 2 && (
           <div>
@@ -123,6 +129,11 @@ class App extends Component {
           <SurveyorTable list={this.state.surveyorList} />)}
         {this.state.teamListOpen && (
           <TeamTable list={this.state.teamList} />)}
+          {this.state.userType === 1 && this.state.reportList && (
+            <div>
+              <ReportTable />
+              </div>
+          )}
       </div >
     );
   }

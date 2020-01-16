@@ -261,7 +261,7 @@ export default function PrimarySearchAppBar(props) {
                 </Typography>
               </ListItemText>
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={props.loadReports}>
               <ListItemIcon>
                 <PollIcon />
               </ListItemIcon>
