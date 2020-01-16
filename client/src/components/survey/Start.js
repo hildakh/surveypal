@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 5,
     fontFamily: "Muli",
     textTransform: 'none',
-    float: 'right',
   }
 }));
 
