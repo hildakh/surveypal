@@ -45,10 +45,10 @@ export default function SurveyForm(props) {
     <div className={classes.surveyview}>
       <Back onClick={props.closePreview} />
       {/* <Reset /> */}
+      <Start onClick={props.startSurvey} />
       <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
       {/* <Resume /> */}
-      <Start onClick={props.startSurvey} />
     </div>
   );
 }
