@@ -18,7 +18,7 @@ export default function MainPicture() {
             float: 'left'
           }} transition={{ duration: 1.2 }}>
             <span>
-              Be the person with great ideas.
+              SurveyPal provides modern solutions
           </span>
           </motion.div>
           <br />
@@ -27,10 +27,10 @@ export default function MainPicture() {
             float: 'left'
           }} transition={{ duration: 1.2 }}>
             <span>
-              Surveys give you actionable insights and
+              to population data collection and analysis.
           </span>
           </motion.div>
-          <br />
+          {/* <br />
           <motion.div style={{ marginTop: '2%', fontSize: '1.2em' }} initial={{ x: 0 }} animate={{
             y: 120,
             float: 'left'
@@ -38,7 +38,7 @@ export default function MainPicture() {
             <span>
               fresh perspectives.
           </span>
-          </motion.div>
+          </motion.div> */}
 
         </div>
       </div>
