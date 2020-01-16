@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 const useStyles = makeStyles(theme => ({
+
   button: {
     margin: theme.spacing(1),
     background: "#e6af3a",
@@ -13,23 +14,23 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1rem',
     borderRadius: 5,
     fontFamily: "Muli",
-    textTransform: 'none',
     float: 'right',
+    textTransform: 'none',
   }
 }));
 
-export default function Start(props) {
+export default function StartTop(props) {
   const classes = useStyles();
 
   return (
     <div>
       <Button
-        variant="outlined"
         onClick={props.onClick}
+        variant="outlined"
         className={classes.button}
-        startIcon={<PlayCircleFilledIcon />}
+        endIcon={<ArrowForwardIcon />}
       >
-        Start
+        Start Survey
       </Button>
     </div>
   );
