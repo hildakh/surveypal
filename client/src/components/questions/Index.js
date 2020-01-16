@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import Show from './Show';
-import QuestionText from './Question_Text';
 import NextButton from './Button_Next.js';
 import BeforeButton from './Button_Before.js';
 import BackToSurveyButton from './Back_To_Survey_Button.js';
-import QuestionOptionsList from './Question_Options_List';
 import useSurveyData from '../../hooks/useSurveyData';
+import Button from '@material-ui/core/Button';
+
 
 let classNames = require("classnames");
 
@@ -30,6 +30,17 @@ const useStyles = makeStyles(theme => ({
   },
   item: {
     margin: theme.spacing(.5)
+  },
+  button: {
+    margin: theme.spacing(1),
+    background: "#e6af3a",
+    borderColor: "black",
+    color: "black",
+    fontSize: 20,
+    fontSize: '1rem',
+    borderRadius: 5,
+    fontFamily: "Muli",
+    textTransform: 'none',
   }
 }));
 
@@ -38,37 +49,55 @@ export default function Index(props) {
   const styleClasses = useStyles();
 
   const {
-    state,
-    // setSurvey,
-    navigateQuestions,
-    recordQuestionResponse
+    //surveyState is the useContext hook with the store context from useSurveyData
+    // use 
+    SurveyContext,
+    StateProvider,
+    navigateQuestions
   } = useSurveyData();
-  // console.log(state.current_question)
+
+
+  const surveyState = useContext(SurveyContext);
+
 
   return (
+    // with StateProvider, the SurveyContext context component can be accessed from any component
+    // in this component tree. To  do this, import useContext hook from react and
+    // SurveyContext from useSurveyData
+    <StateProvider>
+      <Container maxWidth="sm" height="100%" disableGutters={true} >
 
-      <Container maxWidth="sm" height="100%" className={styleClasses.container} disableGutters="true" >
-        
-        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end"/>
+        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end" />
 
-      <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
-        {state.current_question.id > 1 && (
-          <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
-            <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
-          </Grid>
-        )}
-        <Show
-          question_description={<QuestionText description={state.current_question.description} />}
-          question_options_list={<QuestionOptionsList questionType={state.current_question.question_type_id} questionOptions={state.current_options} />}
-        />
-        {state.current_question.id < 8 && (
-          <Grid container item xs className={styleClasses.navButton} justify="flex-end">
-            <NextButton onClick={() => navigateQuestions(state.current_question.id, 1)} />
-          </Grid>
-        )}
-      </Grid>
+        <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
+          {surveyState.current_question.id > 1 && (
+            <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
+              <BeforeButton onClick={() => navigateQuestions(surveyState.current_question.id, -1)} />
+            </Grid>
+          )}
 
-    </Container>
+          <Show
+            question_description={surveyState.current_question.description}
+            question_options_list={surveyState.current_options}
+            question={surveyState.current_question}
+          />
+
+          {surveyState.current_question.id < 8 && (
+            <Grid container item xs className={styleClasses.navButton} justify="flex-end">
+              <NextButton onClick={() => navigateQuestions(surveyState.current_question.id, 1)} />
+            </Grid>
+          )}
+          {surveyState.current_question.id === 8 && (
+            <Grid container item xs className={styleClasses.navButton} justify="flex-end">
+              <Button onClick={props.backToSurveys} className={styleClasses.buttons}>
+                Submit
+                </Button>
+            </Grid>
+          )}
+        </Grid>
+
+      </Container>
+    </StateProvider>
 
   );
 }
