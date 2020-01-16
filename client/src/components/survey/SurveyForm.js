@@ -62,7 +62,7 @@ export default function SurveyForm(props) {
       <Back onClick={props.closePreview} />
       <StartTop onClick={props.startSurvey} />
       {/* <Reset /> */}
-      <Start onClick={props.startSurvey} />
+      {/* <Start onClick={props.startSurvey} /> */}
       <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
       {/* <Resume /> */}
