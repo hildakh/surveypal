@@ -6,6 +6,7 @@ import Start from "./Start";
 // import Resume from "./Resume";
 import QuestionPreview from "./QuestionPreview";
 import useSurveyData from '../../hooks/useSurveyData';
+import StartTop from "./StartTop";
 
 
 const useStyles = makeStyles(theme => ({
@@ -59,6 +60,7 @@ export default function SurveyForm(props) {
   return (
     <div className={classes.surveyview} >
       <Back onClick={props.closePreview} />
+      <StartTop onClick={props.startSurvey} />
       {/* <Reset /> */}
       <h4 className={classes.heading}>{title}</h4>
       <QuestionPreview />
