@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     margin: theme.spacing(1),
-    background: "#e6af3a",
+    background: "#f9fbe7",
     borderColor: "black",
     color: "black",
     fontSize: 20,
@@ -67,7 +67,7 @@ export default function Index(props) {
     <StateProvider>
       <Container maxWidth="sm" height="100%" disableGutters={true} >
 
-        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end" />
+        <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.button} justify="flex-end" />
 
         <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
           {surveyState.current_question.id > 1 && (

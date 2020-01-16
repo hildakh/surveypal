@@ -1,35 +1,45 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
+import Button from '@material-ui/core/Button';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 
 let classNames = require("classnames");
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(2),
-    }
+  button: {
+    margin: theme.spacing(1),
+    background: "#f9fbe7",
+    borderColor: "black",
+    color: "black",
+    fontSize: 20,
+    fontSize: '1rem',
+    borderRadius: 5,
+    fontFamily: "Muli",
+    float: 'center',
+    textTransform: 'none',
   },
-  extendedIcon: {
-    marginRight: theme.spacing(2),
-  },
-  buttonLabel: {
-    fontFamily: "Muli"
+  icon: {
+    marginRight: theme.spacing(1)
   }
 }));
 
 export default function BackToSurveyButton(props) {
 
-  const backToSurveyButtonClass = classNames("back-to-survey-button")
   const styleClasses = useStyles();
 
   return (
-    <div className={styleClasses.root}>
-      <Fab class={backToSurveyButtonClass, styleClasses.buttonLabel} variant="extended" id="back-to-survey-button" label="go back to view the full survey" onClick={props.onClick} size="large">
+    <div >
+      <Button 
+        className={styleClasses.button} 
+        variant="outlined" 
+        id="back-to-survey-button" 
+        label="go back to view the full survey" 
+        onClick={props.onClick} 
+        size="large"
+      >
+        <ListAltIcon  className={styleClasses.icon}/>
         View Full Survey
-        <ListAltIcon className={styleClasses.extendedIcon} />
-      </Fab>
+      </Button>
       {/* <input accept="???" className={classes.input} id="icon-button-next" type="???" /> */}
     </div>
   );
