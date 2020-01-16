@@ -1,10 +1,10 @@
 {
-  "short_name": "SurveyPal",
-  "name": "SurveyPal",
+  "short_name": "surveypal",
+  "name": "surveypal",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#3f51b5",
+  "theme_color": "#677b00",
+  "background_color": "#677b00",
   "orientation": "portrait-primary",
   "icons": [
     {
