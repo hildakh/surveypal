@@ -93,6 +93,9 @@ class App extends Component {
   loadReports = () => {
     this.setState({ ...this.state, teamListOpen: false, adminSurveyList: false, surveyorListOpen: false, reportList: true})
   }
+  backToSurveys = () => {
+    this.setState({ ...this.state, surveyOpen: true, viewSurvey: false})
+  }
   render() {
     return (
       <div className="App">
