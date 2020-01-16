@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const fetchSurveys = (user) => {
   if (user) {
     if (user.user_type_id === 1) {
@@ -10,9 +9,12 @@ const fetchSurveys = (user) => {
         })
     } else {
       return axios.get(`/api/surveys?user_id=${user.id}`)
-        .then(response => response.data.survey)
+        .then(response => {
+          return response.data;
+        }
+        )
         .catch(error => {
-          console.log(`Couldnt get user surveys`);
+          console.log(`Couldn't get user surveys`);
         })
     }
   }

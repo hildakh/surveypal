@@ -13,12 +13,15 @@ const styles = theme => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
+    fontFamily: "Muli"
   },
   closeButton: {
     position: 'absolute',
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500],
+    textTransform: "none",
+    fontFamily: "Muli"
   },
 });
 

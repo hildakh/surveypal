@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-// import AutorenewIcon from "@material-ui/icons/Autorenew";
 import { FaGhost } from "react-icons/fa";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -14,10 +13,15 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     background: "#9a0007",
     color: "white",
-    fontSize: 15,
-    fontFamily: "Dancing Script",
-    borderRadius: 20,
-    float: 'right'
+    fontSize: 20,
+    borderRadius: 5,
+    float: 'right',
+    textTransform: "none",
+    fontFamily: "Muli"
+  },
+  dialogue: {
+    textTransform: "none",
+    fontFamily: "Muli"
   }
 }));
 
@@ -60,15 +64,15 @@ export default function Reset(props) {
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Reset</DialogTitle>
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText className={classes.dialogue}>
           Click reset if you wish to restart the survey without saving it
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" className={classes.dialogue}>
             Cancel
           </Button>
-          <Button onClick={openSuccess} color="primary">
+          <Button onClick={openSuccess} color="primary" className={classes.dialogue}>
             Reset
           </Button>
         </DialogActions>

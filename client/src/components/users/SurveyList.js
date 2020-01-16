@@ -1,47 +1,61 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
 
 import SurveyListItem from '../users/SurveyListItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: '47%',
-    backgroundColor: '#E2F2F9',
-    position: 'relative',
-    overflow: 'auto',
-    maxHeight: 300,
-    margin: '0 auto',
-    padding: 0,
-    color: '#08648C'
-
-  },
-  listSection: {
-    backgroundColor: 'inherit',
-    padding: 0
-  },
-  ul: {
-    backgroundColor: 'inherit',
-    padding: 0,
+    marginTop: '5%',
   },
 }));
 
-export default function PinnedSubheaderList(props) {
+export default function SurveyList(props) {
   const classes = useStyles();
+  const [item2, setItem2] = React.useState(false);
+  const [item3, setItem3] = React.useState(false);
+  const [item4, setItem4] = React.useState(false);
 
-  const handleListItem = () => {
-    //show feedback dialog or show the survey/completed survey preview
-  }
+  setTimeout(() => {
+    setItem2(true);
+  }, 100);
+  setTimeout(() => {
+    setItem3(true);
+  }, 300);
+  setTimeout(() => {
+    setItem4(true);
+  }, 500);
+
   return (
-    <List className={classes.root} subheader={<li />}>
-        {props.list.map(item => {
-          return (
-            <SurveyListItem
-              title={item.name}
-              onClick={handleListItem}>
-            </SurveyListItem>
-          )
-        })}
-    </List>
+    <div className={classes.root}>
+      {props.list.map(item => {
+        return (
+          <SurveyListItem
+            title={item.name}
+            onClick={props.onClick}>
+          </SurveyListItem>
+        )
+      })}
+      {item2 && (
+        <SurveyListItem
+          title={'Vancouver Homeless Health Survey'}
+          onClick={props.onClick}>
+        </SurveyListItem>
+      )}
+
+      {item3 && (
+        <SurveyListItem
+          className={classes.col}
+          title={'Vancouver Homeless Youth Survey'}
+          onClick={props.onClick}>
+        </SurveyListItem>
+      )}
+      {item4 && (
+        <SurveyListItem
+          title={'Vancouver Homeless Aboriginal Survey'}
+          onClick={props.onClick}>
+        </SurveyListItem>
+      )}
+
+    </div>
   );
 }

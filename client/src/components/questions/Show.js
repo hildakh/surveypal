@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
+import QuestionText from "./Question_Text";
+import QuestionOptionsList from "./Question_Options_List";
 
 // let classNames = require("classnames");
 
@@ -21,10 +23,14 @@ export default function Show(props) {
   return (
     <Grid container item xs={9} className={styleClasses.grid} alignItems="flex-start" justify="center">
 
-      {props.question_text}
+      <QuestionText
+        description={props.question_description}
+      />
 
-      {props.question_options_list}
-      
+      <QuestionOptionsList
+        questionOptions={props.question_options_list}
+      />
+
     </Grid>
 
   );

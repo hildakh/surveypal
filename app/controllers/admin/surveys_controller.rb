@@ -4,7 +4,10 @@ class Admin::SurveysController < ApplicationController
 
   def index
     surveys = Survey.where({user_id: params[:user_id]}).select(:id, :name, :description, :end_date, :city_id)
-    render json: surveys
+
+    render json: {
+      surveys: surveys
+    }
   end
 
   def new
