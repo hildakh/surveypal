@@ -43,6 +43,7 @@ export default function Index(props) {
     StateProvider,
     navigateQuestions
   } = useSurveyData();
+  // console.log(state.current_question)
 
   const surveyState = useContext(SurveyContext);
 
@@ -53,32 +54,26 @@ export default function Index(props) {
     // SurveyContext from useSurveyData
     <StateProvider>
     <Container maxWidth="sm" height="100%" disableGutters={true} >
-
-      <BackToSurveyButton 
-        onClick={() => navigateQuestions(surveyState.current_question.id, -1)}
-        className={styleClasses.navButton} justify="flex-end"
-      />
+      
+      <BackToSurveyButton onClick={props.backToPreview} className={styleClasses.navButton} justify="flex-end"/>
 
       <Grid container className={styleClasses.grid} direction="row" align="center" justify="center">
-
-        <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
-          <BeforeButton 
-            onClick={() => navigateQuestions(surveyState.current_question.id, -1)}
-          />
-        </Grid>
+        {surveyState.current_question.id > 1 && (
+          <Grid container item xs className={styleClasses.navButton} justify="flex-start" >
+            <BeforeButton onClick={() => navigateQuestions(state.current_question.id, -1)} />
+          </Grid>
+        )}
 
         <Show
-          // mania={surveyState}
           question_description={surveyState.current_question.description}
           question_options_list={surveyState.current_options}
         />
 
-        <Grid container item xs className={styleClasses.navButton} justify="flex-end">
-          <NextButton 
-            onClick={() => navigateQuestions(surveyState.current_question.id, 1)}
-          />
-        </Grid>
-
+        {surveyState.current_question.id < 8 && (
+          <Grid container item xs className={styleClasses.navButton} justify="flex-end">
+            <NextButton onClick={() => navigateQuestions(surveyState.current_question.id, 1)} />
+          </Grid>
+        )}
       </Grid>
 
     </Container>
