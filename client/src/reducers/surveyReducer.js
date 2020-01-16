@@ -44,32 +44,6 @@ export default function reducer(state, action) {
     })
   };
 
-
-
-  ///////************/////////
-
-
-  // update survey questions for currently selected survey
-  // if (action.type === SET_SURVEY_QUESTIONS) {
-  //   return ({ ...state, survey_questions = action.value})
-  // };
-  // if (action.type === SET_CURRENT_QUESTION) {
-  //   return ({ ...state, current_question: action.value})
-  // };
-  // if (action.type === SET_CURRENT_QUESTION_OPTIONS) {
-  //   return ({ ...state, current_question: action.value})
-  // };
-  // if (action.type === SET_CURRENT_QUESTION_RESPONSES) {
-
-  //   // question response needs survey_response_id, question_option_id, and response_value
-  //   // survey_response_id will be added when the responses are submitted to the database
-  //   // const question_option_response = { question_option_id: action.value.question_option_id, 
-  //   //                                    response_value: action.value.response_value }
-  //   // const updated_responses = state.current_question_responses.push(question_option_response)
-
-  //   return ({ ...state, current_question_responses: updated_responses})
-  // };
-
   throw new Error(
     `tried to reduce with unsupported action type: ${action.type}`
   );
