@@ -29,6 +29,7 @@ Seed user credentials are located in the databae seeds for surveyor and admin lo
 ## Built With:
   - React
   - Ruby on Rails
+  -PostgreSQL
   - Axios
   - Material-UI React
   - Framer Motion library
